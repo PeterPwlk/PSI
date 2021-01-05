@@ -1,0 +1,41 @@
+# compiled output
+
+#Backend
+
+#web-api
+Backend/web-api/dist
+Backend/web-api/node_modules
+
+#persistance
+Backend/Persistance/node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+Backend/web-api/coverage
+Backend/web-api/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
