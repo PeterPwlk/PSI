@@ -32,6 +32,7 @@ Backend/web-api/.nyc_output
 *.launch
 .settings/
 *.sublime-workspace
+.idea
 
 # IDE - VSCode
 .vscode/*
@@ -39,3 +40,4 @@ Backend/web-api/.nyc_output
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+frontend/package-lock.json
