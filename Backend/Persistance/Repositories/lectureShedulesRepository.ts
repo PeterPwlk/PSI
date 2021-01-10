@@ -16,11 +16,12 @@ export class LectureSchedulesRepository implements ILectureSchedulesRepository {
         const planParameters = {
             TableName: 'LectureSchedule',
             Item:{
+                'lectureScheduleId': 1,
                 'facultyName': plan.faculty.name,
-                'facultyStartYear': plan.faculty.startYear,
+                'facultyStartYear': 2020,
                 'facultyStudiesLevel': plan.faculty.studiesLevel,
                 'facultyStudiesType': plan.faculty.studiesType,
-                'createdTime': plan.createdTime,
+                'created': false,
                 'plan': plan
             }
         };
@@ -86,7 +87,7 @@ export class LectureSchedulesRepository implements ILectureSchedulesRepository {
             ExpressionAttributeNames: {
                 "#facultyStudiesType": "facultyStudiesType",
             },
-            ExpressionAttributeValues: { ":facultyStudiesType": studiesType}
+            ExpressionAttributeValues: {":facultyStudiesType": studiesType}
         };
         
         let studiesLevels, plansWithStudiesType;
@@ -98,5 +99,25 @@ export class LectureSchedulesRepository implements ILectureSchedulesRepository {
         }
 
         return studiesLevels;
+    }
+
+    async getNonCreatedPlans() {
+        var queryParams = {
+            TableName : "LectureSchedule",
+            FilterExpression: "#created = :created",
+            ExpressionAttributeNames: {
+                "#created": "created",
+            },
+            ExpressionAttributeValues: {":created": false}
+        };
+        
+        let plansNonCreated;
+        try {
+            plansNonCreated = await this.docClient.scan(queryParams).promise();
+        } catch (error) {
+            console.log("Error: ",  error);
+        }
+
+        return plansNonCreated.Items;
     }
 }
