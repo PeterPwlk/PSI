@@ -75,4 +75,14 @@ export class AuthService {
 
     return '';
   }
+
+  async logout(): Promise<any> {
+    try {
+      const url = `${this.authConfig.tokenUrl}/logout?client_id=${this.authConfig.clientId}&redirect_uri=${this.authConfig.logoutRedirectUrl}`;
+      const promise = this.httpService.get(url).toPromise();
+      return await promise;
+    } catch (e) {
+      console.log();
+    }
+  }
 }
