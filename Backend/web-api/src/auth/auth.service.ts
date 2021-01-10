@@ -1,10 +1,11 @@
 import { AuthConfig } from './auth.config';
-import { Inject, Injectable } from '@nestjs/common';
+import { HttpService, Inject, Injectable } from '@nestjs/common';
 import {
   AuthenticationDetails,
   CognitoUser,
   CognitoUserPool,
 } from 'amazon-cognito-identity-js';
+import { URLSearchParams } from 'url';
 
 @Injectable()
 export class AuthService {
@@ -12,6 +13,7 @@ export class AuthService {
   constructor(
     @Inject('AuthConfig')
     private readonly authConfig: AuthConfig,
+    private httpService: HttpService,
   ) {
     this.userPool = new CognitoUserPool({
       UserPoolId: this.authConfig.userPoolId,
@@ -43,5 +45,34 @@ export class AuthService {
         },
       });
     });
+  }
+
+  async generateToken(code: string): Promise<string> {
+    const params = new URLSearchParams();
+    params.append('grant_type', 'authorization_code');
+    params.append('code', code);
+    params.append('client_id', this.authConfig.clientId);
+    params.append('redirect_uri', this.authConfig.redirectUrl);
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    };
+
+    try {
+      const response = this.httpService.post(
+        `${this.authConfig.tokenUrl}/oauth2/token`,
+        params,
+        config,
+      );
+      const responsePromise = response.toPromise();
+      const token = await responsePromise;
+      return token.data.id_token;
+    } catch (e) {
+      console.log(e);
+    }
+
+    return '';
   }
 }

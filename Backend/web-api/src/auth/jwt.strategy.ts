@@ -19,7 +19,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         jwksUri: `${authConfig.authority}/.well-known/jwks.json`,
       }),
 
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        (request: any) => {
+          return request?.cookies?.Authentication;
+        },
+      ]),
       audience: authConfig.clientId,
       issuer: authConfig.authority,
       algorithms: ['RS256'],
