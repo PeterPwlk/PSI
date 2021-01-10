@@ -1,8 +1,8 @@
 <template>
   <b-navbar fixed="top" type="dark" variant="primary">
     <b-navbar-nav>
-      <b-nav-item href="#">Plan zajęć</b-nav-item>
-      <b-nav-item href="#">Raporty</b-nav-item>
+      <b-nav-item :to="{ name: 'plans' }">Plan zajęć</b-nav-item>
+      <b-nav-item :to="{ name: 'raports'}">Raporty</b-nav-item>
       <b-nav-item :to="{ name: 'generate' }">Generuj plan</b-nav-item>
     </b-navbar-nav>
 
@@ -18,6 +18,7 @@
       <b-nav-item v-if="!$store.state.authorized" href="https://pwr-psi.auth.us-east-1.amazoncognito.com/login?client_id=4qkatbqtpu4bsv25b27cffvtjv&response_type=code&scope=openid+profile&redirect_uri=http://localhost:8080/login">
         Zaloguj się
       </b-nav-item>
+      <b-nav-item v-else @click="$store.dispatch('logout')"> Wyloguj się </b-nav-item>
     </b-navbar-nav>
   </b-navbar>
 </template>
