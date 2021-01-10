@@ -5,6 +5,8 @@ import Sidebar from "../components/Sidebar";
 import GeneratePlan from "../views/GeneratePlan";
 import {login} from "../../httpService/httpService";
 import store from '../store/index';
+import Raports from "../views/Raports";
+import Plans from "../views/Plans";
 
 Vue.use(VueRouter)
 
@@ -33,11 +35,22 @@ const routes = [
     }
   },
   {
-    path: '/login',
-    name: 'login',
+    path: '/raports',
+    name: 'raports',
     components: {
-      default: GeneratePlan
+      default: Raports
     }
+  },
+  {
+    path: '/plans',
+    name: 'plans',
+    components: {
+      default: Plans
+    }
+  },
+  {
+    path: '/login',
+    name: 'login'
   }
 ];
 

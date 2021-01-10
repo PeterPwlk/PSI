@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {login} from "../../httpService/httpService";
+import {login, logout} from "../../httpService/httpService";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -17,6 +17,16 @@ export default new Vuex.Store({
     async login({ commit }, code) {
       try {
         await login(code);
+        commit('SET_AUTHORIZED', true);
+      } catch (e) {
+        console.error('Failed to authorize', e);
+        throw e;
+      }
+    },
+    async logout({ commit }) {
+      try {
+        await logout();
+        commit('SET_AUTHORIZED', false);
       } catch (e) {
         console.error('Failed to authorize', e);
         throw e;
