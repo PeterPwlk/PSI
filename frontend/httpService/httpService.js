@@ -1,4 +1,5 @@
 import api from './api.js'
+import * as statusCodes from './statusCodes'
 
 const GET = (url, params) =>{
     return api.get(url, { params })
@@ -21,9 +22,13 @@ const POST = (url, body) =>{
 };
 
 export const login = (code) => {
-    return GET( '/auth/token', { code });
+    return GET('/auth/token', { code });
 };
 
 export const logout = () => {
     return GET('/auth/logout');
+};
+
+export const ping = () => {
+    return GET('/');
 };

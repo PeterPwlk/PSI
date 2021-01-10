@@ -1,9 +1,9 @@
 <template>
   <b-navbar fixed="top" type="dark" variant="primary">
     <b-navbar-nav>
-      <b-nav-item :to="{ name: 'plans' }">Plan zajęć</b-nav-item>
-      <b-nav-item :to="{ name: 'raports'}">Raporty</b-nav-item>
-      <b-nav-item :to="{ name: 'generate' }">Generuj plan</b-nav-item>
+      <b-nav-item :disabled="!$store.state.authorized" :to="{ name: 'plans' }">Plan zajęć</b-nav-item>
+      <b-nav-item :disabled="!$store.state.authorized" :to="{ name: 'raports'}">Raporty</b-nav-item>
+      <b-nav-item :disabled="!$store.state.authorized" :to="{ name: 'generate' }">Generuj plan</b-nav-item>
     </b-navbar-nav>
 
     <!-- Right aligned nav items -->
@@ -26,8 +26,8 @@
 <script>
     import Sidebar from "./Sidebar";
     export default {
-        name: "Navbar",
-      components: {Sidebar}
+      name: "Navbar",
+      components: {Sidebar},
     }
 </script>
 

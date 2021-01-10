@@ -27,7 +27,10 @@
   import Footer from "./components/Footer";
   import SplitPanel from "./components/SplitPanel";
   export default {
-    components: {SplitPanel, Footer, Sidebar, Navbar}
+    components: {SplitPanel, Footer, Sidebar, Navbar},
+    mounted() {
+      this.$store.dispatch('checkLogin');
+    }
   }
 </script>
 
