@@ -1,0 +1,44 @@
+
+$theme-colors: (
+  "primary": #0092FF,
+  "primary-dark": darken(#0092FF, 20%)
+);
+
+.font-large {
+  font-size: 18px;
+}
+.font-small {
+  font-size: 12px;
+}
+.font-extra-small {
+  font-size: 10px;
+}
+.font-weight-bold {
+  font-weight: bold
+}
+.font-weight-bolder {
+  font-weight: 800;
+}
+.font-weight-light {
+  font-weight:200;
+}
+.font-weight-semi-bold {
+  font-weight:500;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  height:100%;
+  width:100%;
+  overflow: auto;
+  display: block;
+}
+
+.btn:disabled {
+  cursor:default;
+}
