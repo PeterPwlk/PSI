@@ -6,6 +6,6 @@ export interface LectureForm {
     numberOfHours: number;
     lectureType: LectureType;
     numberOfStudentsInGroup: number;
-    duration: NumberAttributeValue;
+    duration: number;
     course: Course;
 }
