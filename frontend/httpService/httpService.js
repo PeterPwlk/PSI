@@ -25,5 +25,5 @@ export const login = (code) => {
 };
 
 export const logout = () => {
-    return GET('/logout');
+    return GET('/auth/logout');
 };

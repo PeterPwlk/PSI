@@ -5,6 +5,7 @@ import {
   Get,
   Post,
   Query,
+  Req,
   Res,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -22,11 +23,18 @@ export class AuthController {
     }
   }
 
+  @Get('logout')
+  async logout(@Req() req: any, @Res({ passthrough: true }) res: any) {
+    await this.authService.logout();
+    const cookie = req.cookies['Authentication'];
+    res.clearCookie('Authentication', cookie);
+  }
+
   @Get('token')
   async getToken(
     @Res({ passthrough: true }) res: any,
     @Query('code') code: string,
-  ){
+  ) {
     const token = await this.authService.generateToken(code);
     res.cookie('Authentication', token);
   }
