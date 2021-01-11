@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {login, logout, ping} from "../../httpService/httpService";
+import {login, logout, ping} from "../httpService/httpService";
 import router from '../router'
-import {UNAUTHORIZED} from "../../httpService/statusCodes";
+import {UNAUTHORIZED} from "../httpService/statusCodes";
 
 Vue.use(Vuex);
 

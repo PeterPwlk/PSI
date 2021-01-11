@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Sidebar from "../components/Sidebar";
 import GeneratePlan from "../views/GeneratePlan";
-import {login} from "../../httpService/httpService";
 import store from '../store/index';
 import Raports from "../views/Raports";
 import Plans from "../views/Plans";
@@ -60,7 +59,6 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  console.log('to', to);
   if (to.name === 'login' && to.query.code) {
     try {
       await store.dispatch('login', to.query.code);
