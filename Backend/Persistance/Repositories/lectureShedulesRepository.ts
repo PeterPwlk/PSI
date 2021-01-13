@@ -1,16 +1,16 @@
 import { LectureSchedule } from "../Models/lectureSchedule";
-import * as AWS from 'aws-sdk';
 import { StudiesLevel } from "../Models/studiesLevel";
 import { StudiesType } from "../Models/studiesType";
-AWS.config.loadFromPath('./dynamoDbCredentials.json');
+import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 
-export interface ILectureSchedulesRepository {
-    create(plan: LectureSchedule): void;
+export abstract class ILectureSchedulesRepository {
+    abstract create(plan: LectureSchedule): void;
 }
 
 export class LectureSchedulesRepository implements ILectureSchedulesRepository {
 
-    private docClient: AWS.DynamoDB.DocumentClient = new AWS.DynamoDB.DocumentClient();
+    constructor(private readonly docClient: DocumentClient) {
+    }
 
     create(plan: LectureSchedule): void {
         const planParameters = {
