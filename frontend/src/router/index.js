@@ -6,6 +6,8 @@ import GeneratePlan from "../views/GeneratePlan";
 import store from '../store/index';
 import Raports from "../views/Raports";
 import Plans from "../views/Plans";
+import PlansFilter from "../components/PlansFilter";
+import Groups from "../views/Groups";
 
 Vue.use(VueRouter)
 
@@ -37,14 +39,23 @@ const routes = [
     path: '/raports',
     name: 'raports',
     components: {
-      default: Raports
+      default: Raports,
     }
   },
   {
     path: '/plans',
     name: 'plans',
     components: {
-      default: Plans
+      default: Plans,
+      side: PlansFilter
+    }
+  },
+  {
+    path: '/plan/:id',
+    name: 'plan',
+    components: {
+      default: Groups,
+      side: PlansFilter
     }
   },
   {
