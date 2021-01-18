@@ -1,12 +1,16 @@
 import {LectureException} from "./lectureException";
 import {LectureTime} from "./lectureTime";
 import {ConductedClasses} from "./conductedClasses";
+import {Course} from "./course";
 
 export interface Lecture {
-  groupNumber: string;
-  stream: number;
+  lectureId: number,
+  lectureScheduleId: number,
+  courseId: number | Course,
+  groupNumber?: string;
+  stream?: number;
   lectureTime: LectureTime[];
-  exception: LectureException;
+  exception?: LectureException;
   conductedClasses: ConductedClasses[];
 }
 
