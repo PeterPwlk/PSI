@@ -17,7 +17,7 @@
                         </b-btn>
                     </template>
                     <template #table-busy>
-                        <b-skeleton height="500px"></b-skeleton>
+                        <b-skeleton v-for="i in new Array(10)" height="30px"></b-skeleton>
                     </template>
                 </b-table>
             </b-col>

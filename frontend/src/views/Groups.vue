@@ -15,13 +15,25 @@
         <b-row class="h-100 mt-4">
             <b-col>
                 <b-table :fields="columns" :items="groups" striped thead-class="text-left" tbody-class="text-left" responsive :busy="loadingGroups">
-                    <template #cell(tutor)="row">
-                        <span v-if="row.item.tutor"> {{ row.item.tutor }}</span>
-                        <span v-else class="text-danger"> Nieprzypisano </span>
+                    <template #cell(tutors)="row">
+                        <div v-if="row.item.tutors.length > 0">
+                            <div v-for="tutor in row.item.tutors">
+                                {{ getTutorText(tutor) }}
+                            </div>
+                        </div>
+                        <div v-else class="text-danger"> Nieprzypisano </div>
                     </template>
                     <template #cell(classroom)="row">
                         <span v-if="row.item.classroom"> {{ row.item.classroom }}</span>
                         <span v-else class="text-danger"> Nieprzypisano </span>
+                    </template>
+                    <template #cell(lectureTimes)="row">
+                        <div v-if="row.item.lectureTimes.length > 0">
+                            <div v-for="lectureTime in row.item.lectureTimes">
+                                {{ getLectureTimeText(lectureTime) }}
+                            </div>
+                        </div>
+                        <div v-else class="text-danger"> Nieprzypisano </div>
                     </template>
                     <template #cell(actions)="row">
                         <b-icon icon="pencil-fill" class="mr-3 cursor-pointer text-primary" @click="goToGroupDetails(row.item.lectureId)"></b-icon>
@@ -47,7 +59,7 @@
                         </b-container>
                     </template>
                     <template #table-busy>
-                        <b-skeleton height="500px"></b-skeleton>
+                        <b-skeleton v-for="i in new Array(10)" height="30px"></b-skeleton>
                     </template>
                 </b-table>
             </b-col>
@@ -65,9 +77,8 @@
             columns: [
                 { key: 'code', label: 'Kod grupy' },
                 { key: 'name', label: 'Nazwa kursu' },
-                { key: 'tutor', label: 'Prowadzący' },
-                { key: 'classroom', label: 'Sala' },
-                { key: 'time', label: 'Termin zajęć' },
+                { key: 'tutors', label: 'Prowadzący' },
+                { key: 'lectureTimes', label: 'Terminy zajęć' },
                 { key: 'hours', label: 'Godziny'},
                 { key: 'duration', label: 'Czas trwania'},
                 { key: 'actions', label: ''},
@@ -120,6 +131,12 @@
                     year: faculty.startYear
                 };
                 this.loadingFaculty = false;
+            },
+            getLectureTimeText(lectureTime){
+                return `${pl.weekDay[lectureTime.day]}, ${pl.weekType[lectureTime.weekType]} ${lectureTime.startTime} - ${lectureTime.endTime}, ${lectureTime.classRoom.building} s.${lectureTime.classRoom.number}`
+            },
+            getTutorText(tutor){
+                return `(${tutor.startDate} - ${tutor.endDate})`;
             }
         },
         mounted() {

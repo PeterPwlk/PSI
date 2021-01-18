@@ -44,7 +44,8 @@
             dateFrom: null,
             dateTo: null,
             weekDay: Object.keys(pl.weekDay).map(key => ({ value: key, text: pl.weekDay[key]})),
-            weekType: Object.keys(pl.weekType).map(key => ({ value: key, text: pl.weekType[key]}))
+            weekType: Object.keys(pl.weekType).map(key => ({ value: key, text: pl.weekType[key]})),
+            classrooms: []
         }),
         computed: {
         },
@@ -58,6 +59,9 @@
             },
             async getClassrooms() {
                const classrooms = await getClassroom();
+               this.classrooms = classrooms.map(classroom => ({
+
+               }));
                console.log(classrooms);
             }
         },
