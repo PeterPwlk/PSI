@@ -70,13 +70,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 3,
@@ -95,13 +89,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ] 
+    "conductedClasses": []
 },
 {
     "lectureId": 4,
@@ -120,13 +108,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ] 
+    "conductedClasses": []
 },
 {
     "lectureId": 5,
@@ -145,13 +127,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ] 
+    "conductedClasses": []
 },
 {
     "lectureId": 6,
@@ -170,13 +146,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ] 
+    "conductedClasses": []
 },
 {
     "lectureId": 7,
@@ -195,13 +165,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 8,
@@ -220,13 +184,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 9,
@@ -245,13 +203,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 10,
@@ -270,13 +222,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ] 
+    "conductedClasses": []
 },
 {
     "lectureId": 11,
@@ -295,13 +241,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 12,
@@ -320,13 +260,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 13,
@@ -345,13 +279,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 14,
@@ -370,13 +298,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 15,
@@ -395,13 +317,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 16,
@@ -420,13 +336,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 17,
@@ -445,13 +355,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 18,
@@ -470,13 +374,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 19,
@@ -495,13 +393,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 20,
@@ -520,13 +412,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 21,
@@ -545,13 +431,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 22,
@@ -570,13 +450,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 23,
@@ -595,13 +469,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 24,
@@ -620,13 +488,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 25,
@@ -645,13 +507,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 26,
@@ -670,13 +526,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 27,
@@ -695,13 +545,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 28,
@@ -720,13 +564,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 29,
@@ -745,13 +583,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 30,
@@ -770,13 +602,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 31,
@@ -795,13 +621,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 32,
@@ -820,13 +640,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 33,
@@ -845,13 +659,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 34,
@@ -870,13 +678,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 35,
@@ -895,13 +697,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 36,
@@ -920,13 +716,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 37,
@@ -945,13 +735,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 38,
@@ -970,13 +754,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 39,
@@ -995,13 +773,7 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 },
 {
     "lectureId": 40,
@@ -1020,11 +792,5 @@
             "classRoomType": null
         } 
     }],
-    "conductedClasses": [
-        {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
-        }
-    ]
+    "conductedClasses": []
 }]

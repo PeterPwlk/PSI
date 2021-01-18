@@ -2,7 +2,7 @@ import {Tutor} from "./tutor";
 import {Lecture} from "./lecture";
 
 export interface ConductedClasses {
-    tutorId?: number;
+    tutorId: number;
     startDate: Date;
     endDate: Date;
     lecture: Lecture;
