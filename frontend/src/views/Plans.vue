@@ -10,7 +10,7 @@
         </b-row>
         <b-row class="h-100">
             <b-col>
-                <b-table :fields="columns" :items="schedules" striped class="h-100" thead-class="text-left" tbody-class="text-left">
+                <b-table :fields="columns" :items="schedules" striped thead-class="text-left" tbody-class="text-left">
                     <template #cell(actions)="row">
                         <b-btn variant="outline-primary" size="sm" class="font-small" block :to="{ name: 'plan', params: { planId: row.item.lectureScheduleId } }">
                             <span class="font-small">Edytuj</span>
@@ -24,6 +24,7 @@
 
 <script>
     import {getSchedules} from "../httpService/httpService";
+    import {pl} from "../assets/lang";
 
     export default {
         name: "Plans",
@@ -36,49 +37,19 @@
                 { key: 'specialty', label: 'Specjalizacja', sortable: true },
                 { key: 'actions', label: ''}
             ],
-            schedules: [
-                { lectureScheduleId: 1, type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
-            ]
+            schedules: []
         }),
         methods: {
             async getSchedules() {
                 const schedules = await getSchedules();
-                console.log(schedules)
+                this.schedules = schedules.map(schedule => ({
+                    lectureScheduleId: schedule.lectureScheduleId,
+                    type: pl.studiesType[schedule.faculty.studiesType],
+                    level: pl.studiesLevel[schedule.faculty.studiesLevel],
+                    year: schedule.faculty.startYear,
+                    faculty: schedule.faculty.name,
+                    specialty: schedule.faculty.studentGroups.speciality
+                }));
             }
         },
         mounted() {
