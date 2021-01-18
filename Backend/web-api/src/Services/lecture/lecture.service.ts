@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Lecture } from '../../../../Persistance/Models/lecture';
 import { LectureRepositoryService } from './lecture-repository.service';
-import { TutorRepositoryService } from '../tutor/tutor-repository.service';
 import { LectureTime } from '../../../../Persistance/Models/lectureTime';
 import { ConductedClasses } from '../../../../Persistance/Models/conductedClasses';
+import { TutorService } from '../tutor/tutor.service';
 
 @Injectable()
 export class LectureService {
   constructor(
     private lectureRepository: LectureRepositoryService,
-    private readonly tutorRepository: TutorRepositoryService,
+    private readonly tutorRepository: TutorService,
   ) {}
 
   async getAll(): Promise<Lecture[]> {

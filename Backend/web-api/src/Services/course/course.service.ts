@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CourseRepositoryService } from './course-repository.service';
-import { Course } from '../../../../Persistance/Models/course';
-import {LectureForm} from "../../../../Persistance/Models/lectureForm";
+import { LectureForm } from '../../../../Persistance/Models/lectureForm';
 
 @Injectable()
 export class CourseService {
