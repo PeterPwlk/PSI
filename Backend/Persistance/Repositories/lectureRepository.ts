@@ -7,6 +7,7 @@ interface LectureModel {
     lectureId: number
     lectureScheduleId: number;
     courseId: number;
+    lectureCode: string;
     lectureTime: LectureTime[];
     conductedClasses: ConductedClasses[]
 }
@@ -20,6 +21,7 @@ export class LectureRepository {
         return items.map(item => ({
             lectureId: item.lectureId,
             lectureScheduleId: item.lectureScheduleId,
+            lectureCode: item.lectureCode,
             courseId: item.courseId,
             lectureTime: item.lectureTime,
             conductedClasses: item.conductedClasses
@@ -47,6 +49,19 @@ export class LectureRepository {
     }
 
     async getAll(): Promise<Lecture[]> {
+        const query = {
+            TableName: this.tableName
+        };
+        let response;
+        try {
+            response = await this.docClient.scan(query).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return LectureRepository.mapToLectureRepository(response.Items);
+    }
+
+    async update(): Promise<Lecture[]> {
         const query = {
             TableName: this.tableName
         };

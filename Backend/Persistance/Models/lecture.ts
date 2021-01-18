@@ -8,6 +8,7 @@ export interface Lecture {
   lectureScheduleId: number,
   courseId: number,
   course?: Course,
+  lectureCode: string,
   groupNumber?: string;
   stream?: number;
   lectureTime: LectureTime[];
