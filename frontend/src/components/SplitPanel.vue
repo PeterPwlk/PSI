@@ -20,7 +20,7 @@
       class="right-panel"
     >
       <div class="flex">
-        <div class="nav-bar">
+        <div class="nav-bar" v-show="navigationBar">
           <slot name="navigationBar" />
         </div>
         <div class="right-slot">
@@ -72,6 +72,9 @@ export default {
     },
     rightPanel() {
       return !!this.slots.rightSidePanel;
+    },
+    navigationBar(){
+      return !!this.slots.navigationBar
     }
   },
   mounted() {

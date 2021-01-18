@@ -53,7 +53,12 @@
                                 </b-col>
                                 <b-col>
                                     <div>Prowadzący:</div>
-                                    <div>Dr inż. Bogumiła Hnatkowska (01.10.2020 - 10.11.2020)</div>
+                                    <div v-if="row.item.tutors.length > 0">
+                                        <div v-for="tutor in row.item.tutors">
+                                            {{ getTutorText(tutor) }}
+                                        </div>
+                                    </div>
+                                    <div v-else> Nie przypisano prowadzących. </div>
                                 </b-col>
                             </b-row>
                         </b-container>
@@ -111,7 +116,7 @@
                 const schedule = await getSchedule(this.$route.params.planId);
                 this.schedule = schedule.lectures.map(lecture => ({
                     lectureId: lecture.lectureId,
-                    code: lecture.lectureCode || 'N/A',
+                    code: lecture.groupNumber || 'N/A',
                     name: lecture.courseId.name,
                     tutors: lecture.conductedClasses,
                     lectureTimes: lecture.lectureTime,
