@@ -7,7 +7,7 @@ export class LectureRepository {
     }
     private tableName = "Lecture";
 
-    async getById(id: number): Promise<Lecture> {
+    async getById(id: number | Lecture): Promise<Lecture> {
         const query = {
             TableName: this.tableName,
             KeyConditionExpression: "#lectureId = :lectureId",
