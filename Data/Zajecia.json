@@ -4,22 +4,27 @@
     "courseId": 0,
     "lectureCode": "ZZO-20a",
     "lectureTime": [{
-        "startTime": "",
-        "endTime": "",
-        "day": null,
-        "weekType": null,
+        "startTime": "9:15",
+        "endTime": "10:45",
+        "day": 1,
+        "weekType": 2,
         "classRoom": {
-            "building": "",
-            "number": "",
-            "capacity": null,
-            "classRoomType": null
+            "building": "A1",
+            "number": "20a",
+            "capacity": 150,
+            "classRoomType": 0
         } 
     }],
     "conductedClasses": [
         {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
+            "startDate": "01.10.2021",
+            "endDate": "01.12.2021",
+            "tutorId": 1
+        },
+        {
+            "startDate": "01.12.2021",
+            "endDate": "15.06.2022",
+            "tutorId": 3
         }
     ]
 },
@@ -29,24 +34,24 @@
     "courseId": 0,
     "lectureCode": "ZZO-20b",
     "lectureTime": [{
-        "startTime": "",
-        "endTime": "",
-        "day": null,
-        "weekType": null,
+        "startTime": "15:15",
+        "endTime": "16:40",
+        "day": 3,
+        "weekType": 0,
         "classRoom": {
-            "building": "",
-            "number": "",
-            "capacity": null,
-            "classRoomType": null
+            "building": "D2",
+            "number": "12",
+            "capacity": 15,
+            "classRoomType": 1
         } 
     }],
     "conductedClasses": [
         {
-            "startDate": "",
-            "endDate": "",
-            "tutorId": null
+            "startDate": "01.10.2021",
+            "endDate": "01.06.2021",
+            "tutorId": 2
         }
-    ] 
+    ]
 },
 {
     "lectureId": 2,

@@ -19,14 +19,14 @@ export class LectureService {
   async getById(id: number): Promise<Lecture> {
     const response = await this.lectureRepository.getById(id);
     const lecture = response[0];
-    const conductedClassesPromises = lecture.conductedClasses.map(
-      async (conductedClass) => {
+    const conductedClassesPromises = lecture.conductedClasses
+      .filter((conductedClass) => conductedClass.tutorId != null)
+      .map(async (conductedClass) => {
         conductedClass.tutor = await this.tutorRepository.getById(
           conductedClass.tutorId,
         );
         return conductedClass;
-      },
-    );
+      });
     lecture.conductedClasses = await Promise.all(conductedClassesPromises);
     return lecture;
   }
