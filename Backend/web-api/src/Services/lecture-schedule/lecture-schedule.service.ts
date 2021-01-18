@@ -33,7 +33,7 @@ export class LectureScheduleService {
       const courseDetails = await this.courseRepository.getById(
         lectureDetails[0].courseId,
       );
-      lectureDetails[0].courseId = courseDetails;
+      lectureDetails[0].courseId = courseDetails[0];
       lecturesWithDetails.push(lectureDetails);
     }
     lectureSchedule[0].lectures = lecturesWithDetails[0];
