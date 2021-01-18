@@ -18,7 +18,7 @@
                     <template #cell(tutors)="row">
                         <div v-if="row.item.tutors.length > 0">
                             <div v-for="tutor in row.item.tutors">
-                                {{ getTutorText(tutor) }}
+                                {{ getTutorName(tutor) }}
                             </div>
                         </div>
                         <div v-else class="text-danger"> Nieprzypisano </div>
@@ -140,8 +140,11 @@
             getLectureTimeText(lectureTime){
                 return `${pl.weekDay[lectureTime.day]}, ${pl.weekType[lectureTime.weekType]} ${lectureTime.startTime} - ${lectureTime.endTime}, ${lectureTime.classRoom.building} s.${lectureTime.classRoom.number}`
             },
+            getTutorName(tutor) {
+                return `${tutor.tutor.title} ${tutor.tutor.firstName} ${tutor.tutor.lastName}`
+            },
             getTutorText(tutor){
-                return `(${tutor.startDate} - ${tutor.endDate})`;
+                return `${this.getTutorName(tutor)} (${tutor.startDate} - ${tutor.endDate})`;
             }
         },
         mounted() {
