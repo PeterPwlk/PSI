@@ -8,6 +8,7 @@ Backend/web-api/node_modules
 
 #persistance
 Backend/Persistance/node_modules
+Backend/Persistance/**/*.js
 
 # Logs
 logs

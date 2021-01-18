@@ -1,0 +1,110 @@
+[{
+    "courseId": 0,
+    "name": "Analiza matematyczna 1",
+    "courseNumber": "KNL-123",
+    "numberOfHours": 60,
+    "lectureType": 0,
+    "numberOfStudentsInGroup": 165,
+    "duration": 90,
+    "tutors": [9, 10]
+},
+{
+    "courseId": 1,
+    "name": "Algebra",
+    "courseNumber": "KNL-331",
+    "numberOfHours": 30,
+    "lectureType": 2,
+    "numberOfStudentsInGroup": 65,
+    "duration": 90,
+    "tutors": [9,10]
+},
+{
+    "courseId": 2,
+    "name": "Algebra",
+    "courseNumber": "PKL-123",
+    "numberOfHours": 30,
+    "lectureType": 0,
+    "numberOfStudentsInGroup": 165,
+    "duration": 90,
+    "tutors": [9,10]
+},
+{
+    "courseId": 3,
+    "name": "Filozofia ogólna",
+    "courseNumber": "KLA-123",
+    "numberOfHours": 30,
+    "lectureType": 0,
+    "numberOfStudentsInGroup": 165,
+    "duration": 90,
+    "tutors": [6,7]
+},
+{
+    "courseId": 4,
+    "name": "Filozofia ogólna",
+    "courseNumber": "KNL-312",
+    "numberOfHours": 30,
+    "lectureType": 5,
+    "numberOfStudentsInGroup": 67,
+    "duration": 90,
+    "tutors": [6,7,8]
+},
+{
+    "courseId": 5,
+    "name": "WF",
+    "courseNumber": "KAK-123",
+    "numberOfHours": 60,
+    "lectureType": 4,
+    "numberOfStudentsInGroup": 67,
+    "duration": 90,
+    "tutors": [5]
+},
+{
+    "courseId": 6,
+    "name": "Zarządzanie biznesem",
+    "courseNumber": "KEK-W23",
+    "numberOfHours": 30,
+    "lectureType": 0,
+    "numberOfStudentsInGroup": 120,
+    "duration": 90,
+    "tutors": [4]
+},
+{
+    "courseId": 7,
+    "name": "Zarządzanie biznesem",
+    "courseNumber": "KNL-456",
+    "numberOfHours": 60,
+    "lectureType": 2,
+    "numberOfStudentsInGroup": 10,
+    "duration": 90,
+    "tutors": [2,3]
+},
+{
+    "courseId": 8,
+    "name": "Zarządzanie biznesem",
+    "courseNumber": "KAK-123",
+    "numberOfHours": 30,
+    "lectureType": 1,
+    "numberOfStudentsInGroup": 20,
+    "duration": 90,
+    "tutors": [2,3]
+},
+{
+    "courseId": 9,
+    "name": "Projektowanie oprogramowania",
+    "courseNumber": "KNL-890",
+    "numberOfHours": 60,
+    "lectureType": 2,
+    "numberOfStudentsInGroup": 10,
+    "duration": 90,
+    "tutors": [0,1]
+},
+{
+    "courseId": 10,
+    "name": "Projektowanie oprogramowania",
+    "courseNumber": "KIL-123",
+    "numberOfHours": 60,
+    "lectureType": 1,
+    "numberOfStudentsInGroup": 15,
+    "duration": 90,
+    "tutors": [0,1]
+}]
