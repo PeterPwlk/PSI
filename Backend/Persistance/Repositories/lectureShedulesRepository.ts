@@ -1,6 +1,7 @@
 import { LectureSchedule } from "../Models/lectureSchedule";
 import { StudiesType } from "../Models/studiesType";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
+import {Tutor} from "../Models/tutor";
 
 export class LectureSchedulesRepository {
 
@@ -69,7 +70,7 @@ export class LectureSchedulesRepository {
         return response.Items;
     }
 
-    async getAllData() {
+    async getAllData() : Promise<LectureSchedule[]> {
         const queryParams = {
             TableName : this.tableName
         };
@@ -77,6 +78,7 @@ export class LectureSchedulesRepository {
         let allPlans;
         try {
             allPlans = await this.docClient.scan(queryParams).promise();
+            console.log(allPlans);
         } catch (error) {
             console.log("Error: ",  error);
         }
