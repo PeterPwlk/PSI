@@ -4,7 +4,6 @@ import * as statusCodes from './statusCodes'
 const GET = (url, params) =>{
     return api.get(url, { params })
         .then((response) => {
-            console.log(response)
             return response.data
         })
         .catch((error) => {
@@ -39,3 +38,5 @@ export const getSchedule = (id) => GET(`/lecture-schedule${id? `/${id}` : ''}`);
 export const getClassroom = (query) => GET('/class-room', query);
 
 export const getFaculty = (id) => GET(`/faculty${ id ? `/${id}` : '' }`);
+
+export const getLecture = (id) => GET(`/lecture${ id? `/${id}`: '' }`);
