@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import {getSchedules} from "../httpService/httpService";
+    import {getSchedule} from "../httpService/httpService";
     import {pl} from "../assets/lang";
 
     export default {
@@ -41,7 +41,7 @@
         }),
         methods: {
             async getSchedules() {
-                const schedules = await getSchedules();
+                const schedules = await getSchedule();
                 this.schedules = schedules.map(schedule => ({
                     lectureScheduleId: schedule.lectureScheduleId,
                     type: pl.studiesType[schedule.faculty.studiesType],
@@ -53,7 +53,7 @@
             }
         },
         mounted() {
-            this.getSchedules();
+            // this.getSchedules();
         }
     }
 </script>

@@ -14,7 +14,7 @@
           <b-row class="mt-2">
               <b-col>
                   <span> Dzień: </span>
-                  <b-select></b-select>
+                  <b-select :options="weekDay"></b-select>
               </b-col>
           </b-row>
           <b-row>
@@ -34,13 +34,19 @@
 </template>
 
 <script>
+    import {pl} from "../assets/lang";
+
     export default {
         name: "ManageGroupAddLectureTimeModal",
         data: () => ({
             modal: false,
             dateFrom: null,
-            dateTo: null
+            dateTo: null,
+            weekDay: Object.keys(pl.weekDay).map(key => ({ value: key, text: pl.weekDay[key]})),
+            weekType: pl.weekType
         }),
+        computed: {
+        },
         methods: {
             open(){
                 this.modal = true;
@@ -48,6 +54,9 @@
             handleOk(event){
                 event.preventDefault();
             }
+        },
+        mounted() {
+
         }
     }
 </script>

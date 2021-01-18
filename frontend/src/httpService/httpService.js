@@ -4,6 +4,7 @@ import * as statusCodes from './statusCodes'
 const GET = (url, params) =>{
     return api.get(url, { params })
         .then((response) => {
+            console.log(response)
             return response.data
         })
         .catch((error) => {
@@ -33,6 +34,6 @@ export const ping = () => {
     return GET('/');
 };
 
-export const getSchedules = () => {
-    return GET('/lecture-schedule')
+export const getSchedule = (id) => {
+    return GET(`/lecture-schedule${id? `/${id}` : ''}`)
 };

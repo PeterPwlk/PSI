@@ -17,7 +17,7 @@
                         <span v-else class="text-danger"> Nieprzypisano </span>
                     </template>
                     <template #cell(actions)="row">
-                        <b-icon icon="pencil-fill" class="mr-3 cursor-pointer text-primary" @click="goToGroupDetails(row.item.groupId)"></b-icon>
+                        <b-icon icon="pencil-fill" class="mr-3 cursor-pointer text-primary" @click="goToGroupDetails(row.item.lectureId)"></b-icon>
                         <b-icon icon="x-circle-fill" class="cursor-pointer" @click="removeGroup(row)"></b-icon>
                     </template>
                     <template #cell(collapse)="row">
@@ -47,6 +47,8 @@
 </template>
 
 <script>
+    import {getSchedule} from "../httpService/httpService";
+
     export default {
         name: "Groups",
         data: () => ({
@@ -61,18 +63,16 @@
                 { key: 'actions', label: ''},
                 { key: 'collapse', label: ''},
             ],
-            groups: [
-                { groupId: 5, code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: '', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1, _rowVariant: 'danger'},
-                { groupId: 1,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1, _rowVariant: 'success'},
-                { groupId: 3,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { groupId: 6,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: '', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { groupId: 8,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { groupId: 23,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { groupId: 5,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { groupId: 5,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { groupId: 5,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-            ]
+            schedule: [],
         }),
+        computed: {
+            groups() {
+                return this.schedule.map(lecture => ({
+                    ...lecture,
+                    _rowVariant: (!lecture.tutors.length || !lecture.lectureTimes.length) ? undefined : 'success'
+                }));
+            }
+        },
         methods: {
             removeGroup(row) {
                 console.log(row);
@@ -81,7 +81,23 @@
                 try {
                     await this.$router.replace({ name: 'planGroup', params: { groupId: id, planId: this.$route.params.planId }});
                 } catch (e) {}
+            },
+            async getGroups() {
+                const schedule = await getSchedule(this.$route.params.planId);
+                this.schedule = schedule.lectures.map(lecture => ({
+                    lectureId: lecture.lectureId,
+                    code: lecture.lectureCode || 'N/A',
+                    name: lecture.courseId.name,
+                    tutors: lecture.conductedClasses,
+                    lectureTimes: lecture.lectureTime,
+                    hours: lecture.courseId.numberOfHours,
+                    duration: lecture.courseId.duration
+                }));
+                console.log(schedule);
             }
+        },
+        mounted() {
+            this.getGroups();
         }
     }
 </script>
