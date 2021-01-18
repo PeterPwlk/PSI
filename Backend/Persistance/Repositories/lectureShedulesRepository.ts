@@ -2,6 +2,7 @@ import { LectureSchedule } from "../Models/lectureSchedule";
 import { StudiesType } from "../Models/studiesType";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import {Lecture} from "../Models/lecture";
+import {Faculty} from "../Models/faculty";
 
 interface LectureScheduleModel {
     lectureScheduleId: number
@@ -15,7 +16,7 @@ export class LectureSchedulesRepository {
     constructor(private readonly docClient: DocumentClient) {
     }
 
-    public static mapToLectureScheduleRepository(items: LectureScheduleModel[]): LectureSchedule[] {
+    public static mapToLectureSchedule(items: LectureScheduleModel[]): LectureSchedule[] {
         return items.map(item => ({
             lectureScheduleId: item.lectureScheduleId,
             lectures: item.lectures,
@@ -24,23 +25,50 @@ export class LectureSchedulesRepository {
         }));
     }
 
+    public static mapToLectureScheduleModel(items: LectureSchedule[]): LectureScheduleModel[] {
+        return items.map(item => {
+            return ({
+                lectureScheduleId: item.lectureScheduleId,
+                createdTime: this.mapDateToString(item.createdTime),
+                facultyId: this.mapFacultyId(item.faculty),
+                lectures: item.lectures
+            });
+        });
+    }
+
+    private static mapFacultyId(id: number | Faculty): number {
+        if(typeof id == "number"){
+            return id;
+        } else if (id instanceof Faculty){
+            return id.facultyId;
+        }
+    }
+
+    private static mapDateToString(date: Date | string): string {
+        if(typeof date == "string"){
+            return date;
+        } else if(date instanceof Date){
+            return  date.toUTCString();
+        }
+    }
+
     private tableName = "LectureSchedule";
-    create(plan: LectureSchedule): void {
-        const planParameters = {
+    async create(plan: LectureSchedule): Promise<void> {
+        const mappedPlan = LectureSchedulesRepository.mapToLectureScheduleModel([plan]);
+        const params = {
             TableName: this.tableName,
             Item:{
-                'lectureScheduleId': 1,
-                'plan': plan
+                ...mappedPlan[0]
             }
         };
-        this.docClient.put(planParameters, function(err, data) {
-        if (err) {
-            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
-        } else {
-            console.log("Added item:", JSON.stringify(data, null, 2));
+        let response;
+        try {
+            response = await this.docClient.put(params).promise();
+        } catch (e) {
+            console.log(e);
         }
-    });
-    }
+        return response;
+    };
 
     async getById(id: number): Promise<LectureSchedule[]> {
         const query = {
@@ -59,7 +87,7 @@ export class LectureSchedulesRepository {
         } catch (e) {
             console.log(e);
         }
-        return LectureSchedulesRepository.mapToLectureScheduleRepository(response.Items);
+        return LectureSchedulesRepository.mapToLectureSchedule(response.Items);
     }
 
     async getByFacultyId(facultyId: number): Promise<LectureSchedule[]> {
@@ -79,7 +107,7 @@ export class LectureSchedulesRepository {
         } catch (e) {
             console.log(e);
         }
-        return LectureSchedulesRepository.mapToLectureScheduleRepository(response.Items);
+        return LectureSchedulesRepository.mapToLectureSchedule(response.Items);
     }
 
     async getAll() : Promise<LectureSchedule[]> {
@@ -94,7 +122,7 @@ export class LectureSchedulesRepository {
             console.log("Error: ",  error);
         }
 
-        return LectureSchedulesRepository.mapToLectureScheduleRepository(response.Items);
+        return LectureSchedulesRepository.mapToLectureSchedule(response.Items);
     }
 
     async getStudiesLevel(studiesType: StudiesType) {
