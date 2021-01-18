@@ -1,13 +1,32 @@
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import {Lecture} from "../Models/lecture";
+import {LectureTime} from "../Models/lectureTime";
+import {ConductedClasses} from "../Models/conductedClasses";
 
+interface LectureModel {
+    lectureId: number
+    lectureScheduleId: number;
+    courseId: number;
+    lectureTime: LectureTime[];
+    conductedClasses: ConductedClasses[]
+}
 export class LectureRepository {
 
     constructor(private readonly docClient: DocumentClient) {
     }
     private tableName = "Lecture";
 
-    async getById(id: number | Lecture): Promise<Lecture> {
+    public static mapToLectureRepository(items: LectureModel[]): Lecture[] {
+        return items.map(item => ({
+            lectureId: item.lectureId,
+            lectureScheduleId: item.lectureScheduleId,
+            courseId: item.courseId,
+            lectureTime: item.lectureTime,
+            conductedClasses: item.conductedClasses
+        }));
+    }
+
+    async getById(id: number | Lecture): Promise<Lecture[]> {
         const query = {
             TableName: this.tableName,
             KeyConditionExpression: "#lectureId = :lectureId",
@@ -24,7 +43,7 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return response.Items;
+        return LectureRepository.mapToLectureRepository(response.Items);
     }
 
     async getAll(): Promise<Lecture[]> {
@@ -37,6 +56,6 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return response.Items;
+        return LectureRepository.mapToLectureRepository(response.Items);
     }
 }

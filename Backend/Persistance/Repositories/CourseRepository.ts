@@ -7,7 +7,7 @@ export class CourseRepository {
     constructor(private readonly docClient: DocumentClient) {
     }
 
-    async getById(id: number): Promise<Course> {
+    async getById(id: number | Course): Promise<Course> {
         const query = {
             TableName: this.tableName,
             KeyConditionExpression: "#courseId = :courseId",
