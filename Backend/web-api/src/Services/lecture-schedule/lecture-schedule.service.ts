@@ -7,7 +7,6 @@ import { LectureRepositoryService } from '../lecture/lecture-repository.service'
 export class LectureScheduleService {
   constructor(
     private lectureScheduleRepository: LectureScheduleRepositoryService,
-    private lectureRepository: LectureRepositoryService,
   ) {}
 
   async getAll(): Promise<LectureSchedule[]> {
