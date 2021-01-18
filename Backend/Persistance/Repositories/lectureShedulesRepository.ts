@@ -1,23 +1,35 @@
 import { LectureSchedule } from "../Models/lectureSchedule";
 import { StudiesType } from "../Models/studiesType";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
-import {Tutor} from "../Models/tutor";
+import {Lecture} from "../Models/lecture";
+
+interface LectureScheduleModel {
+    lectureScheduleId: number
+    createdTime: string;
+    lectures: number[] | Lecture[];
+    facultyId: number
+}
 
 export class LectureSchedulesRepository {
 
     constructor(private readonly docClient: DocumentClient) {
     }
+
+    public static mapToLectureScheduleRepository(items: LectureScheduleModel[]): LectureSchedule[] {
+        return items.map(item => ({
+            lectureScheduleId: item.lectureScheduleId,
+            lectures: item.lectures,
+            createdTime: item.createdTime,
+            faculty: item.facultyId
+        }));
+    }
+
     private tableName = "LectureSchedule";
     create(plan: LectureSchedule): void {
         const planParameters = {
             TableName: this.tableName,
             Item:{
                 'lectureScheduleId': 1,
-                'facultyName': plan.faculty.name,
-                'facultyStartYear': 2020,
-                'facultyStudiesLevel': plan.faculty.studiesLevel,
-                'facultyStudiesType': plan.faculty.studiesType,
-                'created': false,
                 'plan': plan
             }
         };
@@ -30,7 +42,7 @@ export class LectureSchedulesRepository {
     });
     }
 
-    async getById(id: number): Promise<LectureSchedule> {
+    async getById(id: number): Promise<LectureSchedule[]> {
         const query = {
             TableName: this.tableName,
             KeyConditionExpression: "#lectureScheduleId = :lectureScheduleId",
@@ -47,10 +59,10 @@ export class LectureSchedulesRepository {
         } catch (e) {
             console.log(e);
         }
-        return response.Items;
+        return LectureSchedulesRepository.mapToLectureScheduleRepository(response.Items);
     }
 
-    async getByFacultyId(facultyId: number): Promise<LectureSchedule> {
+    async getByFacultyId(facultyId: number): Promise<LectureSchedule[]> {
         const query = {
             TableName: this.tableName,
             KeyConditionExpression: "#facultyId = :facultyId",
@@ -67,23 +79,22 @@ export class LectureSchedulesRepository {
         } catch (e) {
             console.log(e);
         }
-        return response.Items;
+        return LectureSchedulesRepository.mapToLectureScheduleRepository(response.Items);
     }
 
-    async getAllData() : Promise<LectureSchedule[]> {
+    async getAll() : Promise<LectureSchedule[]> {
         const queryParams = {
             TableName : this.tableName
         };
         
-        let allPlans;
+        let response;
         try {
-            allPlans = await this.docClient.scan(queryParams).promise();
-            console.log(allPlans);
+            response = await this.docClient.scan(queryParams).promise();
         } catch (error) {
             console.log("Error: ",  error);
         }
 
-        return allPlans.Items;
+        return LectureSchedulesRepository.mapToLectureScheduleRepository(response.Items);
     }
 
     async getStudiesLevel(studiesType: StudiesType) {

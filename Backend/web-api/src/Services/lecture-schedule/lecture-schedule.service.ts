@@ -1,21 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { LectureSchedule } from '../../../../Persistance/Models/lectureSchedule';
 import { LectureScheduleRepositoryService } from './lecture-schedule-repository.service';
-import { LectureRepositoryService } from '../lecture/lecture-repository.service';
+import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
 
 @Injectable()
 export class LectureScheduleService {
   constructor(
     private lectureScheduleRepository: LectureScheduleRepositoryService,
+    private facultyRepository: FacultyRepositoryService,
   ) {}
 
   async getAll(): Promise<LectureSchedule[]> {
-    const lectureSchedules = await this.lectureScheduleRepository.getAllData();
-    lectureSchedules.forEach((lectureSchedule) => {
-      lectureSchedule.lectures.forEach((lecture) => {
-        console.log(lecture);
-      });
-    });
+    const lectureSchedules = await this.lectureScheduleRepository.getAll();
+    for (const lectureSchedule of lectureSchedules) {
+      const facultyDetails = await this.facultyRepository.getById(
+        lectureSchedule.faculty,
+      );
+      lectureSchedule.faculty = facultyDetails[0];
+    }
     return lectureSchedules;
   }
 

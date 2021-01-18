@@ -3,8 +3,9 @@ import {Lecture} from "./lecture";
 import {StudentsGroup} from "./studentsGroup";
 
 export interface LectureSchedule {
-    createdTime: Date;
-    lectures: Lecture[];
-    studentGroup: StudentsGroup;
-    faculty: Faculty;
+    lectureScheduleId: number,
+    createdTime: Date | string;
+    lectures: Lecture[] | number[];
+    studentGroup?: StudentsGroup;
+    faculty: Faculty | number;
 }
