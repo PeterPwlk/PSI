@@ -1,20 +1,15 @@
 import { LectureSchedule } from "../Models/lectureSchedule";
-import { StudiesLevel } from "../Models/studiesLevel";
 import { StudiesType } from "../Models/studiesType";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 
-export abstract class ILectureSchedulesRepository {
-    abstract create(plan: LectureSchedule): void;
-}
-
-export class LectureSchedulesRepository implements ILectureSchedulesRepository {
+export class LectureSchedulesRepository {
 
     constructor(private readonly docClient: DocumentClient) {
     }
-
+    private tableName = "LectureSchedule";
     create(plan: LectureSchedule): void {
         const planParameters = {
-            TableName: 'LectureSchedule',
+            TableName: this.tableName,
             Item:{
                 'lectureScheduleId': 1,
                 'facultyName': plan.faculty.name,
@@ -34,40 +29,49 @@ export class LectureSchedulesRepository implements ILectureSchedulesRepository {
     });
     }
 
-    async getPlanDetails(facultyName: string, startYear: number, studiesLevel: StudiesLevel, studiesType: StudiesType, createdTime: Date) {
-        var queryParams = {
-            TableName : "LectureSchedule",
-            KeyConditionExpression: "#facultyName = :facultyName",
-            FilterExpression: "#facultyStudiesType = :facultyStudiesType AND #facultyStartYear = :facultyStartYear AND #facultyStudiesLevel = :facultyStudiesLevel AND #createdTime = :createdTime",
+    async getById(id: number): Promise<LectureSchedule> {
+        const query = {
+            TableName: this.tableName,
+            KeyConditionExpression: "#lectureScheduleId = :lectureScheduleId",
             ExpressionAttributeNames: {
-                "#facultyStudiesType": "facultyStudiesType",
-                "#facultyName": "facultyName",
-                "#facultyStartYear": "facultyStartYear",
-                "#facultyStudiesLevel": "facultyStudiesLevel",
-                "#createdTime": "createdTime"
+                "#lectureScheduleId": "lectureScheduleId"
             },
-            ExpressionAttributeValues: { 
-                ":facultyStudiesType": studiesType,
-                ":facultyName": facultyName,
-                ":facultyStartYear": startYear,
-                ":facultyStudiesLevel": studiesLevel,
-                ":createdTime": createdTime
+            ExpressionAttributeValues: {
+                ":lectureScheduleId": id
             }
         };
-        
-        let planDetails;
+        let response;
         try {
-            planDetails = await this.docClient.query(queryParams).promise();
-        } catch (error) {
-            console.log("Error: ",  error);
+            response = await this.docClient.query(query).promise();
+        } catch (e) {
+            console.log(e);
         }
+        return response.Items;
+    }
 
-        return planDetails.Items;
+    async getByFacultyId(facultyId: number): Promise<LectureSchedule> {
+        const query = {
+            TableName: this.tableName,
+            KeyConditionExpression: "#facultyId = :facultyId",
+            ExpressionAttributeNames: {
+                "#facultyId": "facultyId"
+            },
+            ExpressionAttributeValues: {
+                ":facultyId": facultyId
+            }
+        };
+        let response;
+        try {
+            response = await this.docClient.query(query).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return response.Items;
     }
 
     async getAllData() {
-        var queryParams = {
-            TableName : "LectureSchedule"
+        const queryParams = {
+            TableName : this.tableName
         };
         
         let allPlans;
