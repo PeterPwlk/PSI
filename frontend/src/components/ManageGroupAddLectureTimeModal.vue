@@ -8,7 +8,7 @@
           <b-row>
               <b-col>
                   <span> Tydzień: </span>
-                  <b-select></b-select>
+                  <b-select :options="weekType"></b-select>
               </b-col>
           </b-row>
           <b-row class="mt-2">
@@ -35,6 +35,7 @@
 
 <script>
     import {pl} from "../assets/lang";
+    import {getClassroom} from "../httpService/httpService";
 
     export default {
         name: "ManageGroupAddLectureTimeModal",
@@ -43,16 +44,21 @@
             dateFrom: null,
             dateTo: null,
             weekDay: Object.keys(pl.weekDay).map(key => ({ value: key, text: pl.weekDay[key]})),
-            weekType: pl.weekType
+            weekType: Object.keys(pl.weekType).map(key => ({ value: key, text: pl.weekType[key]}))
         }),
         computed: {
         },
         methods: {
             open(){
                 this.modal = true;
+                this.getClassrooms();
             },
             handleOk(event){
                 event.preventDefault();
+            },
+            async getClassrooms() {
+               const classrooms = await getClassroom();
+               console.log(classrooms);
             }
         },
         mounted() {

@@ -37,3 +37,7 @@ export const ping = () => {
 export const getSchedule = (id) => {
     return GET(`/lecture-schedule${id? `/${id}` : ''}`)
 };
+
+export const getClassroom = (query) => {
+    return GET('/class-room', query)
+};
