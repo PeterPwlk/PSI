@@ -62,19 +62,6 @@ export class LectureScheduleService {
 
     lectureSchedule.lectures = courseDetailsResponse;
     return lectureSchedule;
-
-    // const lecturesWithDetails = [];
-    // // const lectureSchedule = await this.lectureScheduleRepository.getById(id);
-    // for (const lectureId of lectureSchedule[0].lectures) {
-    //   const lectureDetails = await this.lectureRepository.getById(lectureId);
-    //   const courseDetails = await this.courseRepository.getById(
-    //     lectureDetails[0].courseId,
-    //   );
-    //   lectureDetails[0].courseId = courseDetails;
-    //   lecturesWithDetails.push(lectureDetails);
-    // }
-    // lectureSchedule[0].lectures = lecturesWithDetails[0];
-    // return lectureSchedule[0];
   }
 
   async getByFacultyId(facultyId: number) {
