@@ -8,6 +8,22 @@ export class FacultyRepository {
     }
     private tableName = "Faculty";
 
+    async create(faculty: Faculty) {
+        const params = {
+            TableName: this.tableName,
+            Item: {
+                ...faculty
+            }
+        };
+        let response;
+        try {
+            response = await this.docClient.put(params).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return response;
+    }
+
     async getById(id: Faculty | number): Promise<Faculty> {
         const query = {
             TableName: this.tableName,
