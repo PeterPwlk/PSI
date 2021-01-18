@@ -4,12 +4,14 @@ import { LectureRepositoryService } from './lecture-repository.service';
 import { LectureTime } from '../../../../Persistance/Models/lectureTime';
 import { ConductedClasses } from '../../../../Persistance/Models/conductedClasses';
 import { TutorService } from '../tutor/tutor.service';
+import { CourseService } from '../course/course.service';
 
 @Injectable()
 export class LectureService {
   constructor(
     private lectureRepository: LectureRepositoryService,
     private readonly tutorRepository: TutorService,
+    private readonly courseService: CourseService,
   ) {}
 
   async getAll(): Promise<Lecture[]> {
@@ -28,6 +30,7 @@ export class LectureService {
         return conductedClass;
       });
     lecture.conductedClasses = await Promise.all(conductedClassesPromises);
+    lecture.course = await this.courseService.getById(lecture.courseId);
     return lecture;
   }
 
