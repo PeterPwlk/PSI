@@ -4,6 +4,7 @@ import { LectureScheduleRepositoryService } from './lecture-schedule-repository.
 import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
 import { LectureRepositoryService } from '../lecture/lecture-repository.service';
 import { CourseRepositoryService } from '../course/course-repository.service';
+import { Lecture } from '../../../../Persistance/Models/lecture';
 
 @Injectable()
 export class LectureScheduleService {
@@ -25,19 +26,55 @@ export class LectureScheduleService {
     return lectureSchedules;
   }
 
-  async getById(id: number) {
-    const lecturesWithDetails = [];
-    const lectureSchedule = await this.lectureScheduleRepository.getById(id);
-    for (const lectureId of lectureSchedule[0].lectures) {
-      const lectureDetails = await this.lectureRepository.getById(lectureId);
-      const courseDetails = await this.courseRepository.getById(
-        lectureDetails[0].courseId,
-      );
-      lectureDetails[0].courseId = courseDetails[0];
-      lecturesWithDetails.push(lectureDetails);
+  async getById(id: number): Promise<LectureSchedule> {
+    const lectureScheduleResponse = await this.lectureScheduleRepository.getById(
+      id,
+    );
+    const lectureSchedule = lectureScheduleResponse[0];
+    const lectureDetailsPromises = [];
+
+    for (const lecture of lectureSchedule.lectures) {
+      if (typeof lecture == 'number') {
+        lectureDetailsPromises.push(this.lectureRepository.getById(lecture));
+      }
     }
-    lectureSchedule[0].lectures = lecturesWithDetails[0];
+
+    const lectureDetailsResponses = await Promise.all(lectureDetailsPromises);
+
+    const lectureDetails: Lecture[] = lectureDetailsResponses.reduce(
+      (previousValue, currentValue) => [...previousValue, currentValue[0]],
+    );
+
+    const courseDetailsPromises = [];
+
+    for (const lectureDetail of lectureDetails) {
+      const promise = new Promise(async (resolve) => {
+        const courseDetails = await this.courseRepository.getById(
+          lectureDetail.courseId,
+        );
+        lectureDetail.courseId = courseDetails[0];
+        resolve(lectureDetail);
+      });
+      courseDetailsPromises.push(promise);
+    }
+
+    const courseDetailsResponse = await Promise.all(courseDetailsPromises);
+
+    lectureSchedule.lectures = courseDetailsResponse;
     return lectureSchedule;
+
+    // const lecturesWithDetails = [];
+    // // const lectureSchedule = await this.lectureScheduleRepository.getById(id);
+    // for (const lectureId of lectureSchedule[0].lectures) {
+    //   const lectureDetails = await this.lectureRepository.getById(lectureId);
+    //   const courseDetails = await this.courseRepository.getById(
+    //     lectureDetails[0].courseId,
+    //   );
+    //   lectureDetails[0].courseId = courseDetails;
+    //   lecturesWithDetails.push(lectureDetails);
+    // }
+    // lectureSchedule[0].lectures = lecturesWithDetails[0];
+    // return lectureSchedule[0];
   }
 
   async getByFacultyId(facultyId: number) {
