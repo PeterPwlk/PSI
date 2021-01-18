@@ -6,7 +6,8 @@ import {Course} from "./course";
 export interface Lecture {
   lectureId: number,
   lectureScheduleId: number,
-  courseId: number | Course,
+  courseId: number,
+  course?: Course,
   groupNumber?: string;
   stream?: number;
   lectureTime: LectureTime[];

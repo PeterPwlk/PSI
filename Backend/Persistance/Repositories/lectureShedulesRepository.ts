@@ -39,7 +39,7 @@ export class LectureSchedulesRepository {
     private static mapFacultyId(id: number | Faculty): number {
         if(typeof id == "number"){
             return id;
-        } else if (id instanceof Faculty){
+        } else if (id.facultyId){
             return id.facultyId;
         }
     }
