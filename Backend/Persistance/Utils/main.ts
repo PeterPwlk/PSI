@@ -6,20 +6,33 @@ import {DocumentClient} from "aws-sdk/clients/dynamodb";
 import {Tutor} from "../Models/tutor";
 import {TutorRepository} from "../Repositories/tutorRepository";
 import {ClassRoomRepository} from "../Repositories/classRoomRepository";
+import {LectureRepository} from "../Repositories/lectureRepository";
+import {LectureSchedulesRepository} from "../Repositories/lectureShedulesRepository";
+import {FacultyRepository} from "../Repositories/facultyRepository";
 
 AWS.config.loadFromPath('./dynamoDbCredentials.json');
 const docClient: DocumentClient = new AWS.DynamoDB.DocumentClient();
 
 const paths = {
     tutors: "../../../Data/Prowadzacy.json",
-    classRoom: "../../../Data/classroom.json",
-    course: "../../../Data/Kurs.json"
+    classRoom: "../../../Data/Sala.json",
+    course: "../../../Data/Kurs.json",
+    lectures: "../../../Data/Zajecia.json",
+    lecturesSchedules: "../../../Data/PlanZajec.json",
+    faculty: "../../../Data/Kierunek.json"
 };
 
 const fileReader = new JsonFileReader();
 
 // @ts-ignore
-Promise.all([ImportAndCleanClassRooms(), ImportAndCleanCourses(), ImportAndCleanTutors()])
+Promise.all([
+    ImportAndCleanClassRooms(),
+    ImportAndCleanCourses(),
+    ImportAndCleanTutors(),
+    ImportAndCleanLectures(),
+    ImportAndCleanLectureSchedule(),
+    ImportAndCleanFaculty()
+    ])
     .then(value => console.log(value));
 
 async function ImportAndCleanTutors() {
@@ -59,5 +72,38 @@ async function ImportAndCleanClassRooms() {
     await awsImporter.importData(importData);
 
     return "ClassRoom done";
+}
+
+async function ImportAndCleanLectures() {
+    const repository = new LectureRepository(docClient);
+    const awsImporter = new AwsDataImporter(repository, docClient);
+    const importData = fileReader.readAndMap(paths.lectures);
+
+    await awsImporter.cleanTable('Lectures', 'lectureId');
+    await awsImporter.importData(importData);
+
+    return "Lectures done";
+}
+
+async function ImportAndCleanLectureSchedule() {
+    const repository = new LectureSchedulesRepository(docClient);
+    const awsImporter = new AwsDataImporter(repository, docClient);
+    const importData = fileReader.readAndMap(paths.lecturesSchedules);
+
+    await awsImporter.cleanTable('LectureSchedule', 'lectureScheduleId');
+    await awsImporter.importData(importData, LectureSchedulesRepository.mapToLectureSchedule);
+
+    return "Lecture Schedule done";
+}
+
+async function ImportAndCleanFaculty() {
+    const repository = new FacultyRepository(docClient);
+    const awsImporter = new AwsDataImporter(repository, docClient);
+    const importData = fileReader.readAndMap(paths.faculty);
+
+    await awsImporter.cleanTable('Faculty', 'facultyId');
+    await awsImporter.importData(importData);
+
+    return "Faculty done";
 }
 

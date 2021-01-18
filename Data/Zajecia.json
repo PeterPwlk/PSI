@@ -1,8 +1,9 @@
-{
-    "lectureID": 0,
-    "lectureScheduleID": 0,
-    "courseID": 0,
-    "lectureTime": {
+[{
+    "lectureId": 0,
+    "lectureScheduleId": 0,
+    "courseId": 0,
+    "lectureCode": "ZZO-20a",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -13,21 +14,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 1,
-    "lectureScheduleID": 0,
-    "courseID": 0,
-    "lectureTime": {
+    "lectureId": 1,
+    "lectureScheduleId": 0,
+    "courseId": 0,
+    "lectureCode": "ZZO-20b",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -38,21 +39,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ] 
-}
-
+},
 {
-    "lectureID": 2,
-    "lectureScheduleID": 0,
-    "courseID": 1,
-    "lectureTime": {
+    "lectureId": 2,
+    "lectureScheduleId": 0,
+    "lectureCode": "ZOO-20a",
+    "courseId": 1,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -63,22 +64,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
+},
 {
-    "lectureID": 3,
-    "lectureScheduleID": 0,
-    "courseID": 1,
-    "lectureTime": {
+    "lectureId": 3,
+    "lectureScheduleId": 0,
+    "lectureCode": "ZOO-20b",
+    "courseId": 1,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -89,22 +89,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ] 
-}
-
-
+},
 {
-    "lectureID": 4,
-    "lectureScheduleID": 0,
-    "courseID": 1,
-    "lectureTime": {
+    "lectureId": 4,
+    "lectureScheduleId": 0,
+    "courseId": 1,
+    "lectureCode": "ZOO-20c",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -115,22 +114,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ] 
-}
-
-
+},
 {
-    "lectureID": 5,
-    "lectureScheduleID": 0,
-    "courseID": 1,
-    "lectureTime": {
+    "lectureId": 5,
+    "lectureScheduleId": 0,
+    "courseId": 1,
+    "lectureCode": "ZOO-20d",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -141,22 +139,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ] 
-}
-
-
+},
 {
-    "lectureID": 6,
-    "lectureScheduleID": 0,
-    "courseID": 1,
-    "lectureTime": {
+    "lectureId": 6,
+    "lectureScheduleId": 0,
+    "courseId": 1,
+    "lectureCode": "ZOO-20e",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -167,22 +164,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ] 
-}
-
-
+},
 {
-    "lectureID": 7,
-    "lectureScheduleID": 0,
-    "courseID": 2,
-    "lectureTime": {
+    "lectureId": 7,
+    "lectureScheduleId": 0,
+    "courseId": 2,
+    "lectureCode": "ZOO-21a",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -193,23 +189,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
-
+},
 {
-    "lectureID": 8,
-    "lectureScheduleID": 0,
-    "courseID": 2,
-    "lectureTime": {
+    "lectureId": 8,
+    "lectureScheduleId": 0,
+    "lectureCode": "ZOO-21b",
+    "courseId": 2,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -220,23 +214,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
-
+},
 {
-    "lectureID": 9,
-    "lectureScheduleID": 0,
-    "courseID": 3,
-    "lectureTime": {
+    "lectureId": 9,
+    "lectureScheduleId": 0,
+    "lectureCode": "ZOO-31a",
+    "courseId": 3,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -247,23 +239,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
-
+},
 {
-    "lectureID": 10,
-    "lectureScheduleID": 0,
-    "courseID": 3,
-    "lectureTime": {
+    "lectureId": 10,
+    "lectureScheduleId": 0,
+    "lectureCode": "ZOO-31a",
+    "courseId": 3,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -274,24 +264,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ] 
-}
-
-
----------------------------------------------------------------------------------------------------------------------
-
+},
 {
-    "lectureID": 11,
-    "lectureScheduleID": 1,
-    "courseID": 0,
-    "lectureTime": {
+    "lectureId": 11,
+    "lectureScheduleId": 1,
+    "lectureCode": "ZOO-34a",
+    "courseId": 0,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -302,21 +289,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 12,
-    "lectureScheduleID": 1,
-    "courseID": 0,
-    "lectureTime": {
+    "lectureId": 12,
+    "lectureScheduleId": 1,
+    "lectureCode": "ZOO-34b",
+    "courseId": 0,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -327,23 +314,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
-
+},
 {
-    "lectureID": 13,
-    "lectureScheduleID": 1,
-    "courseID": 4,
-    "lectureTime": {
+    "lectureId": 13,
+    "lectureScheduleId": 1,
+    "courseId": 4,
+    "lectureCode": "ZOO-29a",
+   "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -354,21 +339,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 14,
-    "lectureScheduleID": 1,
-    "courseID": 4,
-    "lectureTime": {
+    "lectureId": 14,
+    "lectureScheduleId": 1,
+    "courseId": 4,
+    "lectureCode": "ZOO-29b",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -379,21 +364,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 15,
-    "lectureScheduleID": 1,
-    "courseID": 4,
-    "lectureTime": {
+    "lectureId": 15,
+    "lectureScheduleId": 1,
+    "courseId": 4,
+    "lectureCode": "ZOO-29c",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -404,21 +389,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 16,
-    "lectureScheduleID": 1,
-    "courseID": 5,
-    "lectureTime": {
+    "lectureId": 16,
+    "lectureScheduleId": 1,
+    "courseId": 5,
+    "lectureCode": "ZOO-11a",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -429,21 +414,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 17,
-    "lectureScheduleID": 1,
-    "courseID": 5,
-    "lectureTime": {
+    "lectureId": 17,
+    "lectureScheduleId": 1,
+    "lectureCode": "ZOO-11b",
+    "courseId": 5,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -454,21 +439,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 18,
-    "lectureScheduleID": 1,
-    "courseID": 5,
-    "lectureTime": {
+    "lectureId": 18,
+    "lectureScheduleId": 1,
+    "lectureCode": "ZOO-11c",
+    "courseId": 5,
+   "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -479,21 +464,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 19,
-    "lectureScheduleID": 1,
-    "courseID": 6,
-    "lectureTime": {
+    "lectureId": 19,
+    "lectureScheduleId": 1,
+    "courseId": 6,
+    "lectureCode": "ZOO-12a",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -504,22 +489,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
+},
 {
-    "lectureID": 20,
-    "lectureScheduleID": 1,
-    "courseID": 6,
-    "lectureTime": {
+    "lectureId": 20,
+    "lectureScheduleId": 1,
+    "lectureCode": "ZOO-12b",
+    "courseId": 6,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -530,26 +514,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
-
---------------------------------------------------------------------------------------------------------------------------------
-
-
+},
 {
-    "lectureID": 21,
-    "lectureScheduleID": 2,
-    "courseID": 6,
-    "lectureTime": {
+    "lectureId": 21,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-13a",
+    "courseId": 6,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -560,22 +539,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    } ,
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
-
+},
 {
-    "lectureID": 22,
-    "lectureScheduleID": 2,
-    "courseID": 7,
-    "lectureTime": {
+    "lectureId": 22,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-15a",
+    "courseId": 7,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -586,21 +564,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 23,
-    "lectureScheduleID": 2,
-    "courseID": 7,
-    "lectureTime": {
+    "lectureId": 23,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-15b",
+    "courseId": 7,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -611,21 +589,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 24,
-    "lectureScheduleID": 2,
-    "courseID": 7,
-    "lectureTime": {
+    "lectureId": 24,
+    "lectureScheduleId": 2,
+    "courseId": 7,
+    "lectureCode": "ZOO-15c",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -636,21 +614,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 25,
-    "lectureScheduleID": 2,
-    "courseID": 7,
-    "lectureTime": {
+    "lectureId": 25,
+    "lectureScheduleId": 2,
+    "courseId": 7,
+    "lectureCode": "ZOO-15d",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -661,21 +639,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 26,
-    "lectureScheduleID": 2,
-    "courseID": 7,
-    "lectureTime": {
+    "lectureId": 26,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-15e",
+    "courseId": 7,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -686,21 +664,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 27,
-    "lectureScheduleID": 2,
-    "courseID": 7,
-    "lectureTime": {
+    "lectureId": 27,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-15f",
+    "courseId": 7,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -711,21 +689,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 28,
-    "lectureScheduleID": 2,
-    "courseID": 8,
-    "lectureTime": {
+    "lectureId": 28,
+    "lectureCode": "ZOO-17a",
+    "lectureScheduleId": 2,
+    "courseId": 8,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -736,21 +714,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 29,
-    "lectureScheduleID": 2,
-    "courseID": 8,
-    "lectureTime": {
+    "lectureId": 29,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-17b",
+    "courseId": 8,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -761,20 +739,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
+},
 {
-    "lectureID": 30,
-    "lectureScheduleID": 2,
-    "courseID": 8,
-    "lectureTime": {
+    "lectureId": 30,
+    "lectureScheduleId": 2,
+    "lectureCode": "ZOO-17c",
+    "courseId": 8,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -785,22 +764,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
--------------------------------------------------------------------------------------------------------------
+},
 {
-    "lectureID": 31,
-    "lectureScheduleID": 3,
-    "courseID": 8,
-    "lectureTime": {
+    "lectureId": 31,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-17e",
+    "courseId": 8,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -811,21 +789,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 32,
-    "lectureScheduleID": 3,
-    "courseID": 9,
-    "lectureTime": {
+    "lectureId": 32,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-19a",
+    "courseId": 9,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -836,21 +814,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 33,
-    "lectureScheduleID": 3,
-    "courseID": 9,
-    "lectureTime": {
+    "lectureId": 33,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-19b",
+    "courseId": 9,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -861,21 +839,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 34,
-    "lectureScheduleID": 3,
-    "courseID": 9,
-    "lectureTime": {
+    "lectureId": 34,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-19c",
+    "courseId": 9,
+   "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -886,21 +864,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 35,
-    "lectureScheduleID": 3,
-    "courseID": 9,
-    "lectureTime": {
+    "lectureId": 35,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-19d",
+    "courseId": 9,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -911,21 +889,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 36,
-    "lectureScheduleID": 3,
-    "courseID": 9,
-    "lectureTime": {
+    "lectureId": 36,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-19e",
+    "courseId": 9,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -936,21 +914,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 37,
-    "lectureScheduleID": 3,
-    "courseID": 10,
-    "lectureTime": {
+    "lectureId": 37,
+    "lectureScheduleId": 3,
+    "lectureCode": "ZOO-50a",
+    "courseId": 10,
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -961,21 +939,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 38,
-    "lectureScheduleID": 3,
-    "courseID": 10,
-    "lectureTime": {
+    "lectureId": 38,
+    "lectureScheduleId": 3,
+    "courseId": 10,
+    "lectureCode": "ZOO-50b",
+   "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -986,21 +964,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 39,
-    "lectureScheduleID": 3,
-    "courseID": 10,
-    "lectureTime": {
+    "lectureId": 39,
+    "lectureScheduleId": 3,
+    "courseId": 10,
+    "lectureCode": "ZOO-50c",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -1011,21 +989,21 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
-
+},
 {
-    "lectureID": 40,
-    "lectureScheduleID": 3,
-    "courseID": 10,
-    "lectureTime": {
+    "lectureId": 40,
+    "lectureScheduleId": 3,
+    "courseId": 10,
+    "lectureCode": "ZOO-50d",
+    "lectureTime": [{
         "startTime": "",
         "endTime": "",
         "day": null,
@@ -1036,12 +1014,12 @@
             "capacity": null,
             "classRoomType": null
         } 
-    },
+    }],
     "conductedClasses": [
         {
             "startDate": "",
             "endDate": "",
-            "tutorID": null
+            "tutorId": null
         }
     ]
-}
+}]

@@ -1,6 +1,6 @@
-{
-    "facultyID": 0,
-    "lectureScheduleID": 0,
+[{
+    "facultyId": 0,
+    "lectureScheduleId": 0,
     "studiesType": 0,
     "studiesLevel": 0,
     "name": "Informatyka",
@@ -10,11 +10,10 @@
         "numberOfStudents": 300,
         "semester": "zimowy"
     }
-}
-
+},
 {
-    "facultyID": 1,
-    "lectureScheduleID": 1,
+    "facultyId": 1,
+    "lectureScheduleId": 1,
     "studiesType": 0,
     "studiesLevel": 0,
     "name": "Zarządzanie",
@@ -24,11 +23,10 @@
         "numberOfStudents": 200,
         "semester": "zimowy"
     }
-}
-
+},
 {
-    "facultyID": 2,
-    "lectureScheduleID": 2,
+    "facultyId": 2,
+    "lectureScheduleId": 2,
     "studiesType": 0,
     "studiesLevel": 1,
     "name": "Informatyka",
@@ -38,11 +36,10 @@
         "numberOfStudents": 50,
         "semester": "letni"
     }
-}
-
+},
 {
-    "facultyID": 3,
-    "lectureScheduleID": 3,
+    "facultyId": 3,
+    "lectureScheduleId": 3,
     "studiesType": 0,
     "studiesLevel": 1,
     "name": "Informatyka",
@@ -52,4 +49,4 @@
         "numberOfStudents": 50,
         "semester": "letni"
     }
-}
+}]
