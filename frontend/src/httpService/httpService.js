@@ -32,3 +32,7 @@ export const logout = () => {
 export const ping = () => {
     return GET('/');
 };
+
+export const getSchedules = () => {
+    return GET('/lecture-schedule')
+};

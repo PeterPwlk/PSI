@@ -18,7 +18,7 @@
         </b-row>
         <b-row class="mt-2">
             <b-col>
-                <b-btn variant="primary" size="sm" class="wider-btn"> Dodaj prowadzącego </b-btn>
+                <b-btn variant="primary" size="sm" class="wider-btn" @click="addTutor()"> Dodaj prowadzącego </b-btn>
             </b-col>
         </b-row>
         <b-row class="mt-5">
@@ -35,14 +35,21 @@
                 <b-btn variant="primary" size="sm" class="wider-btn"> Dodaj termin </b-btn>
             </b-col>
         </b-row>
+        <ManageGroupAddTutorModal ref="addTutorModal"></ManageGroupAddTutorModal>
     </b-container>
 </template>
 
 <script>
     import GroupDetailsCard from "./GroupDetailsCard";
+    import ManageGroupAddTutorModal from "./ManageGroupAddTutorModal";
     export default {
         name: "ManageGroup",
-        components: {GroupDetailsCard}
+        components: {ManageGroupAddTutorModal, GroupDetailsCard},
+        methods: {
+            addTutor() {
+                this.$refs.addTutorModal.open();
+            }
+        }
     }
 </script>
 

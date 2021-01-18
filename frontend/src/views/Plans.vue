@@ -10,9 +10,9 @@
         </b-row>
         <b-row class="h-100">
             <b-col>
-                <b-table :fields="columns" :items="plans" striped class="h-100" thead-class="text-left" tbody-class="text-left">
-                    <template #cell(actions)="{ data }">
-                        <b-btn variant="outline-primary" size="sm" class="font-small" block :to="{ name: 'plan', params: { planId: 1 } }">
+                <b-table :fields="columns" :items="schedules" striped class="h-100" thead-class="text-left" tbody-class="text-left">
+                    <template #cell(actions)="row">
+                        <b-btn variant="outline-primary" size="sm" class="font-small" block :to="{ name: 'plan', params: { planId: row.item.lectureScheduleId } }">
                             <span class="font-small">Edytuj</span>
                         </b-btn>
                     </template>
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+    import {getSchedules} from "../httpService/httpService";
+
     export default {
         name: "Plans",
         data: () => ({
@@ -34,8 +36,8 @@
                 { key: 'specialty', label: 'Specjalizacja', sortable: true },
                 { key: 'actions', label: ''}
             ],
-            plans: [
-                { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
+            schedules: [
+                { lectureScheduleId: 1, type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
                 { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
                 { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
                 { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
@@ -72,7 +74,16 @@
                 { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
                 { type: 'Stacjonarne', level: 'II', year: '2016', faculty: 'Informatyka stosowana', specialty: 'Inżynieria oprogramowania' },
             ]
-        })
+        }),
+        methods: {
+            async getSchedules() {
+                const schedules = await getSchedules();
+                console.log(schedules)
+            }
+        },
+        mounted() {
+            this.getSchedules();
+        }
     }
 </script>
 
