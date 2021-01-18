@@ -20,7 +20,7 @@ export class LectureService {
     const response = await this.lectureRepository.getById(id);
     const lecture = response[0];
     const conductedClassesPromises = lecture.conductedClasses
-      .filter((conductedClass) => conductedClass.tutorId != null)
+      .filter((conductedClass) => conductedClass.tutorId)
       .map(async (conductedClass) => {
         conductedClass.tutor = await this.tutorRepository.getById(
           conductedClass.tutorId,

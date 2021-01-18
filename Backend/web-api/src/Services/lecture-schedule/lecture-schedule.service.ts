@@ -5,6 +5,7 @@ import { CourseRepositoryService } from '../course/course-repository.service';
 import { Lecture } from '../../../../Persistance/Models/lecture';
 import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
 import { LectureRepositoryService } from '../lecture/lecture-repository.service';
+import { LectureService } from '../lecture/lecture.service';
 
 @Injectable()
 export class LectureScheduleService {
@@ -13,6 +14,7 @@ export class LectureScheduleService {
     private facultyRepository: FacultyRepositoryService,
     private lectureRepository: LectureRepositoryService,
     private courseRepository: CourseRepositoryService,
+    private lectureService: LectureService,
   ) {}
 
   async getAll(): Promise<LectureSchedule[]> {
@@ -35,15 +37,11 @@ export class LectureScheduleService {
 
     for (const lecture of lectureSchedule.lectures) {
       if (typeof lecture == 'number') {
-        lectureDetailsPromises.push(this.lectureRepository.getById(lecture));
+        lectureDetailsPromises.push(this.lectureService.getById(lecture));
       }
     }
 
-    const lectureDetailsResponses = await Promise.all(lectureDetailsPromises);
-
-    const lectureDetails: Lecture[] = lectureDetailsResponses.reduce(
-      (previousValue, currentValue) => [...previousValue, currentValue[0]],
-    );
+    const lectureDetails = await Promise.all(lectureDetailsPromises);
 
     const courseDetailsPromises = [];
 
@@ -52,7 +50,6 @@ export class LectureScheduleService {
         const courseDetails = await this.courseRepository.getById(
           lectureDetail.courseId,
         );
-        console.log(courseDetails);
         lectureDetail.course = courseDetails[0];
         resolve(lectureDetail);
       });
