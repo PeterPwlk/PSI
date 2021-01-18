@@ -7,6 +7,8 @@ import { LectureScheduleModule } from './Services/lecture-schedule/lecture-sched
 import { ClassRoomModule } from './Services/class-room/class-room.module';
 import { TutorModule } from './Services/tutor/tutor.module';
 import { CourseModule } from './Services/course/course.module';
+import { FacultyModule } from './Services/faculty/faculty.module';
+import { LectureModule } from './Services/lecture/lecture.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { CourseModule } from './Services/course/course.module';
     ClassRoomModule,
     TutorModule,
     CourseModule,
+    FacultyModule,
+    LectureModule,
   ],
   controllers: [AppController],
   providers: [AppService],
