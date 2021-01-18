@@ -1,28 +1,26 @@
 <template>
   <b-modal id="modal-1" v-model="modal" centered button-size="sm" @ok="handleOk" size="lg">
       <template #modal-title>
-          <div class="font-weight-bold"> Prowadzący </div>
+          <div class="font-weight-bold"> Termin zajęć </div>
           <div class="font-regular"> Z01-24a Projektowanie sys. informat. (INZ0003854L) </div>
       </template>
       <b-container fluid>
           <b-row>
               <b-col>
-                  <b-select>
-                      <b-select-option value="Test">
-                          Dr inż. Bogumiła Hnatkowska
-                      </b-select-option>
-                  </b-select>
-                  <b-link disabled>Pokaż plan prowadzącego</b-link>
+                  <span> Tydzień: </span>
+                  <b-select></b-select>
               </b-col>
           </b-row>
           <b-row class="mt-2">
               <b-col>
-                  <span>Data rozpoczęcia:</span>
-                  <b-datepicker></b-datepicker>
+                  <span> Dzień: </span>
+                  <b-select></b-select>
               </b-col>
+          </b-row>
+          <b-row>
               <b-col>
-                  <span>Data zakończenia:</span>
-                  <b-datepicker></b-datepicker>
+                  <span> Sala: </span>
+                  <b-select></b-select>
               </b-col>
           </b-row>
       </b-container>
@@ -37,9 +35,11 @@
 
 <script>
     export default {
-        name: "ManageGroupAddTutorModal",
+        name: "ManageGroupAddLectureTimeModal",
         data: () => ({
-            modal: false
+            modal: false,
+            dateFrom: null,
+            dateTo: null
         }),
         methods: {
             open(){

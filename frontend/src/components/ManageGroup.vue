@@ -32,22 +32,27 @@
         </b-row>
         <b-row class="mt-2">
             <b-col>
-                <b-btn variant="primary" size="sm" class="wider-btn"> Dodaj termin </b-btn>
+                <b-btn variant="primary" size="sm" class="wider-btn" @click="addLectureTime()"> Dodaj termin </b-btn>
             </b-col>
         </b-row>
         <ManageGroupAddTutorModal ref="addTutorModal"></ManageGroupAddTutorModal>
+        <ManageGroupAddLectureTimeModal ref="addLectureTimeModal"></ManageGroupAddLectureTimeModal>
     </b-container>
 </template>
 
 <script>
     import GroupDetailsCard from "./GroupDetailsCard";
     import ManageGroupAddTutorModal from "./ManageGroupAddTutorModal";
+    import ManageGroupAddLectureTimeModal from "./ManageGroupAddLectureTimeModal";
     export default {
         name: "ManageGroup",
-        components: {ManageGroupAddTutorModal, GroupDetailsCard},
+        components: {ManageGroupAddLectureTimeModal, ManageGroupAddTutorModal, GroupDetailsCard},
         methods: {
             addTutor() {
                 this.$refs.addTutorModal.open();
+            },
+            addLectureTime() {
+                this.$refs.addLectureTimeModal.open();
             }
         }
     }

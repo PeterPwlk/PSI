@@ -17,7 +17,7 @@
                         <span v-else class="text-danger"> Nieprzypisano </span>
                     </template>
                     <template #cell(actions)="row">
-                        <b-icon icon="pencil-fill" class="mr-3 cursor-pointer" @click="goToGroupDetails(row.item.groupId)"></b-icon>
+                        <b-icon icon="pencil-fill" class="mr-3 cursor-pointer text-primary" @click="goToGroupDetails(row.item.groupId)"></b-icon>
                         <b-icon icon="x-circle-fill" class="cursor-pointer" @click="removeGroup(row)"></b-icon>
                     </template>
                     <template #cell(collapse)="row">
