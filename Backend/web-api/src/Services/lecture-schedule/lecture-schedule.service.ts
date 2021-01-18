@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { LectureSchedule } from '../../../../Persistance/Models/lectureSchedule';
 import { LectureScheduleRepositoryService } from './lecture-schedule-repository.service';
-import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
-import { LectureRepositoryService } from '../lecture/lecture-repository.service';
 import { CourseRepositoryService } from '../course/course-repository.service';
 import { Lecture } from '../../../../Persistance/Models/lecture';
+import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
+import { LectureRepositoryService } from '../lecture/lecture-repository.service';
 
 @Injectable()
 export class LectureScheduleService {
@@ -52,7 +52,8 @@ export class LectureScheduleService {
         const courseDetails = await this.courseRepository.getById(
           lectureDetail.courseId,
         );
-        lectureDetail.courseId = courseDetails[0];
+        console.log(courseDetails);
+        lectureDetail.course = courseDetails[0];
         resolve(lectureDetail);
       });
       courseDetailsPromises.push(promise);
