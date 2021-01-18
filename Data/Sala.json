@@ -1,0 +1,142 @@
+[
+    {
+        "classRoomId": 0,
+        "building": "A1",
+        "number": "129",
+        "capacity": "300",
+        "classRoomType": 1
+    },
+    {
+        "classRoomId": 1,
+        "building": "A1",
+        "number": "128",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 2,
+        "building": "A1",
+        "number": "126",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 3,
+        "building": "A1",
+        "number": "229",
+        "capacity": "30",
+        "classRoomType": 3
+    },
+    {
+        "classRoomId": 4,
+        "building": "A1",
+        "number": "329",
+        "capacity": "30",
+        "classRoomType": 2
+    },
+    {
+        "classRoomId": 5,
+        "building": "D1",
+        "number": "129",
+        "capacity": "300",
+        "classRoomType": 1
+    },
+    {
+        "classRoomId": 6,
+        "building": "D1",
+        "number": "128",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 7,
+        "building": "D1",
+        "number": "126",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 8,
+        "building": "D1",
+        "number": "229",
+        "capacity": "30",
+        "classRoomType": 3
+    },
+    {
+        "classRoomId": 9,
+        "building": "D1",
+        "number": "329",
+        "capacity": "30",
+        "classRoomType": 2
+    },
+    {
+        "classRoomId": 10,
+        "building": "D2",
+        "number": "129",
+        "capacity": "300",
+        "classRoomType": 1
+    },
+    {
+        "classRoomId": 11,
+        "building": "D2",
+        "number": "128",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 12,
+        "building": "D2",
+        "number": "126",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 13,
+        "building": "D2",
+        "number": "229",
+        "capacity": "30",
+        "classRoomType": 3
+    },
+    {
+        "classRoomId": 14,
+        "building": "D2",
+        "number": "329",
+        "capacity": "30",
+        "classRoomType": 2
+    },
+    {
+        "classRoomId": 15,
+        "building": "B4",
+        "number": "129",
+        "capacity": "300",
+        "classRoomType": 1
+    },
+    {
+        "classRoomId": 16,
+        "building": "B4",
+        "number": "128",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 17,
+        "building": "B4",
+        "number": "126",
+        "capacity": "15",
+        "classRoomType": 0
+    },
+    {
+        "classRoomId": 18,
+        "building": "B4",
+        "number": "229",
+        "capacity": "30",
+        "classRoomType": 3
+    },
+    {
+        "classRoomId": 19,
+        "building": "B4",
+        "number": "329",
+        "capacity": "30",
+        "classRoomType": 2
+    }
+]

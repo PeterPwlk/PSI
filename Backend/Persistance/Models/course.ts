@@ -5,7 +5,7 @@ import {LectureForm} from "./lectureForm";
 export interface Course {
     name: string;
     courseNumber: string;
-    lectureForms: LectureForm[];
-    tutors: Tutor[];
-    studentsGroups: StudentsGroup[];
+    lectureForms?: LectureForm[];
+    tutors: Tutor[] | Array<number>;
+    studentsGroups?: StudentsGroup[];
 }

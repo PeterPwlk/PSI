@@ -1,0 +1,292 @@
+[{
+    "tutorId": 0,
+    "firstName": "Jan",
+    "lastName": "Nowak",
+    "title": "Dr. inż.",
+    "pensum": 200,
+    "position": "Starszy wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 0
+        },
+        {
+            "weekDay": 3,
+            "startTime": "10:00:00:0000",
+            "endTime": "18:30:00:0000",
+            "week": 1
+        }
+    ],
+    "suggestedLecture": [9, 10],
+    "courses": []
+},
+{
+    "tutorId": 1,
+    "firstName": "Anna",
+    "lastName": "Nowak",
+    "title": "Mgr inż.",
+    "pensum": 250,
+    "position": "Wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 2,
+            "startTime": "13:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        },
+        {
+            "weekDay": 1,
+            "startTime": "13:00:00:0000",
+            "endTime": "21:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [9, 10],
+    "courses": []
+},
+{
+    "tutorId": 2,
+    "firstName": "Anna",
+    "lastName": "Kowal",
+    "title": "Mgr inż.",
+    "pensum": 250,
+    "position": "Wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 5,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [7],
+    "courses": []
+},
+{
+    "tutorId": 3,
+    "firstName": "Kacper",
+    "lastName": "Wójt",
+    "title": "Prof.",
+    "pensum": 150,
+    "position": "Starszy wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 6,
+            "startTime": "07:00:00:0000",
+            "endTime": "17:30:00:0000",
+            "week": 0
+        },
+        {
+            "weekDay": 5,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 0
+        }
+    ],
+    "suggestedLecture": [7],
+    "courses": []
+},
+{
+    "tutorId": 4,
+    "firstName": "Władysław",
+    "lastName": "Wójt",
+    "title": "Prof.",
+    "pensum": 400,
+    "position": "Starszy wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "11:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [6],
+    "courses": []
+},
+{
+    "tutorId": 5,
+    "firstName": "Olaf",
+    "lastName": "Podbiur",
+    "title": "Mgr inż.",
+    "pensum": 150,
+    "position": "Wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 1
+        },
+        {
+            "weekDay": 1,
+            "startTime": "08:00:00:0000",
+            "endTime": "20:30:00:0000",
+            "week": 2
+        },
+        {
+            "weekDay": 2,
+            "startTime": "08:00:00:0000",
+            "endTime": "20:30:00:0000",
+            "week": 2
+        },
+        {
+            "weekDay": 3,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [5],
+    "courses": []
+},
+{
+    "tutorId": 6,
+    "firstName": "Magdalena",
+    "lastName": "Sobór",
+    "title": "Mgr inż.",
+    "pensum": 300,
+    "position": "Wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 1
+        }
+    ],
+    "suggestedLecture": [4,3],
+    "courses": []
+},
+{
+    "tutorId": 7,
+    "firstName": "Katarzyna",
+    "lastName": "Wilk",
+    "title": "Prof.",
+    "pensum": 300,
+    "position": "Starszy wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 1
+        },
+        {
+            "weekDay": 3,
+            "startTime": "08:00:00:0000",
+            "endTime": "20:30:00:0000",
+            "week": 0
+        },
+        {
+            "weekDay": 4,
+            "startTime": "15:00:00:0000",
+            "endTime": "20:30:00:0000",
+            "week": 1
+        },
+        {
+            "weekDay": 5,
+            "startTime": "15:00:00:0000",
+            "endTime": "17:30:00:0000",
+            "week": 2
+        },
+        {
+            "weekDay": 6,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [4,3],
+    "courses": []
+},
+{
+    "tutorId": 8,
+    "firstName": "Adrian",
+    "lastName": "Kopecz",
+    "title": "Prof.",
+    "pensum": 100,
+    "position": "Starszy wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 1
+        },
+        {
+            "weekDay": 6,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [3],
+    "courses": []
+},
+{
+    "tutorId": 9,
+    "firstName": "Ludwik",
+    "lastName": "Kopecz",
+    "title": "Prof.",
+    "pensum": 320,
+    "position": "Starszy wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 0,
+            "startTime": "08:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 1
+        },
+        {
+            "weekDay": 2,
+            "startTime": "11:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [0,1,2],
+    "courses": []
+},
+{
+    "tutorId": 10,
+    "firstName": "Ludwik",
+    "lastName": "Czarnecki",
+    "title": "Mgr inż.",
+    "pensum": 320,
+    "position": "Wykładowca",
+    "workingTime": 1,
+    "councilOpinion": null,
+    "availabilities": [
+        {
+            "weekDay": 2,
+            "startTime": "13:00:00:0000",
+            "endTime": "15:30:00:0000",
+            "week": 2
+        }
+    ],
+    "suggestedLecture": [0,1,2],
+    "courses": []
+}]
