@@ -5,6 +5,21 @@ export class ClassRoomRepository {
     constructor(private readonly docClient: DocumentClient) {
     }
     private tableName = "ClassRoom";
+    async create(classRoom : ClassRoom) {
+        const params = {
+            TableName: this.tableName,
+            Item: {
+                ...classRoom
+            }
+        };
+        let response;
+        try {
+            response = await this.docClient.put(params).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return response;
+    }
     async getById(id: number): Promise<ClassRoom[]> {
         const query = {
             TableName : this.tableName,

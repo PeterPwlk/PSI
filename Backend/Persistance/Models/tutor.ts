@@ -4,6 +4,7 @@ import {ConductedClasses} from "./conductedClasses";
 import {TutorAvailability} from "./tutorAvailability";
 
 export interface Tutor {
+  tutorId: number,
   firstName: string;
   lastName: string;
   title: string;

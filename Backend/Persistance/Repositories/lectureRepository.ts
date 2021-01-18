@@ -17,7 +17,7 @@ export class LectureRepository {
     }
     private tableName = "Lecture";
 
-    public static mapToLectureRepository(items: LectureModel[]): Lecture[] {
+    public static mapToLecture(items: LectureModel[]): Lecture[] {
         return items.map(item => ({
             lectureId: item.lectureId,
             lectureScheduleId: item.lectureScheduleId,
@@ -26,6 +26,34 @@ export class LectureRepository {
             lectureTime: item.lectureTime,
             conductedClasses: item.conductedClasses
         }));
+    }
+
+    public static mapToLectureModel(items: Lecture[]): LectureModel[] {
+        return items.map(item => ({
+            lectureId: item.lectureId,
+            courseId: item.courseId,
+            lectureCode: item.groupNumber,
+            lectureTime: item.lectureTime,
+            lectureScheduleId: item.lectureScheduleId,
+            conductedClasses: item.conductedClasses
+        }));
+    }
+
+    async create(item: Lecture) {
+        const lecture = LectureRepository.mapToLectureModel([item]);
+        const params = {
+            TableName: this.tableName,
+            Item: {
+                ...lecture[0]
+            }
+        };
+        let response;
+        try {
+            response = await this.docClient.put(params).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return response;
     }
 
     async getById(id: number | Lecture): Promise<Lecture[]> {
@@ -45,7 +73,7 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return LectureRepository.mapToLectureRepository(response.Items);
+        return LectureRepository.mapToLecture(response.Items);
     }
 
     async getAll(): Promise<Lecture[]> {
@@ -58,7 +86,7 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return LectureRepository.mapToLectureRepository(response.Items);
+        return LectureRepository.mapToLecture(response.Items);
     }
 
     async updateLectureTime(lectureId: number, lectureTime: LectureTime) {

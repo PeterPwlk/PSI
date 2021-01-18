@@ -7,7 +7,21 @@ export class TutorRepository {
     private readonly tableName = 'Tutor';
     constructor(private readonly docClient: DocumentClient) {
     }
-
+    async create(tutor: Tutor) {
+        const params = {
+            TableName: this.tableName,
+            Item: {
+                ...tutor
+            }
+        };
+        let response;
+        try {
+            response = await this.docClient.put(params).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return response;
+    }
     async getById(id: number): Promise<Tutor> {
         const query = {
             TableName: this.tableName,
