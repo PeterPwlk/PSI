@@ -1,0 +1,55 @@
+{
+    "facultyID": 0,
+    "lectureScheduleID": 0,
+    "studiesType": 0,
+    "studiesLevel": 0,
+    "name": "Informatyka",
+    "startYear": "2021",
+    "studentGroups": {
+        "speciality": "",
+        "numberOfStudents": 300,
+        "semester": "zimowy"
+    }
+}
+
+{
+    "facultyID": 1,
+    "lectureScheduleID": 1,
+    "studiesType": 0,
+    "studiesLevel": 0,
+    "name": "Zarządzanie",
+    "startYear": "2021",
+    "studentGroups": {
+        "speciality": "",
+        "numberOfStudents": 200,
+        "semester": "zimowy"
+    }
+}
+
+{
+    "facultyID": 2,
+    "lectureScheduleID": 2,
+    "studiesType": 0,
+    "studiesLevel": 1,
+    "name": "Informatyka",
+    "startYear": "2021",
+    "studentGroups": {
+        "speciality": "Inżyneiria oprogramowania",
+        "numberOfStudents": 50,
+        "semester": "letni"
+    }
+}
+
+{
+    "facultyID": 3,
+    "lectureScheduleID": 3,
+    "studiesType": 0,
+    "studiesLevel": 1,
+    "name": "Informatyka",
+    "startYear": "2021",
+    "studentGroups": {
+        "speciality": "Danalogia",
+        "numberOfStudents": 50,
+        "semester": "letni"
+    }
+}

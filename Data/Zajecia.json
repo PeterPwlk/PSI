@@ -1,0 +1,1047 @@
+{
+    "lectureID": 0,
+    "lectureScheduleID": 0,
+    "courseID": 0,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 1,
+    "lectureScheduleID": 0,
+    "courseID": 0,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ] 
+}
+
+{
+    "lectureID": 2,
+    "lectureScheduleID": 0,
+    "courseID": 1,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+{
+    "lectureID": 3,
+    "lectureScheduleID": 0,
+    "courseID": 1,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ] 
+}
+
+
+{
+    "lectureID": 4,
+    "lectureScheduleID": 0,
+    "courseID": 1,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ] 
+}
+
+
+{
+    "lectureID": 5,
+    "lectureScheduleID": 0,
+    "courseID": 1,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ] 
+}
+
+
+{
+    "lectureID": 6,
+    "lectureScheduleID": 0,
+    "courseID": 1,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ] 
+}
+
+
+{
+    "lectureID": 7,
+    "lectureScheduleID": 0,
+    "courseID": 2,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+
+{
+    "lectureID": 8,
+    "lectureScheduleID": 0,
+    "courseID": 2,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+
+{
+    "lectureID": 9,
+    "lectureScheduleID": 0,
+    "courseID": 3,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+
+{
+    "lectureID": 10,
+    "lectureScheduleID": 0,
+    "courseID": 3,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ] 
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+{
+    "lectureID": 11,
+    "lectureScheduleID": 1,
+    "courseID": 0,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 12,
+    "lectureScheduleID": 1,
+    "courseID": 0,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+
+{
+    "lectureID": 13,
+    "lectureScheduleID": 1,
+    "courseID": 4,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 14,
+    "lectureScheduleID": 1,
+    "courseID": 4,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 15,
+    "lectureScheduleID": 1,
+    "courseID": 4,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 16,
+    "lectureScheduleID": 1,
+    "courseID": 5,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 17,
+    "lectureScheduleID": 1,
+    "courseID": 5,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 18,
+    "lectureScheduleID": 1,
+    "courseID": 5,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 19,
+    "lectureScheduleID": 1,
+    "courseID": 6,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+{
+    "lectureID": 20,
+    "lectureScheduleID": 1,
+    "courseID": 6,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+{
+    "lectureID": 21,
+    "lectureScheduleID": 2,
+    "courseID": 6,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    } ,
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+
+{
+    "lectureID": 22,
+    "lectureScheduleID": 2,
+    "courseID": 7,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 23,
+    "lectureScheduleID": 2,
+    "courseID": 7,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 24,
+    "lectureScheduleID": 2,
+    "courseID": 7,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 25,
+    "lectureScheduleID": 2,
+    "courseID": 7,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 26,
+    "lectureScheduleID": 2,
+    "courseID": 7,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 27,
+    "lectureScheduleID": 2,
+    "courseID": 7,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 28,
+    "lectureScheduleID": 2,
+    "courseID": 8,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 29,
+    "lectureScheduleID": 2,
+    "courseID": 8,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+{
+    "lectureID": 30,
+    "lectureScheduleID": 2,
+    "courseID": 8,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+-------------------------------------------------------------------------------------------------------------
+{
+    "lectureID": 31,
+    "lectureScheduleID": 3,
+    "courseID": 8,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 32,
+    "lectureScheduleID": 3,
+    "courseID": 9,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 33,
+    "lectureScheduleID": 3,
+    "courseID": 9,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 34,
+    "lectureScheduleID": 3,
+    "courseID": 9,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 35,
+    "lectureScheduleID": 3,
+    "courseID": 9,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 36,
+    "lectureScheduleID": 3,
+    "courseID": 9,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 37,
+    "lectureScheduleID": 3,
+    "courseID": 10,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 38,
+    "lectureScheduleID": 3,
+    "courseID": 10,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 39,
+    "lectureScheduleID": 3,
+    "courseID": 10,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
+
+{
+    "lectureID": 40,
+    "lectureScheduleID": 3,
+    "courseID": 10,
+    "lectureTime": {
+        "startTime": "",
+        "endTime": "",
+        "day": null,
+        "weekType": null,
+        "classRoom": {
+            "building": "",
+            "number": "",
+            "capacity": null,
+            "classRoomType": null
+        } 
+    },
+    "conductedClasses": [
+        {
+            "startDate": "",
+            "endDate": "",
+            "tutorID": null
+        }
+    ]
+}
