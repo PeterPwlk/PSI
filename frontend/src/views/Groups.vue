@@ -1,13 +1,20 @@
 <template>
     <b-container class="h-100" fluid>
         <b-row align-v="center">
-            <b-col class="text-left">
+            <b-col class="text-left" v-if="!loadingFaculty">
                 <h1> Plan zajęć </h1>
+                <div v-if="!loadingFaculty">
+                    <div> {{ faculty.name }}, {{ faculty.speciality }}, {{ faculty.studiesType }}, {{
+                        faculty.studiesLevel}}
+                    </div>
+                    <div> Rok rozpoczęcia: {{ faculty.year }}</div>
+                </div>
+                <b-skeleton v-else class="faculty-skeleton" height="200px" width="400px"></b-skeleton>
             </b-col>
         </b-row>
-        <b-row class="h-100">
+        <b-row class="h-100 mt-4">
             <b-col>
-                <b-table :fields="columns" :items="groups" striped thead-class="text-left" tbody-class="text-left" responsive>
+                <b-table :fields="columns" :items="groups" striped thead-class="text-left" tbody-class="text-left" responsive :busy="loadingGroups">
                     <template #cell(tutor)="row">
                         <span v-if="row.item.tutor"> {{ row.item.tutor }}</span>
                         <span v-else class="text-danger"> Nieprzypisano </span>
@@ -39,7 +46,9 @@
                             </b-row>
                         </b-container>
                     </template>
-
+                    <template #table-busy>
+                        <b-skeleton height="500px"></b-skeleton>
+                    </template>
                 </b-table>
             </b-col>
         </b-row>
@@ -47,7 +56,8 @@
 </template>
 
 <script>
-    import {getSchedule} from "../httpService/httpService";
+    import {getFaculty, getSchedule} from "../httpService/httpService";
+    import {pl} from "../assets/lang";
 
     export default {
         name: "Groups",
@@ -64,6 +74,9 @@
                 { key: 'collapse', label: ''},
             ],
             schedule: [],
+            faculty: { name: '', studiesLevel: 0, studiesType: 0, speciality: ''},
+            loadingFaculty: false,
+            loadingGroups: false,
         }),
         computed: {
             groups() {
@@ -83,6 +96,7 @@
                 } catch (e) {}
             },
             async getGroups() {
+                this.loadingGroups = true;
                 const schedule = await getSchedule(this.$route.params.planId);
                 this.schedule = schedule.lectures.map(lecture => ({
                     lectureId: lecture.lectureId,
@@ -93,11 +107,24 @@
                     hours: lecture.courseId.numberOfHours,
                     duration: lecture.courseId.duration
                 }));
-                console.log(schedule);
+                this.loadingGroups = false;
+            },
+            async getFaculty(){
+                this.loadingFaculty = true;
+                const faculty = await getFaculty(this.$route.params.facultyId);
+                this.faculty = {
+                    name: faculty.name,
+                    studiesLevel: pl.studiesLevel[faculty.studiesLevel],
+                    studiesType: pl.studiesType[faculty.studiesType],
+                    speciality: faculty.studentGroups.speciality,
+                    year: faculty.startYear
+                };
+                this.loadingFaculty = false;
             }
         },
         mounted() {
             this.getGroups();
+            this.getFaculty();
         }
     }
 </script>

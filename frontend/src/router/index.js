@@ -52,7 +52,7 @@ const routes = [
     }
   },
   {
-    path: '/plan/:planId',
+    path: '/plan/:planId/faculty/:facultyId',
     name: 'plan',
     components: {
       default: Groups,
@@ -60,7 +60,7 @@ const routes = [
     }
   },
   {
-    path: '/plan/:planId/group/:groupId',
+    path: '/plan/:planId/faculty/:facultyId/group/:groupId',
     name: 'planGroup',
     components: {
       default: Groups,

@@ -34,10 +34,8 @@ export const ping = () => {
     return GET('/');
 };
 
-export const getSchedule = (id) => {
-    return GET(`/lecture-schedule${id? `/${id}` : ''}`)
-};
+export const getSchedule = (id) => GET(`/lecture-schedule${id? `/${id}` : ''}`);
 
-export const getClassroom = (query) => {
-    return GET('/class-room', query)
-};
+export const getClassroom = (query) => GET('/class-room', query);
+
+export const getFaculty = (id) => GET(`/faculty${ id ? `/${id}` : '' }`);
