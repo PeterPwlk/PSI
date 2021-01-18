@@ -4,13 +4,10 @@
             <b-col class="text-left">
                 <h1> Plan zajęć </h1>
             </b-col>
-            <b-col cols="auto">
-                <b-btn variant="primary"> Generuj </b-btn>
-            </b-col>
         </b-row>
         <b-row class="h-100">
             <b-col>
-                <b-table :fields="columns" :items="groups" striped thead-class="text-left" tbody-class="text-left">
+                <b-table :fields="columns" :items="groups" striped thead-class="text-left" tbody-class="text-left" responsive>
                     <template #cell(tutor)="row">
                         <span v-if="row.item.tutor"> {{ row.item.tutor }}</span>
                         <span v-else class="text-danger"> Nieprzypisano </span>
@@ -20,7 +17,7 @@
                         <span v-else class="text-danger"> Nieprzypisano </span>
                     </template>
                     <template #cell(actions)="row">
-                        <b-icon icon="pencil-fill" class="mr-3 cursor-pointer"></b-icon>
+                        <b-icon icon="pencil-fill" class="mr-3 cursor-pointer" @click="goToGroupDetails(row.item.groupId)"></b-icon>
                         <b-icon icon="x-circle-fill" class="cursor-pointer" @click="removeGroup(row)"></b-icon>
                     </template>
                     <template #cell(collapse)="row">
@@ -65,20 +62,25 @@
                 { key: 'collapse', label: ''},
             ],
             groups: [
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: '', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1, _rowVariant: 'danger'},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1, _rowVariant: 'success'},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: '', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
-                { code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 5, code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: '', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1, _rowVariant: 'danger'},
+                { groupId: 1,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1, _rowVariant: 'success'},
+                { groupId: 3,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 6,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: '', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 8,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 23,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 5,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 5,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
+                { groupId: 5,code: 'Z01-23A', name: 'Projektowanie sys. informat.', tutor: 'Bogumiła Hnatkowska', classroom: 'B4, sala wirtualna', time: 'Poniedziałek, 11:15 - 13:00 TP', hours: 30, duration: 1},
             ]
         }),
         methods: {
             removeGroup(row) {
                 console.log(row);
+            },
+            async goToGroupDetails(id) {
+                try {
+                    await this.$router.replace({ name: 'planGroup', params: { groupId: id, planId: this.$route.params.planId }});
+                } catch (e) {}
             }
         }
     }

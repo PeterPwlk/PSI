@@ -5,14 +5,14 @@
                 <h1> Wygenerowane plany </h1>
             </b-col>
             <b-col cols="auto">
-                <b-btn variant="primary"> Generuj </b-btn>
+                <b-btn variant="primary" :to="{ name: 'generate' }"> Generuj </b-btn>
             </b-col>
         </b-row>
         <b-row class="h-100">
             <b-col>
                 <b-table :fields="columns" :items="plans" striped class="h-100" thead-class="text-left" tbody-class="text-left">
                     <template #cell(actions)="{ data }">
-                        <b-btn variant="outline-primary" size="sm" class="font-small" block :to="{ name: 'plan', params: { id: 1 } }">
+                        <b-btn variant="outline-primary" size="sm" class="font-small" block :to="{ name: 'plan', params: { planId: 1 } }">
                             <span class="font-small">Edytuj</span>
                         </b-btn>
                     </template>

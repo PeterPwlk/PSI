@@ -8,6 +8,7 @@ import Raports from "../views/Raports";
 import Plans from "../views/Plans";
 import PlansFilter from "../components/PlansFilter";
 import Groups from "../views/Groups";
+import ManageGroup from "../components/ManageGroup";
 
 Vue.use(VueRouter)
 
@@ -51,11 +52,20 @@ const routes = [
     }
   },
   {
-    path: '/plan/:id',
+    path: '/plan/:planId',
     name: 'plan',
     components: {
       default: Groups,
       side: PlansFilter
+    }
+  },
+  {
+    path: '/plan/:planId/group/:groupId',
+    name: 'planGroup',
+    components: {
+      default: Groups,
+      side: PlansFilter,
+      rightSidePanel: ManageGroup
     }
   },
   {
