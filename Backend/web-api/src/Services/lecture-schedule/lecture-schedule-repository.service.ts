@@ -3,7 +3,7 @@ import { LectureSchedulesRepository } from '../../../../Persistance/Repositories
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 
 @Injectable()
-export class LectureScheduleRepository extends LectureSchedulesRepository {
+export class LectureScheduleRepositoryService extends LectureSchedulesRepository {
   constructor() {
     super(new DocumentClient());
   }
