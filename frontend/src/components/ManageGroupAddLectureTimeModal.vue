@@ -92,6 +92,7 @@
             handleOk(event){
                 event.preventDefault();
                 this.resolve(this.newLectureTime);
+                this.modal=false;
             },
             handleCancel(event) {
                 this.reject(false);

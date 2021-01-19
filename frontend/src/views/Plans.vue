@@ -17,7 +17,6 @@
                         </b-btn>
                     </template>
                     <template #table-busy>
-<!--                        <b-skeleton v-for="i in new Array(10)" height="30px"></b-skeleton>-->
                         <b-skeleton-table :rows="10" :colums="1" hide-header></b-skeleton-table>
                     </template>
                 </b-table>

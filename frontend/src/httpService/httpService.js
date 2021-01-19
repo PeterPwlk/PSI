@@ -54,6 +54,6 @@ export const getLecture = (id) => GET(`/lecture${ id>=0 ? `/${id}`: '' }`);
 
 export const getTutor = (params) => GET(`/tutor${params ? '/filter': ''}`, params);
 
-export const addLectureTime = (id, body) => PATCH(`/edit/lectureTime/${id || ''}`, body);
+export const addLectureTime = (id, body) => PATCH(`lecture/edit/lectureTime/${id || ''}`, body);
 
-export const addLectureTutor = (lectureId, body) => PATCH(`/edit/tutor/${lectureId || ''}`, body);
+export const addLectureTutor = (lectureId, body) => PATCH(`lecture/edit/tutor/${lectureId || ''}`, body);

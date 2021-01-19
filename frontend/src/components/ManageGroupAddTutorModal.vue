@@ -7,7 +7,7 @@
       <b-container fluid>
           <b-row>
               <b-col>
-                  <b-select v-if="!loadingTutors" :options="tutors" v-model="newLectureTutor.tutorId"></b-select>
+                  <b-select v-if="!loadingTutors" :options="tutors" v-model="tutorId"></b-select>
                   <b-skeleton type="input" v-else></b-skeleton>
                   <b-link disabled>Pokaż plan prowadzącego</b-link>
               </b-col>
@@ -15,11 +15,11 @@
           <b-row class="mt-2">
               <b-col>
                   <span>Data rozpoczęcia:</span>
-                  <b-datepicker v-model="newLectureTutor.startDate" locale="pl"></b-datepicker>
+                  <b-datepicker v-model="startDateComp" locale="pl"></b-datepicker>
               </b-col>
               <b-col>
                   <span>Data zakończenia:</span>
-                  <b-datepicker v-model="newLectureTutor.endDate" locale="pl"></b-datepicker>
+                  <b-datepicker v-model="endDateComp" locale="pl"></b-datepicker>
               </b-col>
           </b-row>
       </b-container>
@@ -51,12 +51,28 @@
             },
             groupNumber: '',
             loadingTutors: false,
-            newLectureTutor: {
-                tutorId: -1,
-                startDate: new Date(),
-                endDate: new Date(),
-            }
+            tutorId: -1,
+            startDate: new Date().toISOString(),
+            endDate: new Date().toISOString()
         }),
+        computed: {
+            startDateComp: {
+                get() {
+                    return this.startDate
+                },
+                set(value) {
+                    this.startDate = new Date(Date.parse(value)).toISOString();
+                }
+            },
+            endDateComp: {
+                get() {
+                    return this.startDate
+                },
+                set(value) {
+                    this.endDate = new Date(Date.parse(value)).toISOString();
+                }
+            }
+        },
         methods: {
             async getTutors() {
                 this.loadingTutors = true;
@@ -80,11 +96,12 @@
             handleOk(event){
                 event.preventDefault();
                 let newTutor = {
-                    tutorId: this.newLectureTutor.tutorId,
-                    startDate: this.newLectureTutor.startDate.toLocaleDateString(),
-                    endDate: this.newLectureTutor.endDate.toLocaleDateString()
+                    tutorId: this.tutorId,
+                    startDate: this.startDate,
+                    endDate: this.endDate
                 };
                 this.resolve(newTutor);
+                this.modal = false;
             },
             handleCancel(event){
                 this.reject(false);

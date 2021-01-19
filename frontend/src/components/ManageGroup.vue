@@ -60,6 +60,7 @@
     import ManageGroupAddLectureTimeModal from "./ManageGroupAddLectureTimeModal";
     import {addLectureTime, addLectureTutor, getLecture} from "../httpService/httpService";
     import {pl} from "../assets/lang";
+    import eventBus from "../store/eventBus";
     export default {
         name: "ManageGroup",
         components: {ManageGroupAddLectureTimeModal, ManageGroupAddTutorModal, GroupDetailsCard},
@@ -95,7 +96,8 @@
                 try{
                     const newLectureTutor = await this.$refs.addTutorModal.open(this.course, this.groupNumber);
                     const addedLectureTutor = await addLectureTutor(this.lectureId, newLectureTutor);
-                    console.log(addedLectureTutor);
+                    this.conductedClasses = addedLectureTutor.Attributes.conductedClasses;
+                    eventBus.$emit('lecture-time-updated', { lectureId: this.lectureId, conductedClasses: this.conductedClasses });
                 } catch (e) {
 
                 }
@@ -104,7 +106,8 @@
                 try {
                     const newLectureTime = await this.$refs.addLectureTimeModal.open(this.course, this.groupNumber);
                     const addedLectureTime = await addLectureTime(this.lectureId, newLectureTime);
-                    console.log(addedLectureTime);
+                    this.lectureTimes = addedLectureTime.Attributes.lectureTime;
+                    eventBus.$emit('lecture-time-updated', { lectureId: this.lectureId, lectureTime: this.lectureTimes });
                 } catch (e) {}
             },
             async getLecture(id) {

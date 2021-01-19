@@ -76,6 +76,7 @@
 <script>
     import {getFaculty, getSchedule} from "../httpService/httpService";
     import {pl} from "../assets/lang";
+    import eventBus from "../store/eventBus";
 
     export default {
         name: "Groups",
@@ -151,6 +152,12 @@
         mounted() {
             this.getGroups();
             this.getFaculty();
+            eventBus.$on('lecture-time-updated', (data) => {
+                this.schedule.find(item => item.lectureId === data.lectureId).lectureTimes = data.lectureTime;
+            });
+            eventBus.$on('conducted-classes-updated', (event, data) => {
+                this.schedule.find(item => item.lectureId === data.lectureId).conductedClasses = data.conductedClasses;
+            });
         }
     }
 </script>
