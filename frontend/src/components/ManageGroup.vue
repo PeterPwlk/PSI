@@ -96,8 +96,9 @@
                 try{
                     const newLectureTutor = await this.$refs.addTutorModal.open(this.course, this.groupNumber);
                     const addedLectureTutor = await addLectureTutor(this.lectureId, newLectureTutor);
-                    this.conductedClasses = addedLectureTutor.Attributes.conductedClasses;
-                    eventBus.$emit('lecture-time-updated', { lectureId: this.lectureId, conductedClasses: this.conductedClasses });
+                    this.tutors = addedLectureTutor;
+                    console.log(addedLectureTutor);
+                    eventBus.$emit('conducted-classes-updated', { lectureId: this.lectureId, conductedClasses: this.tutors });
                 } catch (e) {
 
                 }
@@ -106,7 +107,7 @@
                 try {
                     const newLectureTime = await this.$refs.addLectureTimeModal.open(this.course, this.groupNumber);
                     const addedLectureTime = await addLectureTime(this.lectureId, newLectureTime);
-                    this.lectureTimes = addedLectureTime.Attributes.lectureTime;
+                    this.lectureTimes = addedLectureTime;
                     eventBus.$emit('lecture-time-updated', { lectureId: this.lectureId, lectureTime: this.lectureTimes });
                 } catch (e) {}
             },
@@ -124,7 +125,7 @@
                 return `${tutor.title} ${tutor.firstName} ${tutor.lastName}`
             },
             getLectureTimeTitle(lectureTime) {
-                return `${pl.weekDay[lectureTime.day]} ${pl.weekType[lectureTime.weekType]} ${lectureTime.startTime} ${lectureTime.endTime}`
+                return `${pl.weekDay[lectureTime.day]} ${pl.weekType[lectureTime.weekType]} ${lectureTime.startTime} - ${lectureTime.endTime}`
             }
         },
         mounted(){

@@ -3,7 +3,7 @@ import {Lecture} from "./lecture";
 import {StudentsGroup} from "./studentsGroup";
 
 export interface LectureSchedule {
-    lectureScheduleId: number,
+    lectureScheduleId: number;
     createdTime: Date | string;
     lectures: Lecture[] | number[];
     studentGroup?: StudentsGroup;

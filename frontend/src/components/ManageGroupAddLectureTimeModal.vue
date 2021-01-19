@@ -64,7 +64,7 @@
                 lectureType: 0
             },
             newLectureTime: {
-                startTime: '7:30',
+                startTime: '7:30:00',
                 duration:'',
                 day: '',
                 weekType: '',
@@ -91,6 +91,9 @@
             },
             handleOk(event){
                 event.preventDefault();
+                const newTime = this.newLectureTime.startTime.split(':');
+                newTime.pop();
+                this.newLectureTime.startTime = newTime.join(':');
                 this.resolve(this.newLectureTime);
                 this.modal=false;
             },

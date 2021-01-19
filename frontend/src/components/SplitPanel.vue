@@ -77,6 +77,12 @@ export default {
       return !!this.slots.navigationBar
     }
   },
+  watch: {
+    async $route() {
+      await this.$nextTick();
+      this.$refs.panel.style.width = (document.body.scrollWidth - this.$refs.leftPanel.clientWidth - this.$refs.rightSidePanel.clientWidth) + 'px';
+    }
+  },
   mounted() {
     this.setEvents();
   },
@@ -84,7 +90,6 @@ export default {
     startDrag() {
       this.dragging = true;
     },
-
     setEvents() {
       const panel = this.$refs.panel;
       const leftResizer = this.$refs.leftResizer;

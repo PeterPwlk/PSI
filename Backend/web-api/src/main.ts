@@ -16,6 +16,9 @@ async function bootstrap() {
     region: configService.get('AWS_REGION'),
     sessionToken: configService.get('AWS_SESSION_TOKEN'),
   });
+
+  app.enableCors();
   await app.listen(3000);
+
 }
 bootstrap();

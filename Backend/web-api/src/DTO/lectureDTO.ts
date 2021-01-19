@@ -38,8 +38,8 @@ export class ConductedClassesDTO {
 
 export function mapToLectureTimeDTO(items: LectureTime[]): LectureTimeDTO[] {
   return items.map((item) => ({
-    startTime: format(item.startTime, 'HH:mm:ss'),
-    endTime: format(item.endTime, 'HH:mm:ss'),
+    startTime: format(item.startTime, 'HH:mm'),
+    endTime: format(item.endTime, 'HH:mm'),
     day: parseInt(WeekDay[item.day]),
     weekType: parseInt(WeekType[item.weekType]),
     classRoom: item.classRoom,

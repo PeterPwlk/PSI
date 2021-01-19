@@ -4,6 +4,7 @@ import {LectureTime} from "../Models/lectureTime";
 import {ConductedClasses} from "../Models/conductedClasses";
 import {parse, parseISO} from "date-fns";
 import {ClassRoom} from "../Models/classRoom";
+import {Tutor} from "../Models/tutor";
 
 interface LectureModel {
     lectureId: number
@@ -15,7 +16,7 @@ interface LectureModel {
 }
 
 interface ConductedClassesModel {
-    tutorId: number;
+    tutor: Tutor;
     startDate: string;
     endDate: string;
 }
@@ -45,13 +46,12 @@ export class LectureRepository {
             conductedClasses: this.mapConductedClasses(item.conductedClasses),
         }));
     }
-    // startDate: parse(value.startDate, 'HH:mm:ss', new Date()),
-    // endDate: parse(value.endDate, 'HH:mm:ss', new Date()),
+
     public static mapConductedClasses(conductedClasses: ConductedClassesModel[]): ConductedClasses[] {
         return conductedClasses.map(value => ({
             startDate: parseISO(value.startDate),
             endDate: parseISO(value.endDate),
-            tutorId: value.tutorId,
+            tutor: value.tutor,
         }))
     }
 
@@ -77,7 +77,7 @@ export class LectureRepository {
 
     public static mapToConductedClassesModel(conductedClasses: ConductedClasses[]): ConductedClassesModel[] {
         return conductedClasses.map(value => ({
-            tutorId: value.tutorId,
+            tutor: value.tutor,
             startDate: value.startDate.toISOString(),
             endDate: value.endDate.toISOString()
         }))
