@@ -64,7 +64,8 @@
                         </b-container>
                     </template>
                     <template #table-busy>
-                        <b-skeleton v-for="i in new Array(10)" height="30px"></b-skeleton>
+<!--                        <b-skeleton v-for="i in new Array(10)" height="30px"></b-skeleton>-->
+                        <b-skeleton-table :rows="10" :colums="1" hide-header></b-skeleton-table>
                     </template>
                 </b-table>
             </b-col>
@@ -117,11 +118,11 @@
                 this.schedule = schedule.lectures.map(lecture => ({
                     lectureId: lecture.lectureId,
                     code: lecture.groupNumber || 'N/A',
-                    name: lecture.courseId.name,
+                    name: lecture.course.course.name,
                     tutors: lecture.conductedClasses,
                     lectureTimes: lecture.lectureTime,
-                    hours: lecture.courseId.numberOfHours,
-                    duration: lecture.courseId.duration
+                    hours: lecture.course.numberOfHours,
+                    duration: lecture.course.duration
                 }));
                 this.loadingGroups = false;
             },

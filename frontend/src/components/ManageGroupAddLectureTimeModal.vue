@@ -2,7 +2,7 @@
   <b-modal id="modal-1" v-model="modal" centered button-size="sm" @ok="handleOk" size="lg">
       <template #modal-title>
           <div class="font-weight-bold"> Termin zajęć </div>
-          <div class="font-regular"> Z01-24a Projektowanie sys. informat. (INZ0003854L) </div>
+          <div class="font-regular"> {{ groupNumber }} {{ course.course.name }} ({{ course.course.courseNumber}}) </div>
       </template>
       <b-container fluid>
           <b-row>
@@ -20,7 +20,14 @@
           <b-row>
               <b-col>
                   <span> Sala: </span>
-                  <b-select></b-select>
+                  <b-select :options="classrooms" v-if="!loadingClassrooms"></b-select>
+                  <b-skeleton v-else type="input"></b-skeleton>
+              </b-col>
+          </b-row>
+          <b-row>
+              <b-col>
+                  <span> Czas rozpoczęcia: </span>
+                  <b-timepicker locale="pl"></b-timepicker>
               </b-col>
           </b-row>
       </b-container>
@@ -36,6 +43,7 @@
 <script>
     import {pl} from "../assets/lang";
     import {getClassroom} from "../httpService/httpService";
+    import {mapLectureTypeToClassRoomType} from "../static/static";
 
     export default {
         name: "ManageGroupAddLectureTimeModal",
@@ -45,12 +53,23 @@
             dateTo: null,
             weekDay: Object.keys(pl.weekDay).map(key => ({ value: key, text: pl.weekDay[key]})),
             weekType: Object.keys(pl.weekType).map(key => ({ value: key, text: pl.weekType[key]})),
-            classrooms: []
+            classrooms: [],
+            loadingClassrooms: false,
+            course: {
+                courseId: 0,
+                duration: '',
+                course: {
+                    courseNumber: '',
+                },
+                lectureType: 0
+            }
         }),
         computed: {
         },
         methods: {
-            open(){
+            open(course, groupNumber){
+                this.course = course;
+                this.groupNumber = groupNumber;
                 this.modal = true;
                 this.getClassrooms();
             },
@@ -58,11 +77,13 @@
                 event.preventDefault();
             },
             async getClassrooms() {
-               const classrooms = await getClassroom();
-               this.classrooms = classrooms.map(classroom => ({
-
-               }));
-               console.log(classrooms);
+                this.loadingClassrooms = true;
+                const classrooms = await getClassroom({ classRoomType: mapLectureTypeToClassRoomType(this.course.lectureType) });
+                this.classrooms = classrooms.map(classroom => ({
+                   text: `${classroom.building}, s. ${classroom.number} (${classroom.capacity} os.)`,
+                   value: classroom.classRoomId
+                }));
+                this.loadingClassrooms = false;
             }
         },
         mounted() {

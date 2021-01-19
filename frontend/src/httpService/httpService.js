@@ -33,10 +33,13 @@ export const ping = () => {
     return GET('/');
 };
 
-export const getSchedule = (id) => GET(`/lecture-schedule${id? `/${id}` : ''}`);
+export const getSchedule = (id) => GET(`/lecture-schedule${id>=0 ? `/${id}` : ''}`);
 
-export const getClassroom = (query) => GET('/class-room', query);
+export const getClassroom = (params) => GET(`/class-room${params ? '/filter' : ''}`, params);
 
-export const getFaculty = (id) => GET(`/faculty${ id ? `/${id}` : '' }`);
+export const getFaculty = (id) => GET(`/faculty${ id>=0 ? `/${id}` : '' }`);
 
-export const getLecture = (id) => GET(`/lecture${ id? `/${id}`: '' }`);
+export const getLecture = (id) => GET(`/lecture${ id>=0 ? `/${id}`: '' }`);
+
+export const getTutor = (params) => GET(`/tutor${params ? '/filter': ''}`, params);
+

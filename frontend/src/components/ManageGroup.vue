@@ -1,10 +1,15 @@
 <template>
     <b-container fluid class="text-left p-3">
-        <b-row>
-            <b-col>
+        <b-row >
+            <b-col v-if="!lectureLoading">
                 <h2> {{ groupNumber }} </h2>
-                <h5> INZ003854L </h5>
-                <h5> Projektowanie sys. informat. </h5>
+                <h5> {{ course.course.courseNumber }} </h5>
+                <h5> {{ course.course.name }} </h5>
+            </b-col>
+            <b-col v-else>
+                <b-skeleton height="32px" width="50%"></b-skeleton>
+                <b-skeleton height="24px" width="40%"></b-skeleton>
+                <b-skeleton height="24px" width="60%"></b-skeleton>
             </b-col>
         </b-row>
         <b-row v-for="tutor in tutors" class="mt-2">
@@ -18,12 +23,16 @@
                 </GroupDetailsCard>
             </b-col>
         </b-row>
+        <b-skeleton height="32px" v-if="lectureLoading"></b-skeleton>
+        <b-skeleton height="32px" v-if="lectureLoading"></b-skeleton>
         <b-row class="mt-2">
             <b-col>
-                <b-btn variant="primary" size="sm" class="wider-btn" @click="addTutor()"> Dodaj prowadzącego </b-btn>
+                <b-btn :disabled="lectureLoading" variant="primary" size="sm" class="wider-btn" @click="addTutor()"> Dodaj prowadzącego </b-btn>
             </b-col>
         </b-row>
         <hr/>
+        <b-skeleton height="32px" v-if="lectureLoading"></b-skeleton>
+        <b-skeleton height="32px" v-if="lectureLoading"></b-skeleton>
         <b-row class="mt-2" v-for="lectureTime in lectureTimes">
             <b-col>
                 <GroupDetailsCard :title="getLectureTimeTitle(lectureTime)">
@@ -31,13 +40,13 @@
                         <span>Budynek <b>{{ lectureTime.classRoom.building}}</b></span>
                         <span class="ml-2">Sala <b>{{ lectureTime.classRoom.number }}</b></span>
                     </div>
-                    <div class="font-small"> Czas trwania zajęć: {{ lectureTime.duration }}</div>
+                    <div class="font-small"> Czas trwania zajęć: {{ course.duration }} min</div>
                 </GroupDetailsCard>
             </b-col>
         </b-row>
         <b-row class="mt-2">
             <b-col>
-                <b-btn variant="primary" size="sm" class="wider-btn" @click="addLectureTime()"> Dodaj termin </b-btn>
+                <b-btn :disabled="lectureLoading" variant="primary" size="sm" class="wider-btn" @click="addLectureTime()"> Dodaj termin </b-btn>
             </b-col>
         </b-row>
         <ManageGroupAddTutorModal ref="addTutorModal"></ManageGroupAddTutorModal>
@@ -57,26 +66,44 @@
         data: () => ({
             tutors: [],
             groupNumber: '',
-            lectureTimes: []
+            lectureTimes: [],
+            course: {
+                duration: '',
+                course: {
+                    courseNumber: '',
+                },
+                lectureType: 0
+            },
+            lectureLoading: false
         }),
         computed: {
             groupId() {
                 return this.$route.params.groupId;
             }
         },
+        watch: {
+            groupId(newValue) {
+                console.log(newValue);
+                this.lectureTimes = [];
+                this.tutors = [];
+                this.getLecture(newValue);
+            }
+        },
         methods: {
             addTutor() {
-                this.$refs.addTutorModal.open();
+                this.$refs.addTutorModal.open(this.course, this.groupNumber);
             },
             addLectureTime() {
-                this.$refs.addLectureTimeModal.open();
+                this.$refs.addLectureTimeModal.open(this.course, this.groupNumber);
             },
-            async getLecture() {
-                const lecture = await getLecture(this.groupId);
+            async getLecture(id) {
+                this.lectureLoading = true;
+                const lecture = await getLecture(id);
                 this.tutors = lecture.conductedClasses;
                 this.groupNumber = lecture.groupNumber;
                 this.lectureTimes = lecture.lectureTime;
-                console.log(lecture);
+                this.course = lecture.course;
+                this.lectureLoading = false;
             },
             getName(tutor) {
                 return `${tutor.title} ${tutor.firstName} ${tutor.lastName}`
@@ -86,7 +113,7 @@
             }
         },
         mounted(){
-            this.getLecture();
+            this.getLecture(this.groupId);
         }
     }
 </script>

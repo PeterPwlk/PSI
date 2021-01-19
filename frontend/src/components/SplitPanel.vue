@@ -139,6 +139,8 @@ export default {
         false
       );
 
+      window.addEventListener('resize', resize);
+
       document.addEventListener('mouseup', () => {
         document.body.style.cursor = '';
         document.removeEventListener('mousemove', resize, false);
