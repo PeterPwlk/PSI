@@ -5,11 +5,12 @@ import { LectureTime } from '../../../../Persistance/Models/lectureTime';
 import { ConductedClasses } from '../../../../Persistance/Models/conductedClasses';
 import { TutorService } from '../tutor/tutor.service';
 import { CourseService } from '../course/course.service';
-import { LectureTimeDTO } from '../../DTO/lectureTimeDTO';
+import { LectureTimePatchDTO } from '../../DTO/lectureTimePatchDTO';
 import { WeekDay } from '../../../../Persistance/Models/weekDay';
 import { WeekType } from '../../../../Persistance/Models/weekType';
 import { addMinutes, parse } from 'date-fns';
 import { ClassRoomService } from '../class-room/class-room.service';
+import { LectureTutorPatchDTO } from '../../DTO/lectureTutorPatchDTO';
 
 @Injectable()
 export class LectureService {
@@ -40,7 +41,7 @@ export class LectureService {
     return lecture;
   }
 
-  async updateLectureTime(lectureId: number, lectureTimeDTO: LectureTimeDTO) {
+  async updateLectureTime(lectureId: number, lectureTimeDTO: LectureTimePatchDTO) {
     const lectureTimeMap = LectureTimeDTOMapper.mapToLectureTime([
       lectureTimeDTO,
     ]);
@@ -57,8 +58,12 @@ export class LectureService {
 
   async updateLectureTutor(
     lectureId: number,
-    conductedClasses: ConductedClasses,
+    conductedClassesDTO: LectureTutorPatchDTO,
   ) {
+    const conductedClassesMap = LectureTutorDTOMapper.mapToConductedClasses([
+      conductedClassesDTO,
+    ]);
+    const conductedClasses = conductedClassesMap[0];
     return await this.lectureRepository.updateLectureTutor(
       lectureId,
       conductedClasses,
@@ -67,7 +72,7 @@ export class LectureService {
 }
 
 class LectureTimeDTOMapper {
-  public static mapToLectureTime(items: LectureTimeDTO[]): LectureTime[] {
+  public static mapToLectureTime(items: LectureTimePatchDTO[]): LectureTime[] {
     return items.map((item) => {
       const startTime = parse(item.startTime, 'HH:mm:ss', new Date());
       return {
@@ -80,3 +85,16 @@ class LectureTimeDTOMapper {
     });
   }
 }
+
+class LectureTutorDTOMapper {
+  public static mapToConductedClasses(
+    items: LectureTutorPatchDTO[],
+  ): ConductedClasses[] {
+    return items.map((item) => ({
+      tutorId: item.tutorId,
+      startDate: new Date(item.startDate),
+      endDate: new Date(item.endDate),
+    }));
+  }
+}
+

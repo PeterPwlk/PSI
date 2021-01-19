@@ -3,55 +3,16 @@
     "lectureScheduleId": 0,
     "courseId": 0,
     "lectureCode": "ZZO-20a",
-    "lectureTime": [{
-        "startTime": "9:15",
-        "endTime": "10:45",
-        "day": 1,
-        "weekType": 2,
-        "classRoom": {
-            "building": "A1",
-            "number": "20a",
-            "capacity": 150,
-            "classRoomType": 0
-        } 
-    }],
-    "conductedClasses": [
-        {
-            "startDate": "01.10.2021",
-            "endDate": "01.12.2021",
-            "tutorId": 1
-        },
-        {
-            "startDate": "01.12.2021",
-            "endDate": "15.06.2022",
-            "tutorId": 3
-        }
-    ]
+    "lectureTime": [],
+    "conductedClasses": []
 },
 {
     "lectureId": 1,
     "lectureScheduleId": 0,
     "courseId": 0,
     "lectureCode": "ZZO-20b",
-    "lectureTime": [{
-        "startTime": "15:15",
-        "endTime": "16:40",
-        "day": 3,
-        "weekType": 0,
-        "classRoom": {
-            "building": "D2",
-            "number": "12",
-            "capacity": 15,
-            "classRoomType": 1
-        } 
-    }],
-    "conductedClasses": [
-        {
-            "startDate": "01.10.2021",
-            "endDate": "01.06.2021",
-            "tutorId": 2
-        }
-    ]
+    "lectureTime": [],
+    "conductedClasses": []
 },
 {
     "lectureId": 2,

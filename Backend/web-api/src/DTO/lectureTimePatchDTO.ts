@@ -1,4 +1,4 @@
-export class LectureTimeDTO {
+export class LectureTimePatchDTO {
   startTime: string;
   duration: number;
   day: string;

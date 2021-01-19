@@ -2,15 +2,33 @@ import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import {Lecture} from "../Models/lecture";
 import {LectureTime} from "../Models/lectureTime";
 import {ConductedClasses} from "../Models/conductedClasses";
+import {parse, parseISO} from "date-fns";
+import {ClassRoom} from "../Models/classRoom";
 
 interface LectureModel {
     lectureId: number
     lectureScheduleId: number;
     courseId: number;
     lectureCode: string;
-    lectureTime: LectureTime[];
-    conductedClasses: ConductedClasses[]
+    lectureTime: LectureTimeModel[];
+    conductedClasses: ConductedClassesModel[]
 }
+
+interface ConductedClassesModel {
+    tutorId: number;
+    startDate: string;
+    endDate: string;
+}
+
+interface LectureTimeModel {
+    startTime: string;
+    endTime: string;
+    classRoomId?: number;
+    day: number;
+    weekType: number;
+    classRoom: ClassRoom;
+}
+
 export class LectureRepository {
 
     constructor(private readonly docClient: DocumentClient) {
@@ -23,9 +41,46 @@ export class LectureRepository {
             lectureScheduleId: item.lectureScheduleId,
             groupNumber: item.lectureCode,
             courseId: item.courseId,
-            lectureTime: item.lectureTime,
-            conductedClasses: item.conductedClasses
+            lectureTime: this.mapToLectureTime(item.lectureTime),
+            conductedClasses: this.mapConductedClasses(item.conductedClasses),
         }));
+    }
+    // startDate: parse(value.startDate, 'HH:mm:ss', new Date()),
+    // endDate: parse(value.endDate, 'HH:mm:ss', new Date()),
+    public static mapConductedClasses(conductedClasses: ConductedClassesModel[]): ConductedClasses[] {
+        return conductedClasses.map(value => ({
+            startDate: parseISO(value.startDate),
+            endDate: parseISO(value.endDate),
+            tutorId: value.tutorId,
+        }))
+    }
+
+    public static mapToLectureTimeModel(lectureTime: LectureTime[]): LectureTimeModel[] {
+        return lectureTime.map(item => ({
+            startTime: item.startTime.toISOString(),
+            endTime: item.endTime.toISOString(),
+            day: item.day,
+            weekType: item.weekType,
+            classRoom: item.classRoom
+        }))
+    }
+
+    public static mapToLectureTime(lectureTimeModel: LectureTimeModel[]): LectureTime[] {
+        return lectureTimeModel.map(item => ({
+            startTime: parseISO(item.startTime),
+            endTime: parseISO(item.endTime),
+            day: item.day,
+            weekType: item.weekType,
+            classRoom: item.classRoom
+        }))
+    }
+
+    public static mapToConductedClassesModel(conductedClasses: ConductedClasses[]): ConductedClassesModel[] {
+        return conductedClasses.map(value => ({
+            tutorId: value.tutorId,
+            startDate: value.startDate.toISOString(),
+            endDate: value.endDate.toISOString()
+        }))
     }
 
     public static mapToLectureModel(items: Lecture[]): LectureModel[] {
@@ -33,9 +88,9 @@ export class LectureRepository {
             lectureId: item.lectureId,
             courseId: item.courseId,
             lectureCode: item.groupNumber,
-            lectureTime: item.lectureTime,
+            lectureTime: this.mapToLectureTimeModel(item.lectureTime),
             lectureScheduleId: item.lectureScheduleId,
-            conductedClasses: item.conductedClasses
+            conductedClasses: this.mapToConductedClassesModel(item.conductedClasses)
         }));
     }
 
@@ -90,6 +145,7 @@ export class LectureRepository {
     }
 
     async updateLectureTime(lectureId: number, lectureTime: LectureTime) {
+        const lectureTimeModel = LectureRepository.mapToLectureTimeModel([lectureTime]);
         const query = {
             TableName: this.tableName,
             Key: {
@@ -100,7 +156,7 @@ export class LectureRepository {
                 '#lectureTime': 'lectureTime'
             },
             ExpressionAttributeValues: {
-                ':lectureTime': [lectureTime],
+                ':lectureTime': [lectureTimeModel[0]],
                 ':empty_list': []
             },
             ReturnValues:"UPDATED_NEW"
@@ -111,10 +167,11 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return response;
+        return LectureRepository.mapToLectureTime(response.Attributes.lectureTime);
     }
 
     async updateLectureTutor(lectureId: number, conductedClasses: ConductedClasses) {
+        const conductedClassesModel = LectureRepository.mapToConductedClassesModel([conductedClasses]);
         const queryLecture = {
             TableName: this.tableName,
             Key: {
@@ -125,7 +182,7 @@ export class LectureRepository {
                 '#conductedClasses': 'conductedClasses'
             },
             ExpressionAttributeValues: {
-                ':conductedClasses': [conductedClasses],
+                ':conductedClasses': [conductedClassesModel[0]],
                 ':empty_list': []
             },
             ReturnValues:"UPDATED_NEW"
@@ -136,6 +193,6 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return response;
+        return LectureRepository.mapConductedClasses(response.Attributes.conductedClasses);
     }
 }

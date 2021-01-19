@@ -5,6 +5,6 @@ export interface ConductedClasses {
     tutorId: number;
     startDate: Date;
     endDate: Date;
-    lecture: Lecture;
+    lecture?: Lecture;
     tutor?: Tutor;
 }
