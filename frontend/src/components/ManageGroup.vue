@@ -58,7 +58,7 @@
     import GroupDetailsCard from "./GroupDetailsCard";
     import ManageGroupAddTutorModal from "./ManageGroupAddTutorModal";
     import ManageGroupAddLectureTimeModal from "./ManageGroupAddLectureTimeModal";
-    import {getLecture} from "../httpService/httpService";
+    import {addLectureTime, addLectureTutor, getLecture} from "../httpService/httpService";
     import {pl} from "../assets/lang";
     export default {
         name: "ManageGroup",
@@ -74,7 +74,8 @@
                 },
                 lectureType: 0
             },
-            lectureLoading: false
+            lectureLoading: false,
+            lectureId: -1
         }),
         computed: {
             groupId() {
@@ -90,15 +91,26 @@
             }
         },
         methods: {
-            addTutor() {
-                this.$refs.addTutorModal.open(this.course, this.groupNumber);
+            async addTutor() {
+                try{
+                    const newLectureTutor = await this.$refs.addTutorModal.open(this.course, this.groupNumber);
+                    const addedLectureTutor = await addLectureTutor(this.lectureId, newLectureTutor);
+                    console.log(addedLectureTutor);
+                } catch (e) {
+
+                }
             },
-            addLectureTime() {
-                this.$refs.addLectureTimeModal.open(this.course, this.groupNumber);
+            async addLectureTime() {
+                try {
+                    const newLectureTime = await this.$refs.addLectureTimeModal.open(this.course, this.groupNumber);
+                    const addedLectureTime = await addLectureTime(this.lectureId, newLectureTime);
+                    console.log(addedLectureTime);
+                } catch (e) {}
             },
             async getLecture(id) {
                 this.lectureLoading = true;
                 const lecture = await getLecture(id);
+                this.lectureId = lecture.lectureId;
                 this.tutors = lecture.conductedClasses;
                 this.groupNumber = lecture.groupNumber;
                 this.lectureTimes = lecture.lectureTime;

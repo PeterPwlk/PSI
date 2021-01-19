@@ -1,7 +1,7 @@
 <template>
   <div class="text-left p-3">
     <h2>
-      Studia
+      Filtry
     </h2>
     <div>
       <div
@@ -54,14 +54,11 @@
 </template>
 <script>
     export default {
-        name: "PlansFilter",
+        name: "GroupsFilter",
         data: () => ({
             filters: [
-                { text: 'Rodzaj', type: 'type', filters: [{ label: 'Stacjonarne', checked: true}, {label: 'Niestacjonarne', checked: true}] },
-                { text: 'Poziom studiów', type: 'level', filters: [{ label: 'I st.', checked: true}, {label: 'II st.', checked: true}] },
-                { text: 'Rok rozpoczęcia', type: 'year', filters: [{ label: '2018', checked: true}, {label: '2019', checked: true}, {label: '2020', checked: true}, {label: '2021', checked: true}]},
-                { text: 'Semestr', type: 'semester', filters: [{ label: '1', checked: true}, {label: '2', checked: true}, {label: '3', checked: true}, {label: '4', checked: true}, {label: '5', checked: true}] },
-                { text: 'Kierunek', type: 'faculty', filters: [{ label: 'Informatyka', checked: true}, {label: 'Zarządzanie', checked: true}, {label: 'Inżynieria systemów', checked: true}] },
+                { text: 'Obsada', type: 'type', filters: [{ label: 'Grupy obsadzone', checked: true}, {label: 'Grupy nieobsadzone', checked: true}] },
+                { text: 'Typ zajęć', type: 'semester', filters: [{ label: 'Ćwiczenia', checked: true}, {label: 'Laboratoria', checked: true}, {label: 'Praktyki', checked: true}, {label: 'Projekt', checked: true}, {label: 'Seminarium', checked: true}] },
             ]
         }),
         methods: {

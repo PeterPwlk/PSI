@@ -7,7 +7,7 @@
       <b-container fluid>
           <b-row>
               <b-col>
-                  <b-select v-if="!loadingTutors" :options="tutors"></b-select>
+                  <b-select v-if="!loadingTutors" :options="tutors" v-model="newLectureTutor.tutorId"></b-select>
                   <b-skeleton type="input" v-else></b-skeleton>
                   <b-link disabled>Pokaż plan prowadzącego</b-link>
               </b-col>
@@ -15,11 +15,11 @@
           <b-row class="mt-2">
               <b-col>
                   <span>Data rozpoczęcia:</span>
-                  <b-datepicker></b-datepicker>
+                  <b-datepicker v-model="newLectureTutor.startDate" locale="pl"></b-datepicker>
               </b-col>
               <b-col>
                   <span>Data zakończenia:</span>
-                  <b-datepicker></b-datepicker>
+                  <b-datepicker v-model="newLectureTutor.endDate" locale="pl"></b-datepicker>
               </b-col>
           </b-row>
       </b-container>
@@ -50,7 +50,12 @@
                 lectureType: 0
             },
             groupNumber: '',
-            loadingTutors: false
+            loadingTutors: false,
+            newLectureTutor: {
+                tutorId: -1,
+                startDate: new Date(),
+                endDate: new Date(),
+            }
         }),
         methods: {
             async getTutors() {
@@ -74,11 +79,15 @@
             },
             handleOk(event){
                 event.preventDefault();
-                this.resolve();
+                let newTutor = {
+                    tutorId: this.newLectureTutor.tutorId,
+                    startDate: this.newLectureTutor.startDate.toLocaleDateString(),
+                    endDate: this.newLectureTutor.endDate.toLocaleDateString()
+                };
+                this.resolve(newTutor);
             },
             handleCancel(event){
-                event.preventDefault();
-                this.reject()
+                this.reject(false);
             }
         }
     }

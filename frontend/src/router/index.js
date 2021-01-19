@@ -9,6 +9,8 @@ import Plans from "../views/Plans";
 import PlansFilter from "../components/PlansFilter";
 import Groups from "../views/Groups";
 import ManageGroup from "../components/ManageGroup";
+import LoginRequired from "../views/LoginRequired";
+import GroupsFilter from "../components/GroupsFilter";
 
 Vue.use(VueRouter)
 
@@ -17,8 +19,7 @@ const routes = [
     path: '/',
     name: 'home',
     components: {
-      default: Home,
-      side: Sidebar
+      default: Home
     }
   },
   {
@@ -56,7 +57,7 @@ const routes = [
     name: 'plan',
     components: {
       default: Groups,
-      side: PlansFilter
+      side: GroupsFilter
     }
   },
   {
@@ -64,13 +65,18 @@ const routes = [
     name: 'planGroup',
     components: {
       default: Groups,
-      side: PlansFilter,
+      side: GroupsFilter,
       rightSidePanel: ManageGroup
     }
   },
   {
     path: '/login',
     name: 'login'
+  },
+  {
+    path: '/login-required',
+    name: 'loginRequired',
+    component: LoginRequired
   }
 ];
 
@@ -85,8 +91,13 @@ router.beforeEach(async (to, from, next) => {
       await store.dispatch('login', to.query.code);
       next({ name: 'home' });
     } catch(e) {
-      console.error(e);
       next({ name: 'home' });
+    }
+  }
+  if (!['home', 'loginRequired'].includes(to.name) && !store.state.authorized) {
+    await store.dispatch('checkLogin');
+    if(!store.state.authorized) {
+      next({name: 'loginRequired'})
     }
   }
   next();
