@@ -7,5 +7,6 @@ export interface LectureTime {
     endTime: Date;
     day: WeekDay;
     weekType: WeekType;
-    classRoom: ClassRoom;
+    classRoom?: ClassRoom;
+    classRoomId?: number;
 }

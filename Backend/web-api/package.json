@@ -30,6 +30,7 @@
     "amazon-cognito-identity-js": "^4.5.6",
     "aws-sdk": "^2.821.0",
     "cookie-parser": "^1.4.5",
+    "date-fns": "^2.16.1",
     "jwks-rsa": "^1.12.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
