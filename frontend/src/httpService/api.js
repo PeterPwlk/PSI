@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default axios.create({
   baseURL: '/api',
-  timeout: 7000,
+  timeout: 20000,
   headers: {
     'Content-Type': 'application/json',
   }

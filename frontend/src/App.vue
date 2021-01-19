@@ -17,6 +17,9 @@
       <template v-slot:secondaryFooter>
         <router-view name="secondaryFooter" />
       </template>
+      <template v-slot:rightSidePanel>
+        <router-view name="rightSidePanel" />
+      </template>
     </SplitPanel>
   </div>
 </template>
