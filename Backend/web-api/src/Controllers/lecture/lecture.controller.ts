@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
 import { LectureService } from '../../Services/lecture/lecture.service';
 import { Lecture } from '../../../../Persistance/Models/lecture';
-import { LectureTime } from '../../../../Persistance/Models/lectureTime';
 import { ConductedClasses } from '../../../../Persistance/Models/conductedClasses';
+import { LectureTimeDTO } from '../../DTO/lectureTimeDTO';
 
 @Controller('lecture')
 export class LectureController {
@@ -20,7 +20,7 @@ export class LectureController {
 
   @Patch('/edit/lectureTime/:lectureId')
   public async updateLectureTime(
-    @Body() lectureTime: LectureTime,
+    @Body() lectureTime: LectureTimeDTO,
     @Param('lectureId') lectureId: string,
   ): Promise<Lecture> {
     return await this.lectureService.updateLectureTime(

@@ -5,6 +5,11 @@ import { LectureTime } from '../../../../Persistance/Models/lectureTime';
 import { ConductedClasses } from '../../../../Persistance/Models/conductedClasses';
 import { TutorService } from '../tutor/tutor.service';
 import { CourseService } from '../course/course.service';
+import { LectureTimeDTO } from '../../DTO/lectureTimeDTO';
+import { WeekDay } from '../../../../Persistance/Models/weekDay';
+import { WeekType } from '../../../../Persistance/Models/weekType';
+import { addMinutes, parse } from 'date-fns';
+import { ClassRoomService } from '../class-room/class-room.service';
 
 @Injectable()
 export class LectureService {
@@ -12,6 +17,7 @@ export class LectureService {
     private lectureRepository: LectureRepositoryService,
     private readonly tutorRepository: TutorService,
     private readonly courseService: CourseService,
+    private readonly classRoomService: ClassRoomService,
   ) {}
 
   async getAll(): Promise<Lecture[]> {
@@ -34,7 +40,15 @@ export class LectureService {
     return lecture;
   }
 
-  async updateLectureTime(lectureId: number, lectureTime: LectureTime) {
+  async updateLectureTime(lectureId: number, lectureTimeDTO: LectureTimeDTO) {
+    const lectureTimeMap = LectureTimeDTOMapper.mapToLectureTime([
+      lectureTimeDTO,
+    ]);
+    const classRoom = await this.classRoomService.getById(
+      lectureTimeDTO.classRoom,
+    );
+    const lectureTime = lectureTimeMap[0];
+    lectureTime.classRoom = classRoom;
     return await this.lectureRepository.updateLectureTime(
       lectureId,
       lectureTime,
@@ -49,5 +63,20 @@ export class LectureService {
       lectureId,
       conductedClasses,
     );
+  }
+}
+
+class LectureTimeDTOMapper {
+  public static mapToLectureTime(items: LectureTimeDTO[]): LectureTime[] {
+    return items.map((item) => {
+      const startTime = parse(item.startTime, 'HH:mm:ss', new Date());
+      return {
+        classRoomId: item.classRoom,
+        day: WeekDay[item.day],
+        weekType: WeekType[item.weekType],
+        startTime: startTime,
+        endTime: addMinutes(startTime, item.duration),
+      };
+    });
   }
 }
