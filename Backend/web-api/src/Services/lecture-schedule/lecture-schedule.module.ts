@@ -9,6 +9,8 @@ import { LectureService } from '../lecture/lecture.service';
 import { TutorRepositoryService } from '../tutor/tutor-repository.service';
 import { TutorService } from '../tutor/tutor.service';
 import { CourseService } from '../course/course.service';
+import { ClassRoomService } from '../class-room/class-room.service';
+import { ClassRoomRepositoryService } from '../class-room/class-room-repository.service';
 
 @Module({
   providers: [
@@ -21,6 +23,8 @@ import { CourseService } from '../course/course.service';
     TutorRepositoryService,
     TutorService,
     CourseService,
+    ClassRoomService,
+    ClassRoomRepositoryService,
   ],
   controllers: [LectureScheduleController],
 })
