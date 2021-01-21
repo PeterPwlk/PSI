@@ -11,11 +11,10 @@ export class ClassRoomService {
     return this.classRoomRepository.getAll();
   }
   async getById(id: number): Promise<ClassRoom> {
-    const response = await this.classRoomRepository.getById(id);
-    return response[0];
+    return await this.classRoomRepository.getById(id);
   }
 
-  async getByClassRoomType(classRoomType: number) {
+  async getByClassRoomType(classRoomType: number): Promise<ClassRoom[]> {
     return await this.classRoomRepository.getByClassRoomType(classRoomType);
   }
 }

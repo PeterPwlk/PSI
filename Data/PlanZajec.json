@@ -1,24 +1,24 @@
 [{
     "lectureScheduleId": 0,
     "lectures": [0,1,2,3,4,5,6,7,8,9,10],
-    "creationDate": "17.01.2020",
+    "creationDate": "2021-01-31T00:00:00.000Z",
     "facultyId": 0
 },
 {
     "lectureScheduleId": 1,
     "lectures": [11,12,13,14,15,16,17,18,19,20],
-    "creationDate": "17.01.2020",
+    "creationDate": "2021-01-31T00:00:00.000Z",
     "facultyId": 1
 },
 {
     "lectureScheduleId": 2,
     "lectures": [21,22,23,24,25,26,27,28,29, 30],
-    "creationDate": "17.01.2020",
+    "creationDate": "2021-01-31T00:00:00.000Z",
     "facultyId": 2
 },
 {
     "lectureScheduleId": 3,
     "lectures": [31,32,33,34,35,36,37,38,39,40],
-    "creationDate": "17.01.2020",
+    "creationDate": "2021-01-31T00:00:00.000Z",
     "facultyId": 3
 }]

@@ -2,6 +2,7 @@ import {DocumentClient} from "aws-sdk/clients/dynamodb";
 import {Course} from "../Models/course";
 import {LectureForm} from "../Models/lectureForm";
 import {Tutor} from "../Models/tutor";
+import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
 
 interface CourseModel {
     courseId: number,
@@ -14,63 +15,29 @@ interface CourseModel {
     tutors: Array<number> | Tutor[]
 }
 
-export class CourseRepository {
-    private readonly tableName = 'Course';
-    constructor(private readonly docClient: DocumentClient) {
+export class CourseRepository extends RepositoryBase<CourseModel> implements IRepositoryBase<LectureForm>{
+    private static readonly TableName = 'Course';
+    private static readonly TableKey = 'courseId';
+
+    constructor(docClient: DocumentClient) {
+        super(docClient, CourseRepository.TableName, CourseRepository.TableKey)
     }
+
     async create(course: LectureForm) {
-        const params = {
-            TableName: this.tableName,
-            Item: {
-                "courseId": course.courseId,
-                "name": course.course.name,
-                "courseNumber": course.course.courseNumber,
-                "numberOfHours": course.numberOfHours,
-                "lectureType": course.lectureType,
-                "numberOfStudentsInGroup": course.numberOfStudentsInGroup,
-                "duration": course.duration,
-                "tutors": course.course.tutors
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.put(params).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response;
+        const courseModel = CourseRepository.mapToCourseModel([course])[0];
+        const response = await super.createBase(courseModel);
+        return CourseRepository.mapToLectureForm([response])[0];
     }
-    async getById(id: number): Promise<LectureForm[]> {
-        const query = {
-            TableName: this.tableName,
-            KeyConditionExpression: "#courseId = :courseId",
-            ExpressionAttributeNames: {
-                "#courseId": "courseId"
-            },
-            ExpressionAttributeValues: {
-                ":courseId": id
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return CourseRepository.mapToLectureForm(response.Items);
+
+    async getById(id: number): Promise<LectureForm> {
+        const response = await super.getByIdBase(id);
+        return CourseRepository.mapToLectureForm(response)[0];
     }
     async getAll(): Promise<LectureForm[]> {
-        const query = {
-            TableName: this.tableName
-        };
-        let response;
-        try {
-            response = await this.docClient.scan(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return CourseRepository.mapToLectureForm(response.Items);
+        const response = await super.getAllBase();
+        return CourseRepository.mapToLectureForm(response);
     }
+
     public static mapToLectureForm(items: CourseModel[]): LectureForm[]{
         return items.map(item => ({
             courseId: item.courseId,
@@ -85,6 +52,7 @@ export class CourseRepository {
             }
         }))
     }
+
     public static mapToCourseModel(items: LectureForm[]): CourseModel[]{
         return items.map(item => ({
             courseNumber: item.course.courseNumber,

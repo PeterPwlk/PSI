@@ -1,10 +1,10 @@
-import {Injectable} from '@nestjs/common';
-import {LectureSchedule} from '../../../../Persistance/Models/lectureSchedule';
-import {LectureScheduleRepositoryService} from './lecture-schedule-repository.service';
-import {CourseRepositoryService} from '../course/course-repository.service';
-import {FacultyRepositoryService} from '../faculty/faculty-repository.service';
-import {LectureRepositoryService} from '../lecture/lecture-repository.service';
-import {LectureService} from '../lecture/lecture.service';
+import { Injectable } from '@nestjs/common';
+import { LectureSchedule } from '../../../../Persistance/Models/lectureSchedule';
+import { LectureScheduleRepositoryService } from './lecture-schedule-repository.service';
+import { CourseRepositoryService } from '../course/course-repository.service';
+import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
+import { LectureRepositoryService } from '../lecture/lecture-repository.service';
+import { LectureService } from '../lecture/lecture.service';
 
 @Injectable()
 export class LectureScheduleService {
@@ -18,20 +18,15 @@ export class LectureScheduleService {
 
   async getAll(): Promise<LectureSchedule[]> {
     const lectureSchedules = await this.lectureScheduleRepository.getAll();
-    for (const lectureSchedule of lectureSchedules) {
-      const facultyDetails = await this.facultyRepository.getById(
-        lectureSchedule.faculty,
-      );
-      lectureSchedule.faculty = facultyDetails[0];
-    }
-    return lectureSchedules;
+    const lectureSchedulesPromises = lectureSchedules.map(async (item) => ({
+      ...item,
+      faculty: await this.facultyRepository.getById(item.faculty as number),
+    }));
+    return await Promise.all(lectureSchedulesPromises);
   }
 
   async getById(id: number): Promise<LectureSchedule> {
-    const lectureScheduleResponse = await this.lectureScheduleRepository.getById(
-      id,
-    );
-    const lectureSchedule = lectureScheduleResponse[0];
+    const lectureSchedule = await this.lectureScheduleRepository.getById(id);
     const lectureDetailsPromises = [];
 
     for (const lecture of lectureSchedule.lectures) {

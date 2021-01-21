@@ -10,8 +10,7 @@ export class TutorService {
   }
 
   async getById(id: number) {
-    const response = await this.tutorRepository.getById(id);
-    return response[0];
+    return await this.tutorRepository.getById(id);
   }
 
   async getAllBySuggestedCourseId(courseId: number) {

@@ -11,7 +11,6 @@ export class CourseService {
   }
 
   async getById(id: number): Promise<LectureForm> {
-    const response = await this.courseRepository.getById(id);
-    return response[0];
+    return await this.courseRepository.getById(id);
   }
 }
