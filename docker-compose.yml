@@ -1,0 +1,12 @@
+version: '2.2'
+
+services:
+
+  backend:
+    build: 
+      context: .
+      dockerfile: ./Backend/web-api/Dockerfile
+    restart: unless-stopped
+    container_name: backend
+    ports: 
+        - 3000:3000
