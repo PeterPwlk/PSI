@@ -1,57 +1,25 @@
 import {DocumentClient} from "aws-sdk/clients/dynamodb";
 import {ClassRoom} from "../Models/classRoom";
+import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
 
-export class ClassRoomRepository {
-    constructor(private readonly docClient: DocumentClient) {
+export class ClassRoomRepository extends RepositoryBase<ClassRoom> implements IRepositoryBase<ClassRoom> {
+    private static readonly  TableName = "ClassRoom";
+    private static readonly TableKey = "classRoomId";
+    constructor(docClient: DocumentClient) {
+        super(docClient, ClassRoomRepository.TableName, ClassRoomRepository.TableKey)
     }
-    private tableName = "ClassRoom";
-    async create(classRoom : ClassRoom) {
-        const params = {
-            TableName: this.tableName,
-            Item: {
-                ...classRoom
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.put(params).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response;
+
+    async create(item: ClassRoom): Promise<ClassRoom> {
+        return await super.createBase(item);
     }
-    async getById(id: number): Promise<ClassRoom[]> {
-        const query = {
-            TableName : this.tableName,
-            KeyConditionExpression: "#classRoomId = :classRoomId",
-            ExpressionAttributeNames: {
-                "#classRoomId": "classRoomId"
-            },
-            ExpressionAttributeValues: {
-                ":classRoomId": id
-            }
-        };
-        let response;
-        try {
-           response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response.Items;
+    async getById(id: number): Promise<ClassRoom> {
+        return (await super.getByIdBase(id))[0];
     }
-    async getAll() : Promise<ClassRoom[]> {
-        const query = {
-            TableName: this.tableName
-        };
-        let response;
-        try {
-            response = await this.docClient.scan(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response.Items;
+    async getAll(): Promise<ClassRoom[]> {
+        return await super.getAllBase();
     }
-    async getByClassRoomType(classRoomType: number) {
+
+    async getByClassRoomType(classRoomType: number): Promise<ClassRoom[]> {
         const query = {
             TableName : this.tableName,
             FilterExpression: "#classRoomType = :classRoomType",
@@ -68,6 +36,6 @@ export class ClassRoomRepository {
         } catch (e) {
             console.log(e);
         }
-        return response.Items;
+        return response.Items as ClassRoom[];
     }
 }

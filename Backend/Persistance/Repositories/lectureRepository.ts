@@ -5,6 +5,7 @@ import {ConductedClasses} from "../Models/conductedClasses";
 import {parse, parseISO} from "date-fns";
 import {ClassRoom} from "../Models/classRoom";
 import {Tutor} from "../Models/tutor";
+import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
 
 interface LectureModel {
     lectureId: number
@@ -30,11 +31,50 @@ interface LectureTimeModel {
     classRoom: ClassRoom;
 }
 
-export class LectureRepository {
+function mapToLectureTime(lectureTimeModel: LectureTimeModel[]): LectureTime[]  {
+    return lectureTimeModel.map(item => ({
+        startTime: parseISO(item.startTime),
+        endTime: parseISO(item.endTime),
+        day: item.day,
+        weekType: item.weekType,
+        classRoom: item.classRoom
+    }))
+}
 
-    constructor(private readonly docClient: DocumentClient) {
+function mapConductedClasses(conductedClasses: ConductedClassesModel[]): ConductedClasses[] {
+    return conductedClasses.map(value => ({
+        startDate: parseISO(value.startDate),
+        endDate: parseISO(value.endDate),
+        tutor: value.tutor,
+    }))
+}
+
+function mapToLectureTimeModel(lectureTime: LectureTime[]): LectureTimeModel[] {
+    return lectureTime.map(item => ({
+        startTime: item.startTime.toISOString(),
+        endTime: item.endTime.toISOString(),
+        day: item.day,
+        weekType: item.weekType,
+        classRoom: item.classRoom
+    }))
+}
+
+function mapToConductedClassesModel(conductedClasses: ConductedClasses[]): ConductedClassesModel[] {
+    return conductedClasses.map(value => ({
+        tutor: value.tutor,
+        startDate: value.startDate.toISOString(),
+        endDate: value.endDate.toISOString()
+    }))
+}
+
+export class LectureRepository
+    extends RepositoryBase<LectureModel>
+    implements IRepositoryBase<Lecture> {
+    private static readonly TableName = "Lecture";
+    private static readonly TableKey = 'lectureId';
+    constructor(docClient: DocumentClient) {
+        super(docClient, LectureRepository.TableName, LectureRepository.TableKey)
     }
-    private tableName = "Lecture";
 
     public static mapToLecture(items: LectureModel[]): Lecture[] {
         return items.map(item => ({
@@ -42,33 +82,15 @@ export class LectureRepository {
             lectureScheduleId: item.lectureScheduleId,
             groupNumber: item.lectureCode,
             courseId: item.courseId,
-            lectureTime: this.mapToLectureTime(item.lectureTime),
-            conductedClasses: this.mapConductedClasses(item.conductedClasses),
+            lectureTime: mapToLectureTime(item.lectureTime),
+            conductedClasses: mapConductedClasses(item.conductedClasses),
         }));
-    }
-
-    public static mapConductedClasses(conductedClasses: ConductedClassesModel[]): ConductedClasses[] {
-        return conductedClasses.map(value => ({
-            startDate: parseISO(value.startDate),
-            endDate: parseISO(value.endDate),
-            tutor: value.tutor,
-        }))
     }
 
     public static mapToLectureTimeModel(lectureTime: LectureTime[]): LectureTimeModel[] {
         return lectureTime.map(item => ({
             startTime: item.startTime.toISOString(),
             endTime: item.endTime.toISOString(),
-            day: item.day,
-            weekType: item.weekType,
-            classRoom: item.classRoom
-        }))
-    }
-
-    public static mapToLectureTime(lectureTimeModel: LectureTimeModel[]): LectureTime[] {
-        return lectureTimeModel.map(item => ({
-            startTime: parseISO(item.startTime),
-            endTime: parseISO(item.endTime),
             day: item.day,
             weekType: item.weekType,
             classRoom: item.classRoom
@@ -88,63 +110,29 @@ export class LectureRepository {
             lectureId: item.lectureId,
             courseId: item.courseId,
             lectureCode: item.groupNumber,
-            lectureTime: this.mapToLectureTimeModel(item.lectureTime),
+            lectureTime: mapToLectureTimeModel(item.lectureTime),
             lectureScheduleId: item.lectureScheduleId,
-            conductedClasses: this.mapToConductedClassesModel(item.conductedClasses)
+            conductedClasses: mapToConductedClassesModel(item.conductedClasses)
         }));
     }
 
-    async create(item: Lecture) {
-        const lecture = LectureRepository.mapToLectureModel([item]);
-        const params = {
-            TableName: this.tableName,
-            Item: {
-                ...lecture[0]
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.put(params).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response;
+    async create(item: Lecture): Promise<Lecture> {
+        const lectureModel = LectureRepository.mapToLectureModel([item])[0];
+        const response = await super.createBase(lectureModel);
+        return LectureRepository.mapToLecture([response])[0];
     }
 
-    async getById(id: number | Lecture): Promise<Lecture[]> {
-        const query = {
-            TableName: this.tableName,
-            KeyConditionExpression: "#lectureId = :lectureId",
-            ExpressionAttributeNames: {
-                "#lectureId": "lectureId"
-            },
-            ExpressionAttributeValues: {
-                ":lectureId": id
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return LectureRepository.mapToLecture(response.Items);
+    async getById(id: number): Promise<Lecture> {
+        const response = await super.getByIdBase(id);
+        return LectureRepository.mapToLecture(response)[0];
     }
 
     async getAll(): Promise<Lecture[]> {
-        const query = {
-            TableName: this.tableName
-        };
-        let response;
-        try {
-            response = await this.docClient.scan(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return LectureRepository.mapToLecture(response.Items);
+        const response = await super.getAllBase();
+        return LectureRepository.mapToLecture(response);
     }
 
-    async updateLectureTime(lectureId: number, lectureTime: LectureTime) {
+    async updateLectureTime(lectureId: number, lectureTime: LectureTime): Promise<LectureTime[]> {
         const lectureTimeModel = LectureRepository.mapToLectureTimeModel([lectureTime]);
         const query = {
             TableName: this.tableName,
@@ -167,10 +155,10 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return LectureRepository.mapToLectureTime(response.Attributes.lectureTime);
+        return mapToLectureTime(response.Attributes.lectureTime);
     }
 
-    async updateLectureTutor(lectureId: number, conductedClasses: ConductedClasses) {
+    async updateLectureTutor(lectureId: number, conductedClasses: ConductedClasses): Promise<ConductedClasses[]> {
         const conductedClassesModel = LectureRepository.mapToConductedClassesModel([conductedClasses]);
         const queryLecture = {
             TableName: this.tableName,
@@ -193,6 +181,6 @@ export class LectureRepository {
         } catch (e) {
             console.log(e);
         }
-        return LectureRepository.mapConductedClasses(response.Attributes.conductedClasses);
+        return mapConductedClasses(response.Attributes.conductedClasses);
     }
 }

@@ -1,16 +1,16 @@
-import {Injectable} from '@nestjs/common';
-import {Lecture} from '../../../../Persistance/Models/lecture';
-import {LectureRepositoryService} from './lecture-repository.service';
-import {LectureTime} from '../../../../Persistance/Models/lectureTime';
-import {ConductedClasses} from '../../../../Persistance/Models/conductedClasses';
-import {TutorService} from '../tutor/tutor.service';
-import {CourseService} from '../course/course.service';
-import {LectureTimePatchDTO} from '../../DTO/lectureTimePatchDTO';
-import {WeekDay} from '../../../../Persistance/Models/weekDay';
-import {WeekType} from '../../../../Persistance/Models/weekType';
-import {addMinutes, parse} from 'date-fns';
-import {ClassRoomService} from '../class-room/class-room.service';
-import {LectureTutorPatchDTO} from '../../DTO/lectureTutorPatchDTO';
+import { Injectable } from '@nestjs/common';
+import { Lecture } from '../../../../Persistance/Models/lecture';
+import { LectureRepositoryService } from './lecture-repository.service';
+import { LectureTime } from '../../../../Persistance/Models/lectureTime';
+import { ConductedClasses } from '../../../../Persistance/Models/conductedClasses';
+import { TutorService } from '../tutor/tutor.service';
+import { CourseService } from '../course/course.service';
+import { LectureTimePatchDTO } from '../../DTO/lectureTimePatchDTO';
+import { WeekDay } from '../../../../Persistance/Models/weekDay';
+import { WeekType } from '../../../../Persistance/Models/weekType';
+import { addMinutes, parse } from 'date-fns';
+import { ClassRoomService } from '../class-room/class-room.service';
+import { LectureTutorPatchDTO } from '../../DTO/lectureTutorPatchDTO';
 
 @Injectable()
 export class LectureService {
@@ -27,16 +27,7 @@ export class LectureService {
 
   async getById(id: number): Promise<Lecture> {
     const response = await this.lectureRepository.getById(id);
-    const lecture = response[0];
-    // const conductedClassesPromises = lecture.conductedClasses
-    //   .filter((conductedClass) => conductedClass.tutorId)
-    //   .map(async (conductedClass) => {
-    //     conductedClass.tutor = await this.tutorService.getById(
-    //       conductedClass.tutorId,
-    //     );
-    //     return conductedClass;
-    //   });
-    // lecture.conductedClasses = await Promise.all(conductedClassesPromises);
+    const lecture = response;
     lecture.course = await this.courseService.getById(lecture.courseId);
     return lecture;
   }

@@ -1,58 +1,25 @@
 import {DocumentClient} from "aws-sdk/clients/dynamodb";
-import {Course} from "../Models/course";
 import {Tutor} from "../Models/tutor";
+import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
 
+export class TutorRepository extends RepositoryBase<Tutor> implements IRepositoryBase<Tutor>{
+    private static readonly TableName = 'Tutor';
+    private static readonly TableKey = 'tutorId';
 
-export class TutorRepository {
-    private readonly tableName = 'Tutor';
-    constructor(private readonly docClient: DocumentClient) {
+    constructor(docClient: DocumentClient) {
+        super(docClient, TutorRepository.TableName, TutorRepository.TableKey)
     }
-    async create(tutor: Tutor) {
-        const params = {
-            TableName: this.tableName,
-            Item: {
-                ...tutor
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.put(params).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response;
+
+    async create(item: Tutor): Promise<Tutor> {
+        return await super.createBase(item);
     }
     async getById(id: number): Promise<Tutor> {
-        const query = {
-            TableName: this.tableName,
-            KeyConditionExpression: "#tutorId = :tutorId",
-            ExpressionAttributeNames: {
-                "#tutorId": "tutorId"
-            },
-            ExpressionAttributeValues: {
-                ":tutorId": id
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response.Items;
+        return (await super.getByIdBase(id))[0];
     }
     async getAll(): Promise<Tutor[]> {
-        const query = {
-            TableName: this.tableName
-        };
-        let response;
-        try {
-            response = await this.docClient.scan(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response.Items;
+        return await super.getAllBase();
     }
+
     async getAllBySuggestedCourseId(courseId: number): Promise<Tutor[]> {
         const query = {
             TableName: this.tableName,

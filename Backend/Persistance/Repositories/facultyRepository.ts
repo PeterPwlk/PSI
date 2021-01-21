@@ -1,50 +1,30 @@
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import {Faculty} from "../Models/faculty";
 import {LectureSchedule} from "../Models/lectureSchedule";
+import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
 
-export class FacultyRepository {
+export class FacultyRepository extends RepositoryBase<Faculty> implements IRepositoryBase<Faculty>{
+    private static readonly TableName = "Faculty";
+    private static readonly TableKey = 'facultyId';
 
-    constructor(private readonly docClient: DocumentClient) {
-    }
-    private tableName = "Faculty";
-
-    async create(faculty: Faculty) {
-        const params = {
-            TableName: this.tableName,
-            Item: {
-                ...faculty
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.put(params).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response;
+    constructor(docClient: DocumentClient) {
+        super(docClient, FacultyRepository.TableName, FacultyRepository.TableKey);
     }
 
-    async getById(id: Faculty | number): Promise<Faculty> {
-        const query = {
-            TableName: this.tableName,
-            KeyConditionExpression: "#facultyId = :facultyId",
-            ExpressionAttributeNames: {
-                "#facultyId": "facultyId"
-            },
-            ExpressionAttributeValues: {
-                ":facultyId": id
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response.Items;
+    async create(item: Faculty): Promise<Faculty> {
+        return await super.createBase(item);
     }
 
-    async getByLectureScheduleId(lectureScheduleId: number): Promise<LectureSchedule> {
+    async getById(id: number): Promise<Faculty> {
+        const response = await super.getByIdBase(id);
+        return response[0];
+    }
+
+    async getAll(): Promise<Faculty[]> {
+        return await super.getAllBase();
+    }
+
+    async getByLectureScheduleId(lectureScheduleId: number): Promise<Faculty> {
         const query = {
             TableName: this.tableName,
             KeyConditionExpression: "#lectureScheduleId = :lectureScheduleId",
@@ -58,19 +38,6 @@ export class FacultyRepository {
         let response;
         try {
             response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response.Items;
-    }
-
-    async getAll(): Promise<Faculty[]> {
-        const query = {
-            TableName: this.tableName
-        };
-        let response;
-        try {
-            response = await this.docClient.scan(query).promise();
         } catch (e) {
             console.log(e);
         }
@@ -108,7 +75,7 @@ export class FacultyRepository {
                 ":studiesLevel": studiesLevel
             }
         };
-        let response;
+        let response: DocumentClient.ScanOutput;
         try {
             response = await this.docClient.scan(query).promise();
         } catch (e) {

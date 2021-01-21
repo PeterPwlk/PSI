@@ -42,8 +42,9 @@ async function ImportAndCleanTutors() {
 
     const importData = fileReader.readAndMap(paths.tutors);
 
-    await awsImporter.cleanTable('Tutor', 'tutorId');
-    await awsImporter.importData(importData);
+    const tableName = 'Tutor';
+    await awsImporter.cleanTable(tableName, 'tutorId');
+    await awsImporter.importData(importData, tableName);
 
     return "Tutors done";
 }
@@ -55,8 +56,9 @@ async function ImportAndCleanCourses() {
 
     const importData = fileReader.readAndMap(paths.course);
 
-    await awsImporter.cleanTable('Course', 'courseId');
-    await awsImporter.importData(importData, CourseRepository.mapToLectureForm);
+    const tableName = 'Course';
+    await awsImporter.cleanTable(tableName, 'courseId');
+    await awsImporter.importData(importData, tableName, CourseRepository.mapToLectureForm);
 
     return "Course done";
 }
@@ -68,8 +70,9 @@ async function ImportAndCleanClassRooms() {
 
     const importData = fileReader.readAndMap(paths.classRoom);
 
-    await awsImporter.cleanTable('ClassRooms', 'classRoomId');
-    await awsImporter.importData(importData);
+    const tableName = 'ClassRooms';
+    await awsImporter.cleanTable(tableName, 'classRoomId');
+    await awsImporter.importData(importData, tableName);
 
     return "ClassRoom done";
 }
@@ -79,8 +82,9 @@ async function ImportAndCleanLectures() {
     const awsImporter = new AwsDataImporter(repository, docClient);
     const importData = fileReader.readAndMap(paths.lectures);
 
-    await awsImporter.cleanTable('Lectures', 'lectureId');
-    await awsImporter.importData(importData, LectureRepository.mapToLecture);
+    const tableName = 'Lectures';
+    await awsImporter.cleanTable(tableName, 'lectureId');
+    await awsImporter.importData(importData, tableName, LectureRepository.mapToLecture);
 
     return "Lectures done";
 }
@@ -90,8 +94,9 @@ async function ImportAndCleanLectureSchedule() {
     const awsImporter = new AwsDataImporter(repository, docClient);
     const importData = fileReader.readAndMap(paths.lecturesSchedules);
 
-    await awsImporter.cleanTable('LectureSchedule', 'lectureScheduleId');
-    await awsImporter.importData(importData, LectureSchedulesRepository.mapToLectureSchedule);
+    const tableName = 'LectureSchedule';
+    await awsImporter.cleanTable(tableName, 'lectureScheduleId');
+    await awsImporter.importData(importData, tableName, LectureSchedulesRepository.mapToLectureSchedule);
 
     return "Lecture Schedule done";
 }
@@ -101,8 +106,9 @@ async function ImportAndCleanFaculty() {
     const awsImporter = new AwsDataImporter(repository, docClient);
     const importData = fileReader.readAndMap(paths.faculty);
 
-    await awsImporter.cleanTable('Faculty', 'facultyId');
-    await awsImporter.importData(importData);
+    const tableName = 'Faculty';
+    await awsImporter.cleanTable(tableName, 'facultyId');
+    await awsImporter.importData(importData, tableName);
 
     return "Faculty done";
 }

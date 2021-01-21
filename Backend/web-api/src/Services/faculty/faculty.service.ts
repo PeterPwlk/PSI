@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
-import { FacultyRepository } from '../../../../Persistance/Repositories/facultyRepository';
-import { Faculty } from '../../../../Persistance/Models/faculty';
-import { FacultyRepositoryService } from './faculty-repository.service';
+import {Injectable} from '@nestjs/common';
+import {Faculty} from '../../../../Persistance/Models/faculty';
+import {FacultyRepositoryService} from './faculty-repository.service';
 
 @Injectable()
 export class FacultyService {
@@ -12,8 +11,7 @@ export class FacultyService {
   }
 
   async getById(id: number) {
-    const response = await this.facultyRepository.getById(id);
-    return response[0];
+    return await this.facultyRepository.getById(id);
   }
 
   async getByLectureScheduleId(lectureScheduleId: number) {

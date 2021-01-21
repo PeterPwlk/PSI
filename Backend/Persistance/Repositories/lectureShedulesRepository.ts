@@ -3,6 +3,7 @@ import { StudiesType } from "../Models/studiesType";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import {Lecture} from "../Models/lecture";
 import {Faculty} from "../Models/faculty";
+import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
 
 interface LectureScheduleModel {
     lectureScheduleId: number
@@ -11,9 +12,12 @@ interface LectureScheduleModel {
     facultyId: number
 }
 
-export class LectureSchedulesRepository {
+export class LectureSchedulesRepository extends RepositoryBase<LectureScheduleModel> implements IRepositoryBase<LectureSchedule>{
+    private static readonly TableName = "LectureSchedule";
+    private static readonly TableKey = "lectureScheduleId";
 
-    constructor(private readonly docClient: DocumentClient) {
+    constructor(docClient: DocumentClient) {
+        super(docClient, LectureSchedulesRepository.TableName, LectureSchedulesRepository.TableKey);
     }
 
     public static mapToLectureSchedule(items: LectureScheduleModel[]): LectureSchedule[] {
@@ -52,42 +56,20 @@ export class LectureSchedulesRepository {
         }
     }
 
-    private tableName = "LectureSchedule";
-    async create(plan: LectureSchedule): Promise<void> {
-        const mappedPlan = LectureSchedulesRepository.mapToLectureScheduleModel([plan]);
-        const params = {
-            TableName: this.tableName,
-            Item:{
-                ...mappedPlan[0]
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.put(params).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return response;
+    async create(plan: LectureSchedule): Promise<LectureSchedule> {
+        const mappedPlan = (LectureSchedulesRepository.mapToLectureScheduleModel([plan]))[0];
+        const response = await super.createBase(mappedPlan);
+        return (LectureSchedulesRepository.mapToLectureSchedule([response]))[0];
     };
 
-    async getById(id: number): Promise<LectureSchedule[]> {
-        const query = {
-            TableName: this.tableName,
-            KeyConditionExpression: "#lectureScheduleId = :lectureScheduleId",
-            ExpressionAttributeNames: {
-                "#lectureScheduleId": "lectureScheduleId"
-            },
-            ExpressionAttributeValues: {
-                ":lectureScheduleId": id
-            }
-        };
-        let response;
-        try {
-            response = await this.docClient.query(query).promise();
-        } catch (e) {
-            console.log(e);
-        }
-        return LectureSchedulesRepository.mapToLectureSchedule(response.Items);
+    async getById(id: number): Promise<LectureSchedule> {
+        const response = await super.getByIdBase(id);
+        return LectureSchedulesRepository.mapToLectureSchedule(response)[0];
+    }
+
+    async getAll() : Promise<LectureSchedule[]> {
+        const response = await super.getAllBase();
+        return LectureSchedulesRepository.mapToLectureSchedule(response);
     }
 
     async getByFacultyId(facultyId: number): Promise<LectureSchedule[]> {
@@ -110,23 +92,8 @@ export class LectureSchedulesRepository {
         return LectureSchedulesRepository.mapToLectureSchedule(response.Items);
     }
 
-    async getAll() : Promise<LectureSchedule[]> {
-        const queryParams = {
-            TableName : this.tableName
-        };
-        
-        let response;
-        try {
-            response = await this.docClient.scan(queryParams).promise();
-        } catch (error) {
-            console.log("Error: ",  error);
-        }
-
-        return LectureSchedulesRepository.mapToLectureSchedule(response.Items);
-    }
-
     async getStudiesLevel(studiesType: StudiesType) {
-        var queryParams = {
+        const queryParams = {
             TableName : "LectureSchedule",
             FilterExpression: "#facultyStudiesType = :facultyStudiesType",
             ExpressionAttributeNames: {
@@ -147,7 +114,7 @@ export class LectureSchedulesRepository {
     }
 
     async getNonCreatedPlans() {
-        var queryParams = {
+        const queryParams = {
             TableName : "LectureSchedule",
             FilterExpression: "#created = :created",
             ExpressionAttributeNames: {
