@@ -4,11 +4,6 @@ pipeline {
     tools {nodejs "node"}
     
     stages {
-        stage('Cloning repository') {
-            steps {
-                git 'https://github.com/PeterPwlk/PSI.git'
-            }
-        }
         stage('Dependencies') {
             steps {
                 sh 'cd Backend/Persistance'
