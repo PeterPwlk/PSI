@@ -7,6 +7,7 @@ pipeline {
 		stage('Debug') {
 			steps {
 				sh 'pwd'
+			}
 		}
         stage('Dependencies') {
             steps {
