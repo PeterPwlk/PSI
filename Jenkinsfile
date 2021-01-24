@@ -4,14 +4,21 @@ pipeline {
     tools {nodejs "node"}
     
     stages {
+		stage('Debug') {
+			steps {
+				sh 'pwd'
+		}
         stage('Dependencies') {
             steps {
-                sh 'cd Backend/Persistance'
-                sh 'npm install'
-                sh 'cd ../web-api'
-                sh 'npm install'
-                sh 'cd ../../frontend'
-                sh 'npm install'
+				dir('Backend/Persistance'){
+					sh 'npm install'
+				}
+				dir('Backend/web-api'){
+					sh 'npm install'
+				}
+				dir('frontend'){
+					sh 'npm install'
+				}
             }
         }
     }
