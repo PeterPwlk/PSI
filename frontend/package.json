@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
     "build:docker": "docker build -t psi-%npm_package_version% ."
   },
   "dependencies": {
@@ -19,17 +20,19 @@
     "@babel/polyfill": "^7.11.5",
     "@vue/cli-plugin-babel": "^4.5.0",
     "@vue/cli-plugin-router": "^4.5.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.11",
     "@vue/cli-plugin-vuex": "^4.5.0",
     "@vue/cli-service": "^4.5.0",
+    "@vue/test-utils": "^1.0.3",
     "bootstrap": "^4.5.2",
+    "connect-history-api-fallback": "latest",
+    "express": "latest",
     "mutationobserver-shim": "^0.3.7",
     "popper.js": "^1.16.1",
     "portal-vue": "^2.1.7",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "vue-cli-plugin-bootstrap-vue": "^0.7.0",
-    "vue-template-compiler": "^2.6.11",
-    "express": "latest",
-    "connect-history-api-fallback": "latest"
+    "vue-template-compiler": "^2.6.11"
   }
 }

@@ -153,11 +153,9 @@
             this.getGroups();
             this.getFaculty();
             eventBus.$on('lecture-time-updated', (data) => {
-                console.log(data);
                 this.schedule.find(item => item.lectureId === data.lectureId).lectureTimes = data.lectureTime;
             });
             eventBus.$on('conducted-classes-updated', (data) => {
-                console.log(data);
                 this.schedule.find(item => item.lectureId === data.lectureId).tutors = data.conductedClasses;
             });
         }

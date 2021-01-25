@@ -1,0 +1,719 @@
+{
+    "lectureScheduleId": 0,
+    "lectures": [
+        {
+            "lectureId": 0,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZZO-20a",
+            "courseId": 0,
+            "lectureTime": [
+                {
+                    "startTime": "07:30",
+                    "endTime": "09:00",
+                    "day": 0,
+                    "weekType": 0,
+                    "classRoom": {
+                        "number": "128",
+                        "classRoomId": 1,
+                        "classRoomType": 0,
+                        "building": "A1",
+                        "capacity": "15"
+                    }
+                }
+            ],
+            "conductedClasses": [
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                },
+                {
+                    "tutor": {
+                        "tutorId": 9,
+                        "lastName": "Kopecz",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "08:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 1,
+                                "weekDay": 0
+                            },
+                            {
+                                "startTime": "11:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Starszy wykładowca",
+                        "title": "Prof."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                },
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                },
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                },
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                },
+                {
+                    "tutor": {
+                        "tutorId": 9,
+                        "lastName": "Kopecz",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "08:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 1,
+                                "weekDay": 0
+                            },
+                            {
+                                "startTime": "11:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Starszy wykładowca",
+                        "title": "Prof."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                },
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                }
+            ],
+            "course": {
+                "courseId": 0,
+                "numberOfHours": 60,
+                "duration": 90,
+                "lectureType": 0,
+                "numberOfStudentsInGroup": 165,
+                "course": {
+                    "name": "Analiza matematyczna 1",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-123"
+                }
+            }
+        },
+        {
+            "lectureId": 1,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZZO-20b",
+            "courseId": 0,
+            "lectureTime": [
+                {
+                    "startTime": "10:15",
+                    "endTime": "11:45",
+                    "day": 0,
+                    "weekType": 1,
+                    "classRoom": {
+                        "number": "128",
+                        "classRoomId": 1,
+                        "classRoomType": 0,
+                        "building": "A1",
+                        "capacity": "15"
+                    }
+                },
+                {
+                    "startTime": "07:30",
+                    "endTime": "09:00",
+                    "day": 0,
+                    "weekType": 1,
+                    "classRoom": {
+                        "number": "128",
+                        "classRoomId": 1,
+                        "classRoomType": 0,
+                        "building": "A1",
+                        "capacity": "15"
+                    }
+                }
+            ],
+            "conductedClasses": [
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-30"
+                }
+            ],
+            "course": {
+                "courseId": 0,
+                "numberOfHours": 60,
+                "duration": 90,
+                "lectureType": 0,
+                "numberOfStudentsInGroup": 165,
+                "course": {
+                    "name": "Analiza matematyczna 1",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-123"
+                }
+            }
+        },
+        {
+            "lectureId": 2,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-20a",
+            "courseId": 1,
+            "lectureTime": [
+                {
+                    "startTime": "07:30",
+                    "endTime": "09:00",
+                    "day": 0,
+                    "weekType": 1,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                }
+            ],
+            "conductedClasses": [
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                }
+            ],
+            "course": {
+                "courseId": 1,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 2,
+                "numberOfStudentsInGroup": 65,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-331"
+                }
+            }
+        },
+        {
+            "lectureId": 3,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-20b",
+            "courseId": 1,
+            "lectureTime": [
+                {
+                    "startTime": "07:30",
+                    "endTime": "09:00",
+                    "day": 1,
+                    "weekType": 0,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                },
+                {
+                    "startTime": "07:30",
+                    "endTime": "09:00",
+                    "day": 0,
+                    "weekType": 0,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                },
+                {
+                    "startTime": "05:06",
+                    "endTime": "06:36",
+                    "day": 1,
+                    "weekType": 0,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                },
+                {
+                    "startTime": "09:20",
+                    "endTime": "10:50",
+                    "day": 1,
+                    "weekType": 0,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                }
+            ],
+            "conductedClasses": [
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                }
+            ],
+            "course": {
+                "courseId": 1,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 2,
+                "numberOfStudentsInGroup": 65,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-331"
+                }
+            }
+        },
+        {
+            "lectureId": 4,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-20c",
+            "courseId": 1,
+            "lectureTime": [
+                {
+                    "startTime": "20:30",
+                    "endTime": "22:00",
+                    "day": 0,
+                    "weekType": 0,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                },
+                {
+                    "startTime": "13:15",
+                    "endTime": "14:45",
+                    "day": 1,
+                    "weekType": 1,
+                    "classRoom": {
+                        "number": "129",
+                        "classRoomId": 0,
+                        "classRoomType": 1,
+                        "building": "A1",
+                        "capacity": "300"
+                    }
+                }
+            ],
+            "conductedClasses": [
+                {
+                    "tutor": {
+                        "tutorId": 10,
+                        "lastName": "Czarnecki",
+                        "courses": [],
+                        "firstName": "Ludwik",
+                        "pensum": 320,
+                        "councilOpinion": null,
+                        "availabilities": [
+                            {
+                                "startTime": "13:00:00:0000",
+                                "endTime": "15:30:00:0000",
+                                "week": 2,
+                                "weekDay": 2
+                            }
+                        ],
+                        "suggestedLecture": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "workingTime": 1,
+                        "position": "Wykładowca",
+                        "title": "Mgr inż."
+                    },
+                    "startDate": "2021-01-19",
+                    "endDate": "2021-01-19"
+                }
+            ],
+            "course": {
+                "courseId": 1,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 2,
+                "numberOfStudentsInGroup": 65,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-331"
+                }
+            }
+        },
+        {
+            "lectureId": 5,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-20d",
+            "courseId": 1,
+            "lectureTime": [],
+            "conductedClasses": [],
+            "course": {
+                "courseId": 1,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 2,
+                "numberOfStudentsInGroup": 65,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-331"
+                }
+            }
+        },
+        {
+            "lectureId": 6,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-20e",
+            "courseId": 1,
+            "lectureTime": [],
+            "conductedClasses": [],
+            "course": {
+                "courseId": 1,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 2,
+                "numberOfStudentsInGroup": 65,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "KNL-331"
+                }
+            }
+        },
+        {
+            "lectureId": 7,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-21a",
+            "courseId": 2,
+            "lectureTime": [],
+            "conductedClasses": [],
+            "course": {
+                "courseId": 2,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 0,
+                "numberOfStudentsInGroup": 165,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "PKL-123"
+                }
+            }
+        },
+        {
+            "lectureId": 8,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-21b",
+            "courseId": 2,
+            "lectureTime": [],
+            "conductedClasses": [],
+            "course": {
+                "courseId": 2,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 0,
+                "numberOfStudentsInGroup": 165,
+                "course": {
+                    "name": "Algebra",
+                    "tutors": [
+                        9,
+                        10
+                    ],
+                    "courseNumber": "PKL-123"
+                }
+            }
+        },
+        {
+            "lectureId": 9,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-31a",
+            "courseId": 3,
+            "lectureTime": [],
+            "conductedClasses": [],
+            "course": {
+                "courseId": 3,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 0,
+                "numberOfStudentsInGroup": 165,
+                "course": {
+                    "name": "Filozofia ogólna",
+                    "tutors": [
+                        6,
+                        7
+                    ],
+                    "courseNumber": "KLA-123"
+                }
+            }
+        },
+        {
+            "lectureId": 10,
+            "lectureScheduleId": 0,
+            "groupNumber": "ZOO-31a",
+            "courseId": 3,
+            "lectureTime": [],
+            "conductedClasses": [],
+            "course": {
+                "courseId": 3,
+                "numberOfHours": 30,
+                "duration": 90,
+                "lectureType": 0,
+                "numberOfStudentsInGroup": 165,
+                "course": {
+                    "name": "Filozofia ogólna",
+                    "tutors": [
+                        6,
+                        7
+                    ],
+                    "courseNumber": "KLA-123"
+                }
+            }
+        }
+    ],
+    "faculty": 0
+}

@@ -1,0 +1,13 @@
+{
+    "studiesLevel": 0,
+    "studiesType": 0,
+    "facultyId": 0,
+    "lectureScheduleId": 0,
+    "studentGroups": {
+        "numberOfStudents": 300,
+        "speciality": "",
+        "semester": "zimowy"
+    },
+    "name": "Informatyka",
+    "startYear": "2021"
+}
