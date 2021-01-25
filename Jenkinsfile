@@ -9,14 +9,21 @@ pipeline {
 				sh 'pwd'
 			}
 		}
-        stage('Dependencies') {
-            steps {
+		stage('Backend'){
+			steps {
 				dir('Backend/Persistance'){
 					sh 'npm install'
 				}
 				dir('Backend/web-api'){
 					sh 'npm install'
 				}
+				dir('Backend/web-api'){
+					sh 'npm run build'
+				}
+			}
+		}
+        stage('Frontend') {
+            steps {
 				dir('frontend'){
 					sh 'npm install'
 				}
