@@ -15,7 +15,7 @@
         <b-dropdown-item href="#">FA</b-dropdown-item>
       </b-nav-item-dropdown>
 
-      <b-nav-item v-if="!$store.state.authorized" href="https://pwr-psi.auth.us-east-1.amazoncognito.com/login?client_id=4qkatbqtpu4bsv25b27cffvtjv&response_type=code&scope=openid+profile&redirect_uri=http://localhost:8080/login">
+      <b-nav-item v-if="!$store.state.authorized" href="https://pwr-psi.auth.us-east-1.amazoncognito.com/login?client_id=4qkatbqtpu4bsv25b27cffvtjv&response_type=code&scope=openid+profile&redirect_uri=http://51.83.129.128:8080/login">
         Zaloguj się
       </b-nav-item>
       <b-nav-item v-else @click="$store.dispatch('logout')"> Wyloguj się </b-nav-item>
