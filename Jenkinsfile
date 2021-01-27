@@ -62,7 +62,7 @@ pipeline {
         stage('Build docker images'){
             steps{
                 sh 'docker-compose down -v --remove-orphans'
-                sh 'docker-compose up'
+                sh 'docker-compose up -d'
             }
         }
     }
