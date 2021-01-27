@@ -32,5 +32,32 @@ pipeline {
 				}
             }
         }
+        stage('Tests') {
+            steps {
+                parallel(
+//                     stage('Frontend unit tests'){
+//                         steps {
+//                             dir('frontend'){
+//                                 sh 'npm run test:unit'
+//                             }
+//                         }
+//                     }
+                    stage('Backend unit test'){
+                        steps {
+                            dir('Backend/web-api'){
+                                sh 'npm run test -- -t "ClassRoomService"'
+                            }
+                        }
+                    }
+                    stage('Backend integration tests'){
+                        steps {
+                            dir('Backend/web-api'){
+                                sh 'npm run test:e2e'
+                            }
+                        }
+                    }
+                )
+            }
+        }
     }
 }
