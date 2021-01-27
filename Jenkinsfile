@@ -23,8 +23,7 @@ pipeline {
         }
         stage('Build docker images'){
             steps{
-                sh 'docker-compose down -v --remove-orphans'
-                sh 'docker-compose up -d'
+                sh 'docker-compose up -d --build --force-recreate'
             }
         }
     }
