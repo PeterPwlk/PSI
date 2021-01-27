@@ -32,8 +32,8 @@ pipeline {
 				}
             }
         }
-        stage('Tests') {
-                parallel{
+//         stage('Tests') {
+//                 parallel{
 //                     stage('Frontend unit tests'){
 //                         steps {
 //                             dir('frontend'){
@@ -55,8 +55,8 @@ pipeline {
 //                             }
 //                         }
 //                     }
-                }
-        }
+//                 }
+//         }
         stage('Build docker images'){
             steps{
                 sh 'docker-compose build'
