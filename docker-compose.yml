@@ -2,9 +2,7 @@ version: "2"
 
 services:
   backend:
-    build: 
-      context: .
-      dockerfile: Backend/Dockerfile
+    build: ./Backend
     restart: unless-stopped
     container_name: backend
     ports: 
