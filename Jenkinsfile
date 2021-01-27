@@ -41,13 +41,13 @@ pipeline {
 //                             }
 //                         }
 //                     }
-                    stage('Backend unit test'){
-                        steps {
-                            dir('Backend/web-api'){
-                                sh 'npm run test -- -t "ClassRoomService"'
-                            }
-                        }
-                    }
+//                     stage('Backend unit test'){
+//                         steps {
+//                             dir('Backend/web-api'){
+//                                 sh 'npm run test -- -t "ClassRoomService"'
+//                             }
+//                         }
+//                     }
                     stage('Backend integration tests'){
                         steps {
                             dir('Backend/web-api'){
@@ -56,6 +56,13 @@ pipeline {
                         }
                     }
                 }
+        }
+        stage('Build docker images'){
+            steps{
+                dir('frontend'){
+                    sh 'docker build -t frontend:0.0.1 .'
+                }
+            }
         }
     }
 }
