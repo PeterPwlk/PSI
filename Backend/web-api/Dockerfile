@@ -1,4 +1,4 @@
-FROM node:12.3-alpine AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /backend/web-api
 ADD ./Backend/web-api/package.json ./package.json
 ADD ./Backend/web-api .
@@ -7,7 +7,7 @@ RUN cd /backend/Persistance && npm install && cd -
 RUN npm install
 RUN npm run build
 
-FROM node:12.3-alpine
+FROM node:lts-alpine
 WORKDIR /backend/web-api
 COPY --from=builder /backend/web-api ./
 EXPOSE 3000
