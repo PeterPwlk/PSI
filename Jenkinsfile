@@ -33,7 +33,6 @@ pipeline {
             }
         }
         stage('Tests') {
-            steps {
                 parallel(
 //                     stage('Frontend unit tests'){
 //                         steps {
@@ -57,7 +56,6 @@ pipeline {
                         }
                     }
                 )
-            }
         }
     }
 }
