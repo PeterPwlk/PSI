@@ -13,12 +13,14 @@ describe('Groups.vue', () => {
 
   let vm;
   const planId = 0;
+  const facultyId = 1;
   beforeEach(() => {
     const wrapper = shallowMount(Groups, {
       mocks: {
         $route: {
           params: {
-            planId: planId
+            planId: planId,
+            facultyId: facultyId
           }
         }
       },
@@ -50,6 +52,7 @@ describe('Groups.vue', () => {
     const faculty = require('../mockData/mockFacultyResponse');
     getFaculty.mockResolvedValueOnce(faculty);
     await vm.getFaculty();
+    expect(getFaculty).toHaveBeenCalledWith(facultyId);
     expect(vm.faculty).toEqual({
       name: faculty.name,
       studiesLevel: pl.studiesLevel[faculty.studiesLevel],
