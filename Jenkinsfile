@@ -48,20 +48,19 @@ pipeline {
 //                             }
 //                         }
 //                     }
-                    stage('Backend integration tests'){
-                        steps {
-                            dir('Backend/web-api'){
-                                sh 'npm run test:e2e'
-                            }
-                        }
-                    }
+//                     stage('Backend integration tests'){
+//                         steps {
+//                             dir('Backend/web-api'){
+//                                 sh 'npm run test:e2e'
+//                             }
+//                         }
+//                     }
                 }
         }
         stage('Build docker images'){
             steps{
-                dir('frontend'){
-                    sh 'docker build -t frontend:0.0.1 .'
-                }
+                sh 'docker-compose build'
+                sh 'docker-compose up'
             }
         }
     }

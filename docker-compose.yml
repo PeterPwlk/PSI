@@ -1,9 +1,5 @@
 version: '2.2'
 
-networks:
- internal:
-   driver: bridge
-   internal: true
 services:
   backend:
     build: 
