@@ -2,9 +2,6 @@ pipeline {
     agent any
     
     tools {nodejs "node"}
-    environment {
-       BACKEND_URL = 'http://51.83.129.128:3000'
-    }
     stages {
 		stage('Debug') {
 			steps {

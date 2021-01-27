@@ -4,12 +4,14 @@ services:
   backend:
     build: 
       context: .
-      dockerfile: ./Backend/web-api/Dockerfile
+      dockerfile: Backend/Dockerfile
     restart: unless-stopped
     container_name: backend
     ports: 
         - 3000:3000
   frontend:
+    environment:
+      - BACKEND_URL=http://51.83.129.128:3000
     build: ./frontend
     container_name: frontend
     ports:
