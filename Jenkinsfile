@@ -2,7 +2,9 @@ pipeline {
     agent any
     
     tools {nodejs "node"}
-    
+    environment {
+       BACKEND_URL = http://51.83.129.128:3000
+    }
     stages {
 		stage('Debug') {
 			steps {
@@ -22,16 +24,16 @@ pipeline {
 				}
             }
         }
-        stage('Build') {
-            steps {
-				dir('Backend/web-api'){
-					sh 'npm run build'
-				}
-				dir('frontend'){
-					sh 'npm run build'
-				}
-            }
-        }
+//         stage('Build') {
+//             steps {
+// 				dir('Backend/web-api'){
+// 					sh 'npm run build'
+// 				}
+// 				dir('frontend'){
+// 					sh 'npm run build'
+// 				}
+//             }
+//         }
 //         stage('Tests') {
 //                 parallel{
 //                     stage('Frontend unit tests'){
@@ -59,7 +61,7 @@ pipeline {
 //         }
         stage('Build docker images'){
             steps{
-                sh 'docker-compose build'
+                sh 'docker-compose down -v --remove-orphans'
                 sh 'docker-compose up'
             }
         }

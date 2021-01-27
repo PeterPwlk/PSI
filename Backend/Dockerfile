@@ -1,10 +1,11 @@
 FROM node:lts-alpine AS builder
 WORKDIR /backend/web-api
-ADD ./Backend/web-api/package.json ./package.json
-ADD ./Backend/web-api .
-ADD ./Backend/Persistance/ /backend/Persistance
-RUN cd /backend/Persistance && npm install && cd -
+ADD ./package.json ./package.json
+ADD . .
 RUN npm install
+RUN cd ../Persistance
+ADD . /backend/Persistance
+RUN cd /backend/Persistance && npm install && cd -
 RUN npm run build
 
 FROM node:lts-alpine
