@@ -28,7 +28,7 @@ async function bootstrap() {
     sessionToken: configService.get('AWS_SESSION_TOKEN'),
   });
 
-  app.enableCors();
   await app.listen(process.env.PORT || 3000);
+
 }
 bootstrap();

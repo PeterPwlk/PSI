@@ -59,14 +59,14 @@ describe('ClassRoomController', () => {
       .expect(classRoomRepository.getAll());
   });
 
-  it('/GET class-room', () => {
+  it('/GET class-room/:id', () => {
     return request(app.getHttpServer())
       .get('/class-room/1')
       .expect(200)
       .expect(classRoomRepository.getById());
   });
 
-  it('/GET class-room', () => {
+  it('/GET class-room/filter?classRoomType', () => {
     return request(app.getHttpServer())
       .get('/class-room/filter?classRoomType=0')
       .expect(200)

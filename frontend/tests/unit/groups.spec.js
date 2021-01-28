@@ -14,7 +14,12 @@ describe('Groups.vue', () => {
   let vm;
   const planId = 0;
   const facultyId = 1;
+  const lectureSchedules = require('../mockData/mockGetScheduleResponse');
+  const faculty = require('../mockData/mockFacultyResponse');
+
   beforeEach(() => {
+    getSchedule.mockResolvedValue(lectureSchedules);
+    getFaculty.mockResolvedValue(faculty);
     const wrapper = shallowMount(Groups, {
       mocks: {
         $route: {
@@ -30,8 +35,6 @@ describe('Groups.vue', () => {
   });
 
   it('getGroups function sets correct data', async () => {
-    const lectureSchedules = require('../mockData/mockGetScheduleResponse');
-    getSchedule.mockResolvedValueOnce(lectureSchedules);
     await vm.getGroups();
     const lectures = lectureSchedules.lectures;
     expect(getSchedule).toHaveBeenCalledWith(planId);
@@ -49,8 +52,6 @@ describe('Groups.vue', () => {
   });
 
   it('getFaculty function gets correct structure', async () => {
-    const faculty = require('../mockData/mockFacultyResponse');
-    getFaculty.mockResolvedValueOnce(faculty);
     await vm.getFaculty();
     expect(getFaculty).toHaveBeenCalledWith(facultyId);
     expect(vm.faculty).toEqual({
