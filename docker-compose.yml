@@ -1,16 +1,29 @@
-version: "2"
+version: '2'
 
 services:
   backend:
+    environment:
+      - SSL=true
+      - SSL_KEY=/certs/server.key
+      - SSL_CERT=/certs/server.crt
+    volumes:
+      - ./certs:/certs:ro
     build: ./Backend
     restart: unless-stopped
     container_name: backend
-    ports: 
-        - 3000:3000
+    ports:
+      - 3000:3000
+
   frontend:
     environment:
       - BACKEND_URL=http://51.83.129.128:3000
+      - PORT=8080
+      - SSL=true
+      - SSL_KEY=/certs/server.key
+      - SSL_CERT=/certs/server.crt
+    volumes:
+      - ./certs:/certs:ro
     build: ./frontend
     container_name: frontend
     ports:
-    - 8080:8080
+      - 8080:8080
