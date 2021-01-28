@@ -58,8 +58,6 @@ export class AuthService {
       `${this.authConfig.clientId}:${this.authConfig.clientSecret}`,
     ).toString('base64');
 
-    console.log('authToken: ', authToken);
-
     const config = {
       headers: {
         Authorization: `Basic ${authToken}`,

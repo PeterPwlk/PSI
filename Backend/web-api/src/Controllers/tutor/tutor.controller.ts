@@ -12,7 +12,6 @@ export class TutorController {
 
   @Get('filter')
   public async getByCourseId(@Query('courseId') courseId) {
-    console.log(courseId);
     return await this.tutorService.getAllBySuggestedCourseId(
       parseInt(courseId),
     );
