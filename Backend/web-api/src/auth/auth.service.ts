@@ -54,8 +54,15 @@ export class AuthService {
     params.append('client_id', this.authConfig.clientId);
     params.append('redirect_uri', this.authConfig.redirectUrl);
 
+    const authToken = Buffer.from(
+      `${this.authConfig.clientId}:${this.authConfig.clientSecret}`,
+    ).toString('base64');
+
+    console.log('authToken: ', authToken);
+
     const config = {
       headers: {
+        Authorization: `Basic ${authToken}`,
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     };
