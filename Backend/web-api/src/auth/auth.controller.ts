@@ -36,6 +36,8 @@ export class AuthController {
     @Query('code') code: string,
   ) {
     const token = await this.authService.generateToken(code);
+    console.log('Code: ', code);
+    console.log('Token: ', token);
     res.cookie('Authentication', token);
   }
 }
