@@ -19,6 +19,7 @@ services:
       - SSL=true
       - SSL_KEY=/app/certs/server.key
       - SSL_CERT=/app/certs/server.crt
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
     build: ./frontend
     container_name: frontend
     ports:
