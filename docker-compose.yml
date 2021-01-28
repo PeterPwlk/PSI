@@ -4,10 +4,8 @@ services:
   backend:
     environment:
       - SSL=true
-      - SSL_KEY=/certs/server.key
-      - SSL_CERT=/certs/server.crt
-    volumes:
-      - ./certs:/certs:ro
+      - SSL_KEY=/app/certs/server.key
+      - SSL_CERT=/app/certs/server.crt
     build: ./Backend
     restart: unless-stopped
     container_name: backend
@@ -16,13 +14,11 @@ services:
 
   frontend:
     environment:
-      - BACKEND_URL=http://51.83.129.128:3000
+      - BACKEND_URL=https://51.83.129.128:3000
       - PORT=8080
       - SSL=true
-      - SSL_KEY=/certs/server.key
-      - SSL_CERT=/certs/server.crt
-    volumes:
-      - ./certs:/certs:ro
+      - SSL_KEY=/app/certs/server.key
+      - SSL_CERT=/app/certs/server.crt
     build: ./frontend
     container_name: frontend
     ports:

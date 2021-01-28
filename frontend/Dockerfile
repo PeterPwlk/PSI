@@ -8,6 +8,7 @@ FROM node:lts-alpine
 RUN npm install -g http-server
 WORKDIR /app
 COPY --from=builder /build/dist ./dist
+COPY --from=builder /build/certs ./certs
 
 EXPOSE $PORT
 CMD if [ "$SSL" == "true" ]; \

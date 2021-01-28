@@ -10,6 +10,7 @@ COPY --from=builder /app/web-api/dist ./web-api/dist
 COPY --from=builder /app/web-api/node_modules ./web-api/node_modules
 COPY --from=builder /app/web-api/package.json ./web-api/package.json
 COPY --from=builder /app/web-api/.env ./web-api/.env
+COPY --from=builder /app/certs ./certs
 
 EXPOSE 3000
 CMD cd ./web-api && npm run start:prod
