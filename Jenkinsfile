@@ -16,15 +16,15 @@ pipeline {
 				}
             }
         }
-//         stage('Tests') {
-//                 parallel{
-//                     stage('Frontend unit tests'){
-//                         steps {
-//                             dir('frontend'){
-//                                 sh 'npm run test:unit'
-//                             }
-//                         }
-//                     }
+        stage('Tests') {
+                parallel{
+                    stage('Frontend unit tests'){
+                        steps {
+                            dir('frontend'){
+                                sh 'npm run test:unit'
+                            }
+                        }
+                    }
 //                     stage('Backend unit test'){
 //                         steps {
 //                             dir('Backend/web-api'){
@@ -39,8 +39,8 @@ pipeline {
 //                             }
 //                         }
 //                     }
-//                 }
-//         }
+                }
+        }
         stage('Build docker images'){
             steps{
                 sh 'docker-compose down -v --remove-orphans --rmi "all"'
