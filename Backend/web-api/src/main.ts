@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
@@ -5,7 +6,17 @@ import { ConfigService } from '@nestjs/config';
 import { config } from 'aws-sdk';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const https = process.env.SSL
+    ? {
+        httpsOptions: {
+          key: readFileSync(process.env.SSL_KEY, 'utf8'),
+          cert: readFileSync(process.env.SSL_CERT, 'utf8'),
+        },
+      }
+    : {};
+
+  const app = await NestFactory.create(AppModule, https);
+
   app.use(cookieParser());
   app.setGlobalPrefix('api');
 
@@ -17,8 +28,7 @@ async function bootstrap() {
     sessionToken: configService.get('AWS_SESSION_TOKEN'),
   });
 
-  app.enableCors();
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 
 }
 bootstrap();

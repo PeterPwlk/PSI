@@ -1,20 +1,26 @@
-version: '2.2'
+version: '2'
 
-networks:
- internal:
-   driver: bridge
-   internal: true
 services:
   backend:
-    build: 
-      context: .
-      dockerfile: ./Backend/web-api/Dockerfile
+    environment:
+      - SSL=true
+      - SSL_KEY=/app/certs/server.key
+      - SSL_CERT=/app/certs/server.crt
+    build: ./Backend
     restart: unless-stopped
     container_name: backend
-    ports: 
-        - 3000:3000
+    ports:
+      - 3000:3000
+
   frontend:
+    environment:
+      - BACKEND_URL=https://51.83.129.128:3000
+      - PORT=8080
+      - SSL=true
+      - SSL_KEY=/app/certs/server.key
+      - SSL_CERT=/app/certs/server.crt
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
     build: ./frontend
     container_name: frontend
     ports:
-    - 8080:8080
+      - 8080:8080
