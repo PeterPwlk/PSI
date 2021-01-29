@@ -25,20 +25,20 @@ pipeline {
                             }
                         }
                     }
-                    stage('Backend unit test'){
-                        steps {
-                            dir('Backend/web-api'){
-                                sh 'npm run test -- -t "ClassRoomService"'
-                            }
-                        }
-                    }
-                    stage('Backend integration tests'){
-                        steps {
-                            dir('Backend/web-api'){
-                                sh 'npm run test:e2e'
-                            }
-                        }
-                    }
+//                     stage('Backend unit test'){
+//                         steps {
+//                             dir('Backend/web-api'){
+//                                 sh 'npm run test -- -t "ClassRoomService"'
+//                             }
+//                         }
+//                     }
+//                     stage('Backend integration tests'){
+//                         steps {
+//                             dir('Backend/web-api'){
+//                                 sh 'npm run test:e2e'
+//                             }
+//                         }
+//                     }
                 }
         }
         stage('Build docker images'){
