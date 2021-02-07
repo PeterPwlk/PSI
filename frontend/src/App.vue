@@ -31,6 +31,12 @@
   import SplitPanel from "./components/SplitPanel";
   export default {
     components: {SplitPanel, Footer, Sidebar, Navbar},
+    created() {
+      const lang = localStorage.getItem('lang');
+      if (lang) {
+        this.$i18n.locale = lang;
+      }
+    },
     mounted() {
       this.$store.dispatch('checkLogin');
     }

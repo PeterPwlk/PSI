@@ -1,7 +1,7 @@
 <template>
   <b-modal id="modal-1" v-model="modal" centered button-size="sm" @ok="handleOk" size="lg" @cancel="handleCancel">
       <template #modal-title>
-          <div class="font-weight-bold"> Prowadzący </div>
+          <div class="font-weight-bold"> {{ $t('tutor') }} </div>
           <div class="font-regular"> {{ groupNumber }} {{ course.course.name }} ({{ course.course.courseNumber}}) </div>
       </template>
       <b-container fluid>
@@ -9,25 +9,25 @@
               <b-col>
                   <b-select v-if="!loadingTutors" :options="tutors" v-model="tutorId"></b-select>
                   <b-skeleton type="input" v-else></b-skeleton>
-                  <b-link disabled>Pokaż plan prowadzącego</b-link>
+                  <b-link disabled>{{ $t('message.showTutorPlan') }}</b-link>
               </b-col>
           </b-row>
           <b-row class="mt-2">
               <b-col>
-                  <span>Data rozpoczęcia:</span>
+                  <span>{{ $t('startDate') }}:</span>
                   <b-datepicker v-model="startDateComp" locale="pl"></b-datepicker>
               </b-col>
               <b-col>
-                  <span>Data zakończenia:</span>
+                  <span>{{ $t('endDate') }}:</span>
                   <b-datepicker v-model="endDateComp" locale="pl"></b-datepicker>
               </b-col>
           </b-row>
       </b-container>
       <template #modal-ok>
-          <span> Zapisz zmiany </span>
+          <span> {{ $t('saveChanges') }} </span>
       </template>
       <template #modal-cancel>
-          <span> Anuluj </span>
+          <span> {{ $t('cancel') }} </span>
       </template>
   </b-modal>
 </template>

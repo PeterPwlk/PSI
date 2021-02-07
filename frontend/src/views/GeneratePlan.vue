@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1> Generuj Plan </h1>
+        <h1> {{ $t('generatePlan') }} </h1>
         <b-container>
             <b-row class="mt-5">
                 <b-col v-for="(step, index) in steps">
