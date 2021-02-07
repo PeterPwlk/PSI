@@ -11,6 +11,7 @@ import { WeekType } from '../../../../Persistance/Models/weekType';
 import { addMinutes, parse } from 'date-fns';
 import { ClassRoomService } from '../class-room/class-room.service';
 import { LectureTutorPatchDTO } from '../../DTO/lectureTutorPatchDTO';
+import { isEqual } from 'lodash'
 
 @Injectable()
 export class LectureService {
@@ -50,6 +51,28 @@ export class LectureService {
     );
   }
 
+  async deleteLectureTime(lectureId: number, lectureTimeDTO: LectureTimePatchDTO){
+    const lecture = await this.lectureRepository.getById(lectureId);
+    const lectureTimeMap = LectureTimeDTOMapper.mapToLectureTime([
+      lectureTimeDTO,
+    ]);
+    const lectureTimeToRemove = lectureTimeMap[0];
+    lectureTimeToRemove.classRoom = await this.classRoomService.getById(
+        lectureTimeDTO.classRoom,
+    );
+    delete lectureTimeToRemove.classRoomId;
+    for (const lectureTime of lecture.lectureTime) {
+      if(isEqual(lectureTime, lectureTimeToRemove)){
+        const index = lecture.lectureTime.findIndex(item => isEqual(item, lectureTimeToRemove))
+        lecture.lectureTime.splice(index, 1);
+      }
+    }
+    return await this.lectureRepository.replaceLectureTime(
+        lectureId,
+        lecture.lectureTime,
+    );
+  }
+
   async updateLectureTutor(
     lectureId: number,
     conductedClassesDTO: LectureTutorPatchDTO,
@@ -64,6 +87,29 @@ export class LectureService {
     return await this.lectureRepository.updateLectureTutor(
       lectureId,
       conductedClasses,
+    );
+  }
+
+  async deleteLectureTutor(
+    lectureId: number,
+    conductedClassesDTO: LectureTutorPatchDTO,
+  ) {
+    const lecture = await this.lectureRepository.getById(lectureId);
+    const conductedClassesMap = LectureTutorDTOMapper.mapToConductedClasses([
+      conductedClassesDTO,
+    ]);
+    const conductedClassesToRemove = conductedClassesMap[0];
+    conductedClassesToRemove.tutor = await this.tutorService.getById(conductedClassesToRemove.tutorId);
+    delete conductedClassesToRemove.tutorId;
+    for (const conductedClasses of lecture.conductedClasses) {
+      if(isEqual(conductedClasses, conductedClassesToRemove)){
+        const index = lecture.conductedClasses.findIndex(item => isEqual(item, conductedClassesToRemove))
+        lecture.conductedClasses.splice(index, 1);
+      }
+    }
+    return await this.lectureRepository.replaceLectureTutor(
+      lectureId,
+        lecture.conductedClasses,
     );
   }
 }

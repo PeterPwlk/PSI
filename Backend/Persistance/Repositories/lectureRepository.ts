@@ -158,6 +158,32 @@ export class LectureRepository
         return mapToLectureTime(response.Attributes.lectureTime);
     }
 
+    async replaceLectureTime(lectureId: number, lectureTime: LectureTime[]): Promise<LectureTime[]> {
+        const lectureTimeModel = LectureRepository.mapToLectureTimeModel(lectureTime);
+        const query = {
+            TableName: this.tableName,
+            Key: {
+                "lectureId": lectureId
+            },
+            UpdateExpression: "set #lectureTime = list_append(:empty_list, :lectureTime)",
+            ExpressionAttributeNames: {
+                '#lectureTime': 'lectureTime'
+            },
+            ExpressionAttributeValues: {
+                ':lectureTime': lectureTimeModel,
+                ':empty_list': []
+            },
+            ReturnValues:"UPDATED_NEW"
+        };
+        let response;
+        try {
+            response = await this.docClient.update(query).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return mapToLectureTime(response.Attributes.lectureTime);
+    }
+
     async updateLectureTutor(lectureId: number, conductedClasses: ConductedClasses): Promise<ConductedClasses[]> {
         const conductedClassesModel = LectureRepository.mapToConductedClassesModel([conductedClasses]);
         const queryLecture = {
@@ -171,6 +197,32 @@ export class LectureRepository
             },
             ExpressionAttributeValues: {
                 ':conductedClasses': [conductedClassesModel[0]],
+                ':empty_list': []
+            },
+            ReturnValues:"UPDATED_NEW"
+        };
+        let response;
+        try {
+            response = await this.docClient.update(queryLecture).promise();
+        } catch (e) {
+            console.log(e);
+        }
+        return mapConductedClasses(response.Attributes.conductedClasses);
+    }
+
+    async replaceLectureTutor(lectureId: number, conductedClasses: ConductedClasses[]): Promise<ConductedClasses[]> {
+        const conductedClassesModel = LectureRepository.mapToConductedClassesModel(conductedClasses);
+        const queryLecture = {
+            TableName: this.tableName,
+            Key: {
+                "lectureId": lectureId
+            },
+            UpdateExpression: "set #conductedClasses = list_append(:empty_list, :conductedClasses)",
+            ExpressionAttributeNames: {
+                '#conductedClasses': 'conductedClasses'
+            },
+            ExpressionAttributeValues: {
+                ':conductedClasses': conductedClassesModel,
                 ':empty_list': []
             },
             ReturnValues:"UPDATED_NEW"
