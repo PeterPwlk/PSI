@@ -51,4 +51,28 @@ export class LectureController {
     );
     return mapToConductedClassesDTO(update);
   }
+
+  @Patch('/delete/tutor/:lectureId')
+  public async deleteLectureTutor(
+    @Body() conductedClasses: LectureTutorPatchDTO,
+    @Param('lectureId') lectureId: string,
+  ): Promise<ConductedClassesDTO[]> {
+    const update = await this.lectureService.deleteLectureTutor(
+      parseInt(lectureId),
+      conductedClasses,
+    );
+    return mapToConductedClassesDTO(update);
+  }
+
+  @Patch('/delete/lectureTime/:lectureId')
+  public async deleteLectureTime(
+      @Body() lectureTime: LectureTimePatchDTO,
+      @Param('lectureId') lectureId: string,
+  ): Promise<LectureTimeDTO[]> {
+    const update = await this.lectureService.deleteLectureTime(
+        parseInt(lectureId),
+        lectureTime,
+    );
+    return mapToLectureTimeDTO(update);
+  }
 }
