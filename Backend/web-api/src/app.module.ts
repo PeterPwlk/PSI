@@ -12,10 +12,11 @@ import { LectureModule } from './Services/lecture/lecture.module';
 
 @Module({
   imports: [
-    AuthModule,
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: ['.env.development', '.env.production'],
     }),
+    AuthModule,
     LectureScheduleModule,
     ClassRoomModule,
     TutorModule,
