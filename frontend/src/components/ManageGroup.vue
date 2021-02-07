@@ -16,10 +16,10 @@
             <b-col>
                 <GroupDetailsCard :title="getName(tutor.tutor)">
                     <div class="font-small">
-                        Prowadzi kurs w terminach:
+                        {{ $t('message.tutorTerms') }}:
                     </div>
                     <div class="font-small">{{ tutor.startDate }} - {{tutor.endDate}}</div>
-                    <b-link class="font-small font-weight-bold" disabled> Pokaż plan prowadzącego </b-link>
+                    <b-link class="font-small font-weight-bold" disabled> {{ $t('message.showTutorPlan') }} </b-link>
                 </GroupDetailsCard>
             </b-col>
         </b-row>
@@ -27,7 +27,7 @@
         <b-skeleton height="32px" v-if="lectureLoading"></b-skeleton>
         <b-row class="mt-2">
             <b-col>
-                <b-btn :disabled="lectureLoading" variant="primary" size="sm" class="wider-btn" @click="addTutor()"> Dodaj prowadzącego </b-btn>
+                <b-btn :disabled="lectureLoading" variant="primary" size="sm" class="wider-btn" @click="addTutor()"> {{ $t('addTutor') }} </b-btn>
             </b-col>
         </b-row>
         <hr/>
@@ -37,16 +37,16 @@
             <b-col>
                 <GroupDetailsCard :title="getLectureTimeTitle(lectureTime)">
                     <div class="font-small">
-                        <span>Budynek <b>{{ lectureTime.classRoom.building}}</b></span>
-                        <span class="ml-2">Sala <b>{{ lectureTime.classRoom.number }}</b></span>
+                        <span>{{ $t('building') }} <b>{{ lectureTime.classRoom.building}}</b></span>
+                        <span class="ml-2"> {{$t('classRoom')}} <b>{{ lectureTime.classRoom.number }}</b></span>
                     </div>
-                    <div class="font-small"> Czas trwania zajęć: {{ course.duration }} min</div>
+                    <div class="font-small"> {{ $t('lectureDuration') }}: {{ course.duration }} min</div>
                 </GroupDetailsCard>
             </b-col>
         </b-row>
         <b-row class="mt-2">
             <b-col>
-                <b-btn :disabled="lectureLoading" variant="primary" size="sm" class="wider-btn" @click="addLectureTime()"> Dodaj termin </b-btn>
+                <b-btn :disabled="lectureLoading" variant="primary" size="sm" class="wider-btn" @click="addLectureTime()"> {{ $t('addTerm') }}</b-btn>
             </b-col>
         </b-row>
         <ManageGroupAddTutorModal ref="addTutorModal"></ManageGroupAddTutorModal>
@@ -59,7 +59,6 @@
     import ManageGroupAddTutorModal from "./ManageGroupAddTutorModal";
     import ManageGroupAddLectureTimeModal from "./ManageGroupAddLectureTimeModal";
     import {addLectureTime, addLectureTutor, getLecture} from "../httpService/httpService";
-    import {pl} from "../assets/lang";
     import eventBus from "../store/eventBus";
     export default {
         name: "ManageGroup",
@@ -125,7 +124,7 @@
                 return `${tutor.title} ${tutor.firstName} ${tutor.lastName}`
             },
             getLectureTimeTitle(lectureTime) {
-                return `${pl.weekDay[lectureTime.day]} ${pl.weekType[lectureTime.weekType]} ${lectureTime.startTime} - ${lectureTime.endTime}`
+                return `${ this.$t('weekDay')[lectureTime.day]} ${this.$t('weekType')[lectureTime.weekType]} ${lectureTime.startTime} - ${lectureTime.endTime}`
             }
         },
         mounted(){

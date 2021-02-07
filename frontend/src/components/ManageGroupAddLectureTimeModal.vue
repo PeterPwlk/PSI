@@ -7,41 +7,40 @@
       <b-container fluid>
           <b-row>
               <b-col>
-                  <span> Tydzień: </span>
+                  <span> {{ $t('week') }}: </span>
                   <b-select :options="weekType" v-model="newLectureTime.weekType"></b-select>
               </b-col>
           </b-row>
           <b-row class="mt-2">
               <b-col>
-                  <span> Dzień: </span>
+                  <span> {{ $t('day') }}: </span>
                   <b-select :options="weekDay" v-model="newLectureTime.day"></b-select>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <span> Sala: </span>
+                  <span> {{ $t('classRoom') }}: </span>
                   <b-select :options="classrooms" v-if="!loadingClassrooms" v-model="newLectureTime.classRoom"></b-select>
                   <b-skeleton v-else type="input"></b-skeleton>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <span> Czas rozpoczęcia: </span>
+                  <span> {{ $t('startTime') }}: </span>
                   <b-timepicker locale="pl" v-model="newLectureTime.startTime"></b-timepicker>
               </b-col>
           </b-row>
       </b-container>
       <template #modal-ok>
-          <span> Zapisz zmiany </span>
+          <span> {{ $t('saveChanges') }} </span>
       </template>
       <template #modal-cancel>
-          <span> Anuluj </span>
+          <span> {{ $t('cancel') }} </span>
       </template>
   </b-modal>
 </template>
 
 <script>
-    import {pl} from "../assets/lang";
     import {getClassroom} from "../httpService/httpService";
     import {mapLectureTypeToClassRoomType} from "../static/static";
 
@@ -51,8 +50,8 @@
             modal: false,
             dateFrom: null,
             dateTo: null,
-            weekDay: Object.keys(pl.weekDay).map(key => ({ value: key, text: pl.weekDay[key]})),
-            weekType: Object.keys(pl.weekType).map(key => ({ value: key, text: pl.weekType[key]})),
+            weekDay: {},
+            weekType: {},
             classrooms: [],
             loadingClassrooms: false,
             course: {
@@ -111,7 +110,8 @@
             }
         },
         mounted() {
-
+            this.weekDay = Object.keys(this.$t('weekDay')).map(key => ({ value: key, text: this.$t('weekDay')[key]}));
+            this.weekType = Object.keys(this.$t('weekType')).map(key => ({ value: key, text: this.$t('weekType')[key]}));
         }
     }
 </script>
