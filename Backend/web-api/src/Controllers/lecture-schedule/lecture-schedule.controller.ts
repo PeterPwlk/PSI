@@ -1,7 +1,8 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { LectureScheduleService } from '../../Services/lecture-schedule/lecture-schedule.service';
 import { LectureSchedule } from '../../../../Persistance/Models/lectureSchedule';
-import {mapToLectureScheduleDTO} from "../../DTO/lectureScheduleDTO";
+import { mapToLectureScheduleDTO } from '../../DTO/lectureScheduleDTO';
+import { Faculty } from '../../../../Persistance/Models/faculty';
 
 @Controller('lecture-schedule')
 export class LectureScheduleController {
@@ -21,5 +22,12 @@ export class LectureScheduleController {
   public async getById(@Param('id') id) {
     const response = await this.lectureService.getById(parseInt(id));
     return mapToLectureScheduleDTO([response])[0];
+  }
+
+  @Post()
+  public async createLectureSchedule(
+    @Body() studentsGroup: Faculty,
+  ): Promise<LectureSchedule> {
+    return await this.lectureService.create(studentsGroup);
   }
 }

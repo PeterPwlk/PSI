@@ -4,6 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ClassRoomType } from '../../Persistance/Models/classRoomType';
 import { ClassRoomRepositoryService } from '../src/Services/class-room/class-room-repository.service';
 import { ClassRoomModule } from '../src/Services/class-room/class-room.module';
+import { JwtStrategy } from '../src/auth/jwt.strategy';
 
 describe('ClassRoomController', () => {
   let app: INestApplication;
@@ -39,6 +40,9 @@ describe('ClassRoomController', () => {
       classRoomType: ClassRoomType.Lecture,
     }),
   };
+  const jwtStrategy = {
+    validate: () => true,
+  };
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -46,6 +50,8 @@ describe('ClassRoomController', () => {
     })
       .overrideProvider(ClassRoomRepositoryService)
       .useValue(classRoomRepository)
+      .overrideProvider(JwtStrategy)
+      .useValue(jwtStrategy)
       .compile();
 
     app = moduleFixture.createNestApplication();
