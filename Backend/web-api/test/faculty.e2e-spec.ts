@@ -4,7 +4,7 @@ import * as request from 'supertest';
 import { FacultyModule } from '../src/Services/faculty/faculty.module';
 import { FacultyRepositoryService } from '../src/Services/faculty/faculty-repository.service';
 import { LectureScheduleRepositoryService } from '../src/Services/lecture-schedule/lecture-schedule-repository.service';
-import { JwtStrategy } from '../src/auth/jwt.strategy';
+import { JwtAuthGuard } from '../src/auth/jwt-auth.guard';
 
 describe('FacultyController', () => {
   let app: INestApplication;
@@ -48,8 +48,8 @@ describe('FacultyController', () => {
       },
     ],
   };
-  const jwtStrategy = {
-    validate: () => true,
+  const AuthGuard = {
+    canActivate: () => true,
   };
 
   beforeEach(async () => {
@@ -60,8 +60,8 @@ describe('FacultyController', () => {
       .useValue(facultyRepositoryMock)
       .overrideProvider(LectureScheduleRepositoryService)
       .useValue(lectureSchedulesRepositoryMock)
-      .overrideProvider(JwtStrategy)
-      .useValue(jwtStrategy)
+      .overrideGuard(JwtAuthGuard)
+      .useValue(AuthGuard)
       .compile();
 
     app = moduleFixture.createNestApplication();

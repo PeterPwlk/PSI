@@ -5,6 +5,7 @@ import { ClassRoomType } from '../../Persistance/Models/classRoomType';
 import { ClassRoomRepositoryService } from '../src/Services/class-room/class-room-repository.service';
 import { ClassRoomModule } from '../src/Services/class-room/class-room.module';
 import { JwtStrategy } from '../src/auth/jwt.strategy';
+import { JwtAuthGuard } from '../src/auth/jwt-auth.guard';
 
 describe('ClassRoomController', () => {
   let app: INestApplication;
@@ -40,8 +41,8 @@ describe('ClassRoomController', () => {
       classRoomType: ClassRoomType.Lecture,
     }),
   };
-  const jwtStrategy = {
-    validate: () => true,
+  const AuthGuard = {
+    canActivate: () => true,
   };
 
   beforeEach(async () => {
@@ -50,8 +51,8 @@ describe('ClassRoomController', () => {
     })
       .overrideProvider(ClassRoomRepositoryService)
       .useValue(classRoomRepository)
-      .overrideProvider(JwtStrategy)
-      .useValue(jwtStrategy)
+      .overrideGuard(JwtAuthGuard)
+      .useValue(AuthGuard)
       .compile();
 
     app = moduleFixture.createNestApplication();

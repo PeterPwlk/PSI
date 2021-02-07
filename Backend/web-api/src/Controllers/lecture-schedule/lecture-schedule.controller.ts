@@ -1,8 +1,16 @@
-import {Controller, Get, Param, Query, UseGuards} from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { LectureScheduleService } from '../../Services/lecture-schedule/lecture-schedule.service';
 import { LectureSchedule } from '../../../../Persistance/Models/lectureSchedule';
-import {mapToLectureScheduleDTO} from "../../DTO/lectureScheduleDTO";
-import {JwtAuthGuard} from "../../auth/jwt-auth.guard";
+import { mapToLectureScheduleDTO } from '../../DTO/lectureScheduleDTO';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { Faculty } from '../../../../Persistance/Models/faculty';
 
 @Controller('lecture-schedule')
@@ -29,6 +37,7 @@ export class LectureScheduleController {
   }
 
   @Post()
+  @UseGuards(JwtAuthGuard)
   public async createLectureSchedule(
     @Body() studentsGroup: Faculty,
   ): Promise<LectureSchedule> {
