@@ -15,7 +15,7 @@
         <b-dropdown-item href="#">FA</b-dropdown-item>
       </b-nav-item-dropdown>
 
-      <b-nav-item v-if="!$store.state.authorized" href="https://nowa-edukacja.auth.us-east-1.amazoncognito.com/login?client_id=3gfjgnf29ngqvsp52pqmc1dn7f&response_type=code&scope=openid+profile&redirect_uri=https://51.83.129.128:8080/login">
+      <b-nav-item v-if="!$store.state.authorized" :href="link">
         Zaloguj się
       </b-nav-item>
       <b-nav-item v-else @click="$store.dispatch('logout')"> Wyloguj się </b-nav-item>
@@ -24,11 +24,15 @@
 </template>
 
 <script>
-    import Sidebar from "./Sidebar";
-    export default {
-      name: "Navbar",
-      components: {Sidebar},
+  const link = process.env.VUE_APP_AWS_LOGIN_URL;
+  import Sidebar from "./Sidebar";
+  export default {
+    name: "Navbar",
+    components: {Sidebar},
+    created () {
+      this.link = link;
     }
+  }
 </script>
 
 <style scoped>

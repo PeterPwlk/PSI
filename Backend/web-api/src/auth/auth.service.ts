@@ -54,22 +54,11 @@ export class AuthService {
     params.append('client_id', this.authConfig.clientId);
     params.append('redirect_uri', this.authConfig.redirectUrl);
 
-    const authToken = Buffer.from(
-      `${this.authConfig.clientId}:${this.authConfig.clientSecret}`,
-    ).toString('base64');
-
-    const config = {
-      headers: {
-        Authorization: `Basic ${authToken}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    };
-
     try {
       const response = this.httpService.post(
         `${this.authConfig.tokenUrl}/oauth2/token`,
         params,
-        config,
+        this.getConfig(),
       );
       const responsePromise = response.toPromise();
       const token = await responsePromise;
@@ -89,5 +78,22 @@ export class AuthService {
     } catch (e) {
       console.log();
     }
+  }
+
+  private getConfig() {
+    const authToken = Buffer.from(
+      `${this.authConfig.clientId}:${this.authConfig.clientSecret}`,
+    ).toString('base64');
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    };
+
+    if (this.authConfig.clientSecret.length > 0) {
+      config.headers['Authorization'] = `Basic ${authToken}`;
+    }
+    return config;
   }
 }
