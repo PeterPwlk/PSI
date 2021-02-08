@@ -24,6 +24,7 @@ export class LectureController {
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   public async getById(@Param('id') id): Promise<LectureDTO> {
     const lecture = await this.lectureService.getById(parseInt(id));
     const response = mapToLectureDTO([lecture]);
@@ -31,6 +32,7 @@ export class LectureController {
   }
 
   @Patch('/edit/lectureTime/:lectureId')
+  @UseGuards(JwtAuthGuard)
   public async updateLectureTime(
     @Body() lectureTime: LectureTimePatchDTO,
     @Param('lectureId') lectureId: string,
@@ -43,6 +45,7 @@ export class LectureController {
   }
 
   @Patch('/edit/tutor/:lectureId')
+  @UseGuards(JwtAuthGuard)
   public async updateLectureTutor(
     @Body() conductedClasses: LectureTutorPatchDTO,
     @Param('lectureId') lectureId: string,
@@ -55,6 +58,7 @@ export class LectureController {
   }
 
   @Patch('/delete/tutor/:lectureId')
+  @UseGuards(JwtAuthGuard)
   public async deleteLectureTutor(
     @Body() conductedClasses: LectureTutorPatchDTO,
     @Param('lectureId') lectureId: string,
@@ -67,6 +71,7 @@ export class LectureController {
   }
 
   @Patch('/delete/lectureTime/:lectureId')
+  @UseGuards(JwtAuthGuard)
   public async deleteLectureTime(
       @Body() lectureTime: LectureTimePatchDTO,
       @Param('lectureId') lectureId: string,

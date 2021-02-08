@@ -14,6 +14,7 @@ export class FacultyController {
   }
 
   @Get('/filter')
+  @UseGuards(JwtAuthGuard)
   public async getAllEmpty() {
     return await this.facultyService.getAllWithoutLectureSchedule();
   }
