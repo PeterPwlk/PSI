@@ -12,7 +12,7 @@ export class LectureScheduleGeneratorService {
     faculty: Faculty,
   ): LectureSchedule {
     const lectureSchedule: LectureSchedule = {
-      lectureScheduleId: 1,
+      lectureScheduleId: Math.floor(Math.random() * 100),
       lectures: [],
       faculty: faculty,
       createdTime: new Date(),

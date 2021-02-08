@@ -9,6 +9,8 @@ import { Faculty } from '../../../../Persistance/Models/faculty';
 import { StudentsGroup } from '../../../../Persistance/Models/studentsGroup';
 import { LectureScheduleGeneratorService } from './lecture-schedule-generator.service';
 import { Lecture } from '../../../../Persistance/Models/lecture';
+import { LectureForm } from '../../../../Persistance/Models/lectureForm';
+import { Course } from '../../../../Persistance/Models/course';
 
 @Injectable()
 export class LectureScheduleService {
@@ -55,7 +57,16 @@ export class LectureScheduleService {
     const faculty = await this.facultyRepository.getById(
       chosenFaculty.facultyId,
     );
-    const studentsGroup: StudentsGroup = faculty.studentGroups[1];
+    const studentsGroup: StudentsGroup = faculty.studentGroups[0];
+    const allLectureForms = await this.courseRepository.getAll();
+    const filteredLectureForms = allLectureForms.filter(
+      (l) =>
+        l.course.studentsGroups[0] &&
+        l.course.studentsGroups[0].speciality === studentsGroup.speciality,
+    );
+    studentsGroup.courses = LectureScheduleService.mergeLectureFormsToCourses(
+      filteredLectureForms,
+    );
 
     const generatedLectureSchedule = this.lectureScheduleGenerator.generate(
       studentsGroup,
@@ -75,13 +86,54 @@ export class LectureScheduleService {
       lectureSchedule,
     );
 
+    faculty.lectureScheduleId = generatedLectureSchedule.lectureScheduleId;
+    const saveFacultyPromise = this.facultyRepository.create(faculty);
+
     const saveLecturesPromise = [];
     for (const l of generatedLectureSchedule.lectures) {
       saveLecturesPromise.push(this.lectureRepository.create(l as Lecture));
     }
 
-    await Promise.all([saveLectureSchedulePromise, ...saveLecturesPromise]);
+    await Promise.all([
+      saveLectureSchedulePromise,
+      saveFacultyPromise,
+      ...saveLecturesPromise,
+    ]);
 
     return generatedLectureSchedule;
+  }
+
+  private static mergeLectureFormsToCourses(
+    lectureForms: LectureForm[],
+  ): Course[] {
+    const courses: Course[] = [];
+    for (const lectureForm of lectureForms) {
+      const course = courses.find((c) => c.name === lectureForm.course.name);
+      if (course) {
+        course.lectureForms.push({
+          lectureType: lectureForm.lectureType,
+          numberOfStudentsInGroup: lectureForm.numberOfStudentsInGroup,
+          duration: lectureForm.duration,
+          numberOfHours: lectureForm.numberOfHours,
+          course: undefined,
+        });
+      } else {
+        const newCourse: Course = {
+          lectureForms: [],
+          courseNumber: lectureForm.course.courseNumber,
+          name: lectureForm.course.name,
+          tutors: [],
+        };
+        newCourse.lectureForms.push({
+          lectureType: lectureForm.lectureType,
+          numberOfStudentsInGroup: lectureForm.numberOfStudentsInGroup,
+          duration: lectureForm.duration,
+          numberOfHours: lectureForm.numberOfHours,
+          course: undefined,
+        });
+        courses.push(newCourse);
+      }
+    }
+    return courses;
   }
 }
