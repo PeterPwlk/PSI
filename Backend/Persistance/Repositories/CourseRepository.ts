@@ -1,8 +1,9 @@
-import {DocumentClient} from "aws-sdk/clients/dynamodb";
+import {DocumentClient, ScanInput} from "aws-sdk/clients/dynamodb";
 import {Course} from "../Models/course";
 import {LectureForm} from "../Models/lectureForm";
 import {Tutor} from "../Models/tutor";
 import {IRepositoryBase, RepositoryBase} from "./repositoryBase";
+import {StudentsGroup} from "../Models/studentsGroup";
 
 interface CourseModel {
     courseId: number,
@@ -12,6 +13,7 @@ interface CourseModel {
     lectureType: number,
     numberOfStudentsInGroup: number,
     duration: number,
+    studentGroups?: StudentsGroup,
     tutors: Array<number> | Tutor[]
 }
 
@@ -48,7 +50,8 @@ export class CourseRepository extends RepositoryBase<CourseModel> implements IRe
             course: {
                 name: item.name,
                 tutors: item.tutors,
-                courseNumber: item.courseNumber
+                courseNumber: item.courseNumber,
+                studentsGroups: [item.studentGroups]
             }
         }))
     }
@@ -62,7 +65,8 @@ export class CourseRepository extends RepositoryBase<CourseModel> implements IRe
             lectureType: item.lectureType,
             duration: item.duration,
             numberOfHours: item.numberOfHours,
-            courseId: item.courseId
+            courseId: item.courseId,
+            studentGroups: item.course.studentsGroups[0]
         }));
     }
 }

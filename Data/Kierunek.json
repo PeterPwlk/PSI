@@ -56,9 +56,10 @@
     "studiesLevel": 1,
     "name": "Informatyka",
     "startYear": "2021",
-    "studentGroups": {
-        "speciality": "Projektowanie systemów informatycznych",
-        "numberOfStudents": 50,
-        "semester": "letni"
-    }
+    "studentGroups": [
+        {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }]
 }]
