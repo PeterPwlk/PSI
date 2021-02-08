@@ -70,7 +70,7 @@ async function ImportAndCleanClassRooms() {
 
     const importData = fileReader.readAndMap(paths.classRoom);
 
-    const tableName = 'ClassRooms';
+    const tableName = 'ClassRoom';
     await awsImporter.cleanTable(tableName, 'classRoomId');
     await awsImporter.importData(importData, tableName);
 
@@ -82,7 +82,7 @@ async function ImportAndCleanLectures() {
     const awsImporter = new AwsDataImporter(repository, docClient);
     const importData = fileReader.readAndMap(paths.lectures);
 
-    const tableName = 'Lectures';
+    const tableName = 'Lecture';
     await awsImporter.cleanTable(tableName, 'lectureId');
     await awsImporter.importData(importData, tableName, LectureRepository.mapToLecture);
 

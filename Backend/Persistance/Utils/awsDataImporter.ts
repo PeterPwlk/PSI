@@ -41,8 +41,14 @@ export class AwsDataImporter {
                     [tableId]: item[tableId]
                 }
             };
-            const res = await this.docClient.delete(params);
-            deletedItems++;
+            let res;
+            try {
+                res = await this.docClient.delete(params).promise();
+                deletedItems++;
+            }
+            catch (e) {
+                console.log(e);
+            }
         }
         console.log(`Deleted ${deletedItems} items in ${tableName}`);
         return deletedItems;
