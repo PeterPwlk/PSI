@@ -116,6 +116,7 @@ export class LectureScheduleService {
           duration: lectureForm.duration,
           numberOfHours: lectureForm.numberOfHours,
           course: undefined,
+          courseId: lectureForm.courseId,
         });
       } else {
         const newCourse: Course = {
@@ -130,6 +131,7 @@ export class LectureScheduleService {
           duration: lectureForm.duration,
           numberOfHours: lectureForm.numberOfHours,
           course: undefined,
+          courseId: lectureForm.courseId,
         });
         courses.push(newCourse);
       }
