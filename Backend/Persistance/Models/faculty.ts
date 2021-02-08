@@ -9,5 +9,5 @@ export interface Faculty {
     studiesLevel: StudiesLevel;
     name: string;
     startYear: number;
-    studentGroups: StudentsGroup[];
+    studentGroups: StudentsGroup[] | StudentsGroup;
 }

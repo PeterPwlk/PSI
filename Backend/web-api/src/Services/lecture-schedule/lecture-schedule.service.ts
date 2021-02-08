@@ -57,7 +57,7 @@ export class LectureScheduleService {
     const faculty = await this.facultyRepository.getById(
       chosenFaculty.facultyId,
     );
-    const studentsGroup: StudentsGroup = faculty.studentGroups[0];
+    const studentsGroup: StudentsGroup = faculty.studentGroups as StudentsGroup;
     const allLectureForms = await this.courseRepository.getAll();
     const filteredLectureForms = allLectureForms.filter(
       (l) =>
