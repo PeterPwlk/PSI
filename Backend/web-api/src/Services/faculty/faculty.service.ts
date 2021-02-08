@@ -1,10 +1,14 @@
-import {Injectable} from '@nestjs/common';
-import {Faculty} from '../../../../Persistance/Models/faculty';
-import {FacultyRepositoryService} from './faculty-repository.service';
+import { Injectable } from '@nestjs/common';
+import { Faculty } from '../../../../Persistance/Models/faculty';
+import { FacultyRepositoryService } from './faculty-repository.service';
+import { LectureScheduleRepositoryService } from '../lecture-schedule/lecture-schedule-repository.service';
 
 @Injectable()
 export class FacultyService {
-  constructor(private facultyRepository: FacultyRepositoryService) {}
+  constructor(
+    private facultyRepository: FacultyRepositoryService,
+    private lectureScheduleRepository: LectureScheduleRepositoryService,
+  ) {}
 
   async getAll(): Promise<Faculty[]> {
     return await this.facultyRepository.getAll();
@@ -27,5 +31,17 @@ export class FacultyService {
 
   async getByStudiesLevel(studiesLevel: number) {
     return await this.facultyRepository.getByStudiesLevel(studiesLevel);
+  }
+
+  async getAllWithoutLectureSchedule(): Promise<Faculty[]> {
+    const allFaculties = await this.facultyRepository.getAll();
+    const allLectureSchedules = await this.lectureScheduleRepository.getAll();
+    const emptyFaculties = allFaculties.filter(
+      (f) =>
+        !allLectureSchedules.find(
+          (s) => s.lectureScheduleId === f.lectureScheduleId,
+        ),
+    );
+    return emptyFaculties;
   }
 }

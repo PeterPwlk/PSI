@@ -11,6 +11,7 @@ import { TutorService } from '../tutor/tutor.service';
 import { CourseService } from '../course/course.service';
 import { ClassRoomService } from '../class-room/class-room.service';
 import { ClassRoomRepositoryService } from '../class-room/class-room-repository.service';
+import { LectureScheduleGeneratorService } from './lecture-schedule-generator.service';
 
 @Module({
   providers: [
@@ -25,6 +26,7 @@ import { ClassRoomRepositoryService } from '../class-room/class-room-repository.
     CourseService,
     ClassRoomService,
     ClassRoomRepositoryService,
+    LectureScheduleGeneratorService,
   ],
   controllers: [LectureScheduleController],
 })

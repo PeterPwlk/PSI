@@ -13,6 +13,11 @@ export class FacultyController {
     return await this.facultyService.getAll();
   }
 
+  @Get('/filter')
+  public async getAllEmpty() {
+    return await this.facultyService.getAllWithoutLectureSchedule();
+  }
+
   @Get(':id')
   @UseGuards(JwtAuthGuard)
   public async getById(@Param('id') id) {

@@ -5,6 +5,10 @@ import { CourseRepositoryService } from '../course/course-repository.service';
 import { FacultyRepositoryService } from '../faculty/faculty-repository.service';
 import { LectureRepositoryService } from '../lecture/lecture-repository.service';
 import { LectureService } from '../lecture/lecture.service';
+import { Faculty } from '../../../../Persistance/Models/faculty';
+import { StudentsGroup } from '../../../../Persistance/Models/studentsGroup';
+import { LectureScheduleGeneratorService } from './lecture-schedule-generator.service';
+import { Lecture } from '../../../../Persistance/Models/lecture';
 
 @Injectable()
 export class LectureScheduleService {
@@ -14,6 +18,7 @@ export class LectureScheduleService {
     private lectureRepository: LectureRepositoryService,
     private courseRepository: CourseRepositoryService,
     private lectureService: LectureService,
+    private lectureScheduleGenerator: LectureScheduleGeneratorService,
   ) {}
 
   async getAll(): Promise<LectureSchedule[]> {
@@ -44,5 +49,39 @@ export class LectureScheduleService {
       facultyId,
     );
     return response[0];
+  }
+
+  async create(chosenFaculty: Faculty): Promise<LectureSchedule> {
+    const faculty = await this.facultyRepository.getById(
+      chosenFaculty.facultyId,
+    );
+    const studentsGroup: StudentsGroup = faculty.studentGroups[1];
+
+    const generatedLectureSchedule = this.lectureScheduleGenerator.generate(
+      studentsGroup,
+      faculty,
+    );
+
+    const lectureIds = [];
+    for (const l of generatedLectureSchedule.lectures) {
+      lectureIds.push((l as Lecture).lectureId);
+    }
+
+    const lectureSchedule = {
+      ...generatedLectureSchedule,
+      lectures: lectureIds,
+    };
+    const saveLectureSchedulePromise = this.lectureScheduleRepository.create(
+      lectureSchedule,
+    );
+
+    const saveLecturesPromise = [];
+    for (const l of generatedLectureSchedule.lectures) {
+      saveLecturesPromise.push(this.lectureRepository.create(l as Lecture));
+    }
+
+    await Promise.all([saveLectureSchedulePromise, ...saveLecturesPromise]);
+
+    return generatedLectureSchedule;
   }
 }
