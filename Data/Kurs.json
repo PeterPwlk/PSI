@@ -107,4 +107,94 @@
     "numberOfStudentsInGroup": 15,
     "duration": 90,
     "tutors": [0,1]
-}]
+},
+    {
+        "courseId": 11,
+        "name": "Projektowanie systemów informatycznych",
+        "courseNumber": "KIL-123",
+        "numberOfHours": 60,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 30,
+        "duration": 90,
+        "tutors": [0,1,9,7],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 12,
+        "name": "Projektowanie systemów informatycznych",
+        "courseNumber": "KIL-123",
+        "numberOfHours": 60,
+        "lectureType": 2,
+        "numberOfStudentsInGroup": 15,
+        "duration": 90,
+        "tutors": [5,6,8,9],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 13,
+        "name": "Projektowanie systemów informatycznych",
+        "courseNumber": "KIL-123",
+        "numberOfHours": 60,
+        "lectureType": 3,
+        "numberOfStudentsInGroup": 15,
+        "duration": 90,
+        "tutors": [5,6,7],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 14,
+        "name": "Bezpieczeństwo systemów informatycznych",
+        "courseNumber": "KIL-123",
+        "numberOfHours": 60,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 30,
+        "duration": 90,
+        "tutors": [5,6,7],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 15,
+        "name": "Bezpieczeństwo systemów informatycznych",
+        "courseNumber": "KIL-123",
+        "numberOfHours": 60,
+        "lectureType": 1,
+        "numberOfStudentsInGroup": 15,
+        "duration": 90,
+        "tutors": [5,6,7],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 16,
+        "name": "Bezpieczeństwo systemów informatycznych",
+        "courseNumber": "KIL-123",
+        "numberOfHours": 60,
+        "lectureType": 3,
+        "numberOfStudentsInGroup": 20,
+        "duration": 90,
+        "tutors": [5,6,7],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    }]

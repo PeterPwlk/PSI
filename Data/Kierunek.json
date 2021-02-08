@@ -49,4 +49,16 @@
         "numberOfStudents": 50,
         "semester": "letni"
     }
+},{
+    "facultyId": 4,
+    "lectureScheduleId": -1,
+    "studiesType": 0,
+    "studiesLevel": 1,
+    "name": "Informatyka",
+    "startYear": "2021",
+    "studentGroups": {
+        "speciality": "Projektowanie systemów informatycznych",
+        "numberOfStudents": 50,
+        "semester": "letni"
+    }
 }]
