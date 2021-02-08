@@ -8,7 +8,7 @@ import { CourseService } from '../course/course.service';
 import { LectureTimePatchDTO } from '../../DTO/lectureTimePatchDTO';
 import { WeekDay } from '../../../../Persistance/Models/weekDay';
 import { WeekType } from '../../../../Persistance/Models/weekType';
-import { addMinutes, parse } from 'date-fns';
+import { addMinutes, parse, format } from 'date-fns';
 import { ClassRoomService } from '../class-room/class-room.service';
 import { LectureTutorPatchDTO } from '../../DTO/lectureTutorPatchDTO';
 import { isEqual } from 'lodash'
@@ -98,12 +98,19 @@ export class LectureService {
     const conductedClassesMap = LectureTutorDTOMapper.mapToConductedClasses([
       conductedClassesDTO,
     ]);
-    const conductedClassesToRemove = conductedClassesMap[0];
-    conductedClassesToRemove.tutor = await this.tutorService.getById(conductedClassesToRemove.tutorId);
-    delete conductedClassesToRemove.tutorId;
+    const conductedClassToRemove = conductedClassesMap[0];
+    conductedClassToRemove.tutor = await this.tutorService.getById(conductedClassToRemove.tutorId);
+    conductedClassToRemove.startDate = new Date(format(conductedClassToRemove.startDate, 'yyyy-MM-dd'));
+    conductedClassToRemove.endDate = new Date(format(conductedClassToRemove.endDate, 'yyyy-MM-dd'));
+    delete conductedClassToRemove.tutorId;
     for (const conductedClasses of lecture.conductedClasses) {
-      if(isEqual(conductedClasses, conductedClassesToRemove)){
-        const index = lecture.conductedClasses.findIndex(item => isEqual(item, conductedClassesToRemove))
+      const tempItem = {...conductedClasses}
+      tempItem.startDate = new Date(format(tempItem.startDate, 'yyyy-MM-dd'));
+      tempItem.endDate = new Date(format(tempItem.endDate, 'yyyy-MM-dd'));
+      if(isEqual(tempItem, conductedClassToRemove)){
+        const index = lecture.conductedClasses.findIndex(item => {
+          return isEqual(tempItem, conductedClassToRemove)
+        })
         lecture.conductedClasses.splice(index, 1);
       }
     }
