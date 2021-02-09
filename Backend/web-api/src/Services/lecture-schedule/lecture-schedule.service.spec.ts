@@ -18,6 +18,7 @@ import { Lecture } from '../../../../Persistance/Models/lecture';
 import { StudentsGroup } from '../../../../Persistance/Models/studentsGroup';
 import { LectureType } from '../../../../Persistance/Models/lectureType';
 import { LectureForm } from '../../../../Persistance/Models/lectureForm';
+import { Tutor } from '../../../../Persistance/Models/tutor';
 
 describe('FacultyService', () => {
   let service: LectureScheduleService;
@@ -26,6 +27,7 @@ describe('FacultyService', () => {
   let lectureScheduleGenerator: LectureScheduleGeneratorService;
   let facultyRepository: FacultyRepositoryService;
   let courseRepository: CourseRepositoryService;
+  let tutorsRepository: TutorRepositoryService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -42,6 +44,7 @@ describe('FacultyService', () => {
         ClassRoomService,
         ClassRoomRepositoryService,
         LectureScheduleGeneratorService,
+        TutorRepositoryService,
       ],
     }).compile();
 
@@ -61,6 +64,9 @@ describe('FacultyService', () => {
     courseRepository = module.get<CourseRepositoryService>(
       CourseRepositoryService,
     );
+    tutorsRepository = module.get<TutorRepositoryService>(
+      TutorRepositoryService,
+    );
   });
 
   it('should be defined', () => {
@@ -75,6 +81,37 @@ describe('FacultyService', () => {
       courses: [],
     };
 
+    const tutors: Tutor[] = [
+      {
+        availabilities: [],
+        councilOpinion: null,
+        courses: [],
+        firstName: 'Jan',
+        lastName: 'Nowak',
+        pensum: 200,
+        position: 'Starszy wykładowca',
+        suggestedLectures: [9, 10],
+        conductedClasses: [],
+        title: 'Dr. inż.',
+        tutorId: 0,
+        workingTime: 1,
+      },
+      {
+        availabilities: [],
+        councilOpinion: null,
+        courses: [],
+        firstName: 'Jan',
+        lastName: 'Nowak',
+        pensum: 200,
+        position: 'Starszy wykładowca',
+        suggestedLectures: [9, 10],
+        conductedClasses: [],
+        title: 'Dr. inż.',
+        tutorId: 1,
+        workingTime: 1,
+      },
+    ];
+
     const lectureForms: LectureForm[] = [
       {
         courseId: 0,
@@ -83,20 +120,20 @@ describe('FacultyService', () => {
         numberOfHours: 60,
         numberOfStudentsInGroup: 165,
         course: {
-          tutors: [],
+          tutors: [0],
           name: 'Analiza matematyczna 1',
           courseNumber: 'KNL-123',
           studentsGroups: [studentsGroup],
         },
       },
       {
-        courseId: 0,
+        courseId: 1,
         duration: 90,
         lectureType: LectureType.CwieczeniaWFormieLektoratu,
         numberOfHours: 60,
         numberOfStudentsInGroup: 30,
         course: {
-          tutors: [],
+          tutors: [1],
           name: 'Analiza matematyczna 1',
           courseNumber: 'KNL-123',
           studentsGroups: [studentsGroup],
@@ -169,6 +206,14 @@ describe('FacultyService', () => {
       Promise.resolve({} as Lecture),
     );
 
+    const tutorRepositoryGetAllMock = jest.spyOn(tutorsRepository, 'getAll');
+    tutorRepositoryGetAllMock.mockImplementation(() => Promise.resolve(tutors));
+
+    const tutorRepositorySaveMock = jest.spyOn(tutorsRepository, 'create');
+    tutorRepositorySaveMock.mockImplementation(() =>
+      Promise.resolve({} as Tutor),
+    );
+
     const result = await service.create(faculty);
     expect(facultyRepositoryMock).toHaveBeenCalledTimes(1);
     expect(lectureScheduleGeneratorMock).toHaveBeenCalled();
@@ -176,6 +221,8 @@ describe('FacultyService', () => {
     expect(lectureScheduleRepositoryMock).toHaveBeenCalledTimes(1);
     expect(lectureRepositoryMock).toHaveBeenCalledTimes(2);
     expect(facultyRepositorySaveMock).toHaveBeenCalled();
+    expect(tutorRepositoryGetAllMock).toHaveBeenCalled();
+    expect(tutorRepositorySaveMock).toHaveBeenCalledTimes(2);
 
     expect(result.faculty).toBe(faculty);
     expect(result.lectures).toHaveLength(2);

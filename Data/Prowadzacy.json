@@ -21,7 +21,7 @@
             "week": 1
         }
     ],
-    "suggestedLecture": [9, 10],
+    "suggestedLectures": [9, 10],
     "courses": []
 },
 {
@@ -47,7 +47,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [9, 10],
+    "suggestedLectures": [9, 10],
     "courses": []
 },
 {
@@ -67,7 +67,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [7],
+    "suggestedLectures": [7],
     "courses": []
 },
 {
@@ -93,7 +93,7 @@
             "week": 0
         }
     ],
-    "suggestedLecture": [7],
+    "suggestedLectures": [7],
     "courses": []
 },
 {
@@ -113,7 +113,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [6],
+    "suggestedLectures": [6],
     "courses": []
 },
 {
@@ -151,7 +151,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [5],
+    "suggestedLectures": [5],
     "courses": []
 },
 {
@@ -171,7 +171,7 @@
             "week": 1
         }
     ],
-    "suggestedLecture": [4,3],
+    "suggestedLectures": [4,3],
     "courses": []
 },
 {
@@ -215,7 +215,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [4,3],
+    "suggestedLectures": [4,3],
     "courses": []
 },
 {
@@ -241,7 +241,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [3],
+    "suggestedLectures": [3],
     "courses": []
 },
 {
@@ -267,7 +267,7 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [0,1,2],
+    "suggestedLectures": [0,1,2],
     "courses": []
 },
 {
@@ -287,6 +287,6 @@
             "week": 2
         }
     ],
-    "suggestedLecture": [0,1,2],
+    "suggestedLectures": [0,1,2],
     "courses": []
 }]

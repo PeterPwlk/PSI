@@ -23,7 +23,7 @@ export class TutorRepository extends RepositoryBase<Tutor> implements IRepositor
     async getAllBySuggestedCourseId(courseId: number): Promise<Tutor[]> {
         const query = {
             TableName: this.tableName,
-            FilterExpression: "contains(suggestedLecture, :courseId) OR contains(courses, :courseId)",
+            FilterExpression: "contains(suggestedLectures, :courseId) OR contains(courses, :courseId)",
             ExpressionAttributeValues: {
                 ":courseId": courseId,
             }

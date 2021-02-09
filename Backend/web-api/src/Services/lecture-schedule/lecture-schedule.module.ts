@@ -27,6 +27,7 @@ import { LectureScheduleGeneratorService } from './lecture-schedule-generator.se
     ClassRoomService,
     ClassRoomRepositoryService,
     LectureScheduleGeneratorService,
+    TutorRepositoryService,
   ],
   controllers: [LectureScheduleController],
 })

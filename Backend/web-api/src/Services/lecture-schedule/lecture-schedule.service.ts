@@ -11,6 +11,8 @@ import { LectureScheduleGeneratorService } from './lecture-schedule-generator.se
 import { Lecture } from '../../../../Persistance/Models/lecture';
 import { LectureForm } from '../../../../Persistance/Models/lectureForm';
 import { Course } from '../../../../Persistance/Models/course';
+import { Tutor } from '../../../../Persistance/Models/tutor';
+import { TutorRepositoryService } from '../tutor/tutor-repository.service';
 
 @Injectable()
 export class LectureScheduleService {
@@ -21,6 +23,7 @@ export class LectureScheduleService {
     private courseRepository: CourseRepositoryService,
     private lectureService: LectureService,
     private lectureScheduleGenerator: LectureScheduleGeneratorService,
+    private tutorRepository: TutorRepositoryService,
   ) {}
 
   async getAll(): Promise<LectureSchedule[]> {
@@ -68,6 +71,12 @@ export class LectureScheduleService {
       filteredLectureForms,
     );
 
+    const allTutors = await this.tutorRepository.getAll();
+    const updatedTutors = LectureScheduleService.addCoursesToTutors(
+      allTutors,
+      filteredLectureForms,
+    );
+
     const generatedLectureSchedule = this.lectureScheduleGenerator.generate(
       studentsGroup,
       faculty,
@@ -94,10 +103,16 @@ export class LectureScheduleService {
       saveLecturesPromise.push(this.lectureRepository.create(l as Lecture));
     }
 
+    const saveTutorsPromise = [];
+    for (const updatedTutor of updatedTutors) {
+      saveTutorsPromise.push(this.tutorRepository.create(updatedTutor));
+    }
+
     await Promise.all([
       saveLectureSchedulePromise,
       saveFacultyPromise,
       ...saveLecturesPromise,
+      ...saveTutorsPromise,
     ]);
 
     return generatedLectureSchedule;
@@ -137,5 +152,20 @@ export class LectureScheduleService {
       }
     }
     return courses;
+  }
+
+  private static addCoursesToTutors(
+    tutors: Tutor[],
+    lectureForms: LectureForm[],
+  ): Tutor[] {
+    for (const lectureForm of lectureForms) {
+      for (const tutorIndex of lectureForm.course.tutors) {
+        const tutor = tutors.find((t) => t.tutorId === (tutorIndex as number));
+        if (tutor && lectureForm.courseId) {
+          (tutor.suggestedLectures as number[]).push(lectureForm.courseId);
+        }
+      }
+    }
+    return tutors;
   }
 }

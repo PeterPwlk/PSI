@@ -13,7 +13,7 @@ export interface Tutor {
   workingTime: number;
   councilOpinion: boolean;
   availabilities: TutorAvailability[];
-  suggestedLectures: LectureForm[];
+  suggestedLectures: LectureForm[] | number[];
   courses: Course[];
   conductedClasses: ConductedClasses[];
 }
