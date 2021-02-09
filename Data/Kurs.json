@@ -437,7 +437,7 @@
             "numberOfStudents": 40,
             "semester": "letni"
         }
-    },,
+    },
     {
         "courseId": 33,
         "name": "Sieci teleinformatyczne",
@@ -1097,7 +1097,7 @@
             "numberOfStudents": 40,
             "semester": "zimowy"
         }
-    },,
+    },
     {
         "courseId": 57,
         "name": "Sieci teleinformatyczne",
