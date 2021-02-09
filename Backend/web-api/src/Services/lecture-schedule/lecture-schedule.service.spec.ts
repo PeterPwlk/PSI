@@ -17,6 +17,7 @@ import { LectureSchedule } from '../../../../Persistance/Models/lectureSchedule'
 import { Lecture } from '../../../../Persistance/Models/lecture';
 import { StudentsGroup } from '../../../../Persistance/Models/studentsGroup';
 import { LectureType } from '../../../../Persistance/Models/lectureType';
+import { LectureForm } from '../../../../Persistance/Models/lectureForm';
 
 describe('FacultyService', () => {
   let service: LectureScheduleService;
@@ -24,6 +25,7 @@ describe('FacultyService', () => {
   let lectureScheduleRepository: LectureScheduleRepositoryService;
   let lectureScheduleGenerator: LectureScheduleGeneratorService;
   let facultyRepository: FacultyRepositoryService;
+  let courseRepository: CourseRepositoryService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -56,6 +58,9 @@ describe('FacultyService', () => {
     facultyRepository = module.get<FacultyRepositoryService>(
       FacultyRepositoryService,
     );
+    courseRepository = module.get<CourseRepositoryService>(
+      CourseRepositoryService,
+    );
   });
 
   it('should be defined', () => {
@@ -66,41 +71,38 @@ describe('FacultyService', () => {
     const studentsGroup: StudentsGroup = {
       numberOfStudents: 300,
       semester: 'zimowy',
-      speciality: '',
-      courses: [
-        {
-          courseNumber: 'KEK-W23',
-          tutors: [4],
-          name: 'Analiza matematyczna 1',
-          lectureForms: [
-            {
-              courseId: 0,
-              duration: 90,
-              lectureType: LectureType.WykladOgolny,
-              numberOfHours: 60,
-              numberOfStudentsInGroup: 165,
-              course: {
-                tutors: [],
-                name: 'Analiza matematyczna 1',
-                courseNumber: 'KNL-123',
-              },
-            },
-            {
-              courseId: 0,
-              duration: 90,
-              lectureType: LectureType.CwieczeniaWFormieLektoratu,
-              numberOfHours: 60,
-              numberOfStudentsInGroup: 30,
-              course: {
-                tutors: [],
-                name: 'Analiza matematyczna 1',
-                courseNumber: 'KNL-123',
-              },
-            },
-          ],
-        },
-      ],
+      speciality: 'Informatyka',
+      courses: [],
     };
+
+    const lectureForms: LectureForm[] = [
+      {
+        courseId: 0,
+        duration: 90,
+        lectureType: LectureType.WykladOgolny,
+        numberOfHours: 60,
+        numberOfStudentsInGroup: 165,
+        course: {
+          tutors: [],
+          name: 'Analiza matematyczna 1',
+          courseNumber: 'KNL-123',
+          studentsGroups: [studentsGroup],
+        },
+      },
+      {
+        courseId: 0,
+        duration: 90,
+        lectureType: LectureType.CwieczeniaWFormieLektoratu,
+        numberOfHours: 60,
+        numberOfStudentsInGroup: 30,
+        course: {
+          tutors: [],
+          name: 'Analiza matematyczna 1',
+          courseNumber: 'KNL-123',
+          studentsGroups: [studentsGroup],
+        },
+      },
+    ];
 
     const faculty: Faculty = {
       facultyId: 0,
@@ -136,6 +138,15 @@ describe('FacultyService', () => {
     const facultyRepositoryMock = jest.spyOn(facultyRepository, 'getById');
     facultyRepositoryMock.mockImplementation(() => Promise.resolve(faculty));
 
+    const facultyRepositorySaveMock = jest.spyOn(facultyRepository, 'create');
+    facultyRepositorySaveMock.mockImplementation(() =>
+      Promise.resolve({} as Faculty),
+    );
+
+    const courseRepositoryMock = jest.spyOn(courseRepository, 'getAll');
+    courseRepositoryMock.mockImplementation(() =>
+      Promise.resolve(lectureForms),
+    );
     const lectureScheduleGeneratorMock = jest.spyOn(
       lectureScheduleGenerator,
       'generate',
@@ -161,8 +172,10 @@ describe('FacultyService', () => {
     const result = await service.create(faculty);
     expect(facultyRepositoryMock).toHaveBeenCalledTimes(1);
     expect(lectureScheduleGeneratorMock).toHaveBeenCalled();
+    expect(courseRepositoryMock).toHaveBeenCalled();
     expect(lectureScheduleRepositoryMock).toHaveBeenCalledTimes(1);
     expect(lectureRepositoryMock).toHaveBeenCalledTimes(2);
+    expect(facultyRepositorySaveMock).toHaveBeenCalled();
 
     expect(result.faculty).toBe(faculty);
     expect(result.lectures).toHaveLength(2);
