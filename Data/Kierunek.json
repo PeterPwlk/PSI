@@ -3,7 +3,7 @@
     "lectureScheduleId": 0,
     "studiesType": 0,
     "studiesLevel": 0,
-    "name": "Informatyka",
+    "name": "Architektura",
     "startYear": "2021",
     "studentGroups": {
         "speciality": "",
@@ -16,7 +16,7 @@
     "lectureScheduleId": 1,
     "studiesType": 0,
     "studiesLevel": 0,
-    "name": "Zarządzanie",
+    "name": "Budownictwo",
     "startYear": "2021",
     "studentGroups": {
         "speciality": "",
@@ -29,7 +29,7 @@
     "lectureScheduleId": 2,
     "studiesType": 0,
     "studiesLevel": 1,
-    "name": "Informatyka",
+    "name": "Informatyka stosowana",
     "startYear": "2021",
     "studentGroups": {
         "speciality": "Inżyneiria oprogramowania",
@@ -42,7 +42,7 @@
     "lectureScheduleId": 3,
     "studiesType": 0,
     "studiesLevel": 1,
-    "name": "Informatyka",
+    "name": "Informatyka stosowana",
     "startYear": "2021",
     "studentGroups": {
         "speciality": "Danalogia",
@@ -62,4 +62,46 @@
             "numberOfStudents": 50,
             "semester": "letni"
         }]
-}]
+},
+    {
+        "facultyId": 5,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2021",
+        "studentGroups": [
+            {
+                "speciality": "",
+                "numberOfStudents": 350,
+                "semester": "zimowy"
+            }]
+    },
+    {
+        "facultyId": 6,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": [
+            {
+                "speciality": "Projektowanie sieci teleinformatycznych",
+                "numberOfStudents": 40,
+                "semester": "letni"
+            }]
+    },
+    {
+        "facultyId": 7,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": [
+            {
+                "speciality": "Utrzymanie sieci teleinformatycznych",
+                "numberOfStudents": 40,
+                "semester": "letni"
+            }]
+    }]
