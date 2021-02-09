@@ -51,7 +51,7 @@
                                     <div> 24-11-20 (wt) 7:30 - 8:15, B-4, s. sala wirtualna </div>
                                 </b-col>
                                 <b-col>
-                                    <div> {{ $t('tutor') }}: </div>
+                                    <div> {{ $tc('tutor', 2) }}: </div>
                                     <div v-if="row.item.tutors.length > 0">
                                         <div v-for="tutor in row.item.tutors">
                                             {{ getTutorText(tutor) }}
@@ -87,12 +87,12 @@
         computed: {
             columns() {
                 return [
-                    {key: 'code', label: this.$t('groupCode')},
-                    {key: 'name', label: this.$t('courseName')},
-                    {key: 'tutors', label: this.$tc('tutor', 2)},
-                    {key: 'lectureTimes', label: this.$t('lectureTerms')},
-                    {key: 'hours', label: this.$tc('hour', 2)},
-                    {key: 'duration', label: this.$t('duration')},
+                    {key: 'code', label: this.$t('groupCode'), sortable: true},
+                    {key: 'name', label: this.$t('courseName'), sortable: true},
+                    {key: 'tutors', label: this.$tc('tutor', 2), sortable: true},
+                    {key: 'lectureTimes', label: this.$t('lectureTerms'), sortable: true},
+                    {key: 'hours', label: this.$tc('hour', 2), sortable: true},
+                    {key: 'duration', label: this.$t('duration'), sortable: true},
                     {key: 'actions', label: ''},
                     {key: 'collapse', label: ''},
                 ]

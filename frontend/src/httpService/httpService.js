@@ -57,3 +57,10 @@ export const getTutor = (params) => GET(`/tutor${params ? '/filter': ''}`, param
 export const addLectureTime = (id, body) => PATCH(`lecture/edit/lectureTime/${id >=0 ? id : ''}`, body);
 
 export const addLectureTutor = (lectureId, body) => PATCH(`lecture/edit/tutor/${lectureId >= 0 ? lectureId : ''}`, body);
+
+export const removeTutorAssignment = (lectureId, body) => PATCH(`lecture/delete/tutor/${lectureId}`, body);
+export const removeLectureTime = (lectureId, body) => PATCH(`lecture/delete/lectureTime/${lectureId}`, body);
+
+export const getNotGeneratedPlans = () => GET(`faculty/filter`);
+
+export const postLectureSchedule = (body) => POST(`lecture-schedule`, body);

@@ -7,7 +7,7 @@
                 </b-col>
                 <b-col cols="auto">
                     <b-icon icon="pencil-fill" class="mr-2"></b-icon>
-                    <b-icon icon="x-circle-fill" class="mr-3"></b-icon>
+                    <b-icon icon="x-circle-fill" class="mr-3 cursor-pointer" @click="$emit('delete')"></b-icon>
                     <b-icon v-if="!notCollapsed" icon="caret-left-fill" class="cursor-pointer" @click="notCollapsed=!notCollapsed"></b-icon>
                     <b-icon v-else icon="caret-down-fill" class="cursor-pointer" @click="notCollapsed=!notCollapsed"></b-icon>
                 </b-col>

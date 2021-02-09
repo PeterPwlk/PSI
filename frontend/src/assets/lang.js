@@ -63,13 +63,23 @@ export const pl = {
     duration: 'Czas trwania',
     lectureTerms: 'Terminy zajęć',
     hour: 'Godzina | Godziny',
+    semester: 'Semestr',
     message: {
         loginRequired: 'Aby korzystać z systemu logowania, musisz być zaplanowany!',
         generatedPlans: 'Wygenerowane plany',
         tutorNotAssigned: 'Nie przypisano prowadzących',
         showTutorPlan: 'Pokaż plan prowadzącego',
         tutorTerms: 'Prowadzi kurs w terminach',
-        lectureDuration: 'Czas trwania zajęć'
+        lectureDuration: 'Czas trwania zajęć',
+        confirmRemoveTutor: 'Czy na pewno chcesz usunąć obsadę?',
+        confirmRemoveLectureTime: 'Czy na pewno chcesz usunąć termin zajęć?',
+        studiesType: 'Rodzaj studiów',
+        studiesLevel: 'Poziom studiów',
+        planGenerating: 'Zaczekaj aż Twój plan zostanie wygenerowany.'
+    },
+    modalTitle: {
+        removeTutor: 'Usuń obsadę',
+        removeLectureTime: 'Usuń termin zajeć'
     }
 };
 
@@ -138,13 +148,23 @@ export const en = {
     duration: 'Duration',
     lectureTerms: 'Lecture Terms',
     hour: 'Hour | Hours',
+    semester: 'Semester',
     message: {
         loginRequired: 'You must be logged in to use the system!',
         generatedPlans: 'Generated plans',
         tutorNotAssigned: 'Tutors not assigned',
         showTutorPlan: `Show tutor's plan`,
         tutorTerms: 'Terms',
-        lectureDuration: 'Lecture duration'
+        lectureDuration: 'Lecture duration',
+        confirmRemoveTutor: 'Are you sure you want to cancel this assignment?',
+        confirmRemoveLectureTime: 'Are you sure you want to remove this lecture term?',
+        studiesType: 'Studies type',
+        studiesLevel: 'Studies level',
+        planGenerating: 'Please wait while your plan is being generated.'
+    },
+    modalTitle: {
+        removeTutor: 'Cancel assignment',
+        removeLectureTime: 'Remove lecture term'
     }
 };
 

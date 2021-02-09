@@ -21,6 +21,7 @@
         <router-view name="rightSidePanel" />
       </template>
     </SplitPanel>
+    <ConfirmModal ref="confirmModal"></ConfirmModal>
   </div>
 </template>
 
@@ -29,8 +30,9 @@
   import Sidebar from "./components/Sidebar";
   import Footer from "./components/Footer";
   import SplitPanel from "./components/SplitPanel";
+  import ConfirmModal from "./components/ConfirmModal";
   export default {
-    components: {SplitPanel, Footer, Sidebar, Navbar},
+    components: {ConfirmModal, SplitPanel, Footer, Sidebar, Navbar},
     created() {
       const lang = localStorage.getItem('lang');
       if (lang) {
@@ -39,6 +41,7 @@
     },
     mounted() {
       this.$store.dispatch('checkLogin');
+      this.$root.$confirm = (...params) => this.$refs.confirmModal.open(...params);
     }
   }
 </script>

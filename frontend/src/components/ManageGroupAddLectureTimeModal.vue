@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-1" v-model="modal" centered button-size="sm" @ok="handleOk" size="lg">
+  <b-modal id="modal-1" v-model="modal" no-close-on-backdrop centered button-size="sm" @ok="handleOk" @cancel="handleCancel" size="lg" @close="handleCancel">
       <template #modal-title>
           <div class="font-weight-bold"> Termin zajęć </div>
           <div class="font-regular"> {{ groupNumber }} {{ course.course.name }} ({{ course.course.courseNumber}}) </div>

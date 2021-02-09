@@ -1,5 +1,5 @@
 <template>
-    <b-btn variant="primary" block class="select">
+    <b-btn variant="primary" block class="select" @click="$emit('click')" :selected="selected">
         {{ name }}
     </b-btn>
 </template>
@@ -11,6 +11,10 @@
             name: {
                 required: true,
                 type: String
+            },
+            selected: {
+                default: false,
+                type: Boolean
             }
         }
     }
@@ -22,5 +26,9 @@
         width: 200px;
         background-color: var(--primary);
         color: white;
+    }
+    .btn[selected] {
+        background-color: var(--success);
+        border: none;
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-1" v-model="modal" centered button-size="sm" @ok="handleOk" size="lg" @cancel="handleCancel">
+  <b-modal id="modal-1" v-model="modal" centered no-close-on-backdrop button-size="sm" @ok="handleOk" size="lg" @cancel="handleCancel" @close="handleCancel">
       <template #modal-title>
           <div class="font-weight-bold"> {{ $t('tutor') }} </div>
           <div class="font-regular"> {{ groupNumber }} {{ course.course.name }} ({{ course.course.courseNumber}}) </div>

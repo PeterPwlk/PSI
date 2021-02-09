@@ -80,13 +80,20 @@ export default {
   watch: {
     async $route() {
       await this.$nextTick();
-      this.$refs.panel.style.width = (document.body.scrollWidth - this.$refs.leftPanel.clientWidth - this.$refs.rightSidePanel.clientWidth) + 'px';
+      this.resize();
     }
   },
   mounted() {
     this.setEvents();
   },
   methods: {
+    resize() {
+      if (this.leftPanel && this.rightPanel) {
+        this.$refs.panel.style.width = (document.body.scrollWidth - this.$refs.leftPanel.clientWidth - this.$refs.rightSidePanel.clientWidth) + 'px';
+      } else {
+        this.$refs.panel.style.width = '100%';
+      }
+    },
     startDrag() {
       this.dragging = true;
     },

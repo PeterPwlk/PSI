@@ -1,5 +1,5 @@
 <template>
-    <div class="step" :active="active">
+    <div class="step" :active="active" :complete="complete">
         <div class="circle ml-auto mr-auto">
             {{ number }}
         </div>
@@ -22,6 +22,10 @@
             active: {
                 type: Boolean,
                 default: false
+            },
+            complete: {
+                type: Boolean,
+                default: false
             }
         }
     }
@@ -39,6 +43,10 @@
 
     .step[active] .circle {
         background-color: var(--primary);
+    }
+
+    .step[complete] .circle {
+        background-color: var(--success);
     }
 
     .hidden-text {
