@@ -111,7 +111,7 @@
     {
         "courseId": 11,
         "name": "Projektowanie systemów informatycznych",
-        "courseNumber": "KIL-123",
+        "courseNumber": "KIL-403",
         "numberOfHours": 60,
         "lectureType": 0,
         "numberOfStudentsInGroup": 30,
@@ -126,7 +126,7 @@
     {
         "courseId": 12,
         "name": "Projektowanie systemów informatycznych",
-        "courseNumber": "KIL-123",
+        "courseNumber": "KIL-222",
         "numberOfHours": 60,
         "lectureType": 2,
         "numberOfStudentsInGroup": 15,
@@ -141,7 +141,7 @@
     {
         "courseId": 13,
         "name": "Projektowanie systemów informatycznych",
-        "courseNumber": "KIL-123",
+        "courseNumber": "KIL-456",
         "numberOfHours": 60,
         "lectureType": 3,
         "numberOfStudentsInGroup": 15,
@@ -156,7 +156,7 @@
     {
         "courseId": 14,
         "name": "Bezpieczeństwo systemów informatycznych",
-        "courseNumber": "KIL-123",
+        "courseNumber": "KIL-129",
         "numberOfHours": 60,
         "lectureType": 0,
         "numberOfStudentsInGroup": 30,
@@ -171,7 +171,7 @@
     {
         "courseId": 15,
         "name": "Bezpieczeństwo systemów informatycznych",
-        "courseNumber": "KIL-123",
+        "courseNumber": "KIL-706",
         "numberOfHours": 60,
         "lectureType": 1,
         "numberOfStudentsInGroup": 15,
@@ -186,7 +186,7 @@
     {
         "courseId": 16,
         "name": "Bezpieczeństwo systemów informatycznych",
-        "courseNumber": "KIL-123",
+        "courseNumber": "KIL-303",
         "numberOfHours": 60,
         "lectureType": 3,
         "numberOfStudentsInGroup": 20,
@@ -195,6 +195,291 @@
         "studentGroups": {
             "speciality": "Projektowanie systemów informatycznych",
             "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 17,
+        "name": "Zaawansowane systemy baz danych",
+        "courseNumber": "KPL-112",
+        "numberOfHours": 60,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 20,
+        "duration": 90,
+        "tutors": [1,4,6],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 18,
+        "name": "Zaawansowane systemy baz danych",
+        "courseNumber": "KPL-112",
+        "numberOfHours": 60,
+        "lectureType": 2,
+        "numberOfStudentsInGroup": 20,
+        "duration": 90,
+        "tutors": [8,6,1],
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 19,
+        "name": "Górnictwo",
+        "courseNumber": "KGI-112",
+        "numberOfHours": 60,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 200,
+        "duration": 90,
+        "tutors": [8,1,10],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 20,
+        "name": "Górnictwo",
+        "courseNumber": "KGI-114",
+        "numberOfHours": 60,
+        "lectureType": 1,
+        "numberOfStudentsInGroup": 20,
+        "duration": 90,
+        "tutors": [8,1],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 21,
+        "name": "Górnictwo",
+        "courseNumber": "KGI-111",
+        "numberOfHours": 60,
+        "lectureType": 5,
+        "numberOfStudentsInGroup": 200,
+        "duration": 90,
+        "tutors": [8,1],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 22,
+        "name": "Geologia zaawansowana",
+        "courseNumber": "KPH-111",
+        "numberOfHours": 60,
+        "lectureType": 5,
+        "numberOfStudentsInGroup": 200,
+        "duration": 90,
+        "tutors": [3,6,10,0],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 23,
+        "name": "Geologia zaawansowana",
+        "courseNumber": "KPH-340",
+        "numberOfHours": 60,
+        "lectureType": 1,
+        "numberOfStudentsInGroup": 15,
+        "duration": 90,
+        "tutors": [3,6,10,0],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 24,
+        "name": "Praktyki",
+        "courseNumber": "KPH-340",
+        "numberOfHours": 60,
+        "lectureType": 6,
+        "numberOfStudentsInGroup": 350,
+        "duration": 90,
+        "tutors": [3,10],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 25,
+        "name": "Praktyki",
+        "courseNumber": "KPH-340",
+        "numberOfHours": 60,
+        "lectureType": 6,
+        "numberOfStudentsInGroup": 350,
+        "duration": 90,
+        "tutors": [3,10],
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "courseId": 26,
+        "name": "Praktyki",
+        "courseNumber": "KZO-340",
+        "numberOfHours": 90,
+        "lectureType": 6,
+        "numberOfStudentsInGroup": 40,
+        "duration": 90,
+        "tutors": [3,10],
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 27,
+        "name": "Sieci teleinformatyczne",
+        "courseNumber": "KZO-343",
+        "numberOfHours": 90,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 40,
+        "duration": 90,
+        "tutors": [3,0, 10, 5],
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 28,
+        "name": "Sieci teleinformatyczne",
+        "courseNumber": "KZO-320",
+        "numberOfHours": 90,
+        "lectureType": 1,
+        "numberOfStudentsInGroup": 15,
+        "duration": 90,
+        "tutors": [3,0, 10, 5, 1, 2],
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 29,
+        "name": "Projektowanie sieci teleinformatycznych",
+        "courseNumber": "KZO-140",
+        "numberOfHours": 90,
+        "lectureType": 1,
+        "numberOfStudentsInGroup": 15,
+        "duration": 90,
+        "tutors": [3,0, 10, 5, 1, 2],
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 30,
+        "name": "Projektowanie sieci teleinformatycznych",
+        "courseNumber": "KZO-370",
+        "numberOfHours": 90,
+        "lectureType": 5,
+        "numberOfStudentsInGroup": 40,
+        "duration": 90,
+        "tutors": [3,0, 10, 5, 1, 2],
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 31,
+        "name": "Praktyki",
+        "courseNumber": "KWB-340",
+        "numberOfHours": 90,
+        "lectureType": 6,
+        "numberOfStudentsInGroup": 40,
+        "duration": 90,
+        "tutors": [3],
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 32,
+        "name": "Sieci teleinformatyczne",
+        "courseNumber": "KWB-213",
+        "numberOfHours": 90,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 40,
+        "duration": 90,
+        "tutors": [3, 2, 5, 6, 10],
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },,
+    {
+        "courseId": 33,
+        "name": "Sieci teleinformatyczne",
+        "courseNumber": "KWB-211",
+        "numberOfHours": 90,
+        "lectureType": 2,
+        "numberOfStudentsInGroup": 10,
+        "duration": 90,
+        "tutors": [3, 2, 5, 6, 10],
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 34,
+        "name": "Bezpieczeństwo w sieciach teleinformatycznych",
+        "courseNumber": "KWB-254",
+        "numberOfHours": 90,
+        "lectureType": 0,
+        "numberOfStudentsInGroup": 40,
+        "duration": 90,
+        "tutors": [3, 2, 5, 6, 10],
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "courseId": 34,
+        "name": "Bezpieczeństwo w sieciach teleinformatycznych",
+        "courseNumber": "KWB-254",
+        "numberOfHours": 90,
+        "lectureType": 1,
+        "numberOfStudentsInGroup": 12,
+        "duration": 90,
+        "tutors": [0, 3, 7, 9, 10],
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
             "semester": "letni"
         }
     }]

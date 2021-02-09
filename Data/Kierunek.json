@@ -1,64 +1,106 @@
-[{
-    "facultyId": 0,
-    "lectureScheduleId": 0,
-    "studiesType": 0,
-    "studiesLevel": 0,
-    "name": "Informatyka",
-    "startYear": "2021",
-    "studentGroups": {
-        "speciality": "",
-        "numberOfStudents": 300,
-        "semester": "zimowy"
+[
+    {
+        "facultyId": 0,
+        "lectureScheduleId": 0,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Architektura",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 300,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 1,
+        "lectureScheduleId": 1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Budownictwo",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 200,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 2,
+        "lectureScheduleId": 2,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka stosowana",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Inżyneiria oprogramowania",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 3,
+        "lectureScheduleId": 3,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka stosowana",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Danalogia",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 4,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 5,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 6,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 7,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
     }
-},
-{
-    "facultyId": 1,
-    "lectureScheduleId": 1,
-    "studiesType": 0,
-    "studiesLevel": 0,
-    "name": "Zarządzanie",
-    "startYear": "2021",
-    "studentGroups": {
-        "speciality": "",
-        "numberOfStudents": 200,
-        "semester": "zimowy"
-    }
-},
-{
-    "facultyId": 2,
-    "lectureScheduleId": 2,
-    "studiesType": 0,
-    "studiesLevel": 1,
-    "name": "Informatyka",
-    "startYear": "2021",
-    "studentGroups": {
-        "speciality": "Inżyneiria oprogramowania",
-        "numberOfStudents": 50,
-        "semester": "letni"
-    }
-},
-{
-    "facultyId": 3,
-    "lectureScheduleId": 3,
-    "studiesType": 0,
-    "studiesLevel": 1,
-    "name": "Informatyka",
-    "startYear": "2021",
-    "studentGroups": {
-        "speciality": "Danalogia",
-        "numberOfStudents": 50,
-        "semester": "letni"
-    }
-},{
-    "facultyId": 4,
-    "lectureScheduleId": -1,
-    "studiesType": 0,
-    "studiesLevel": 1,
-    "name": "Informatyka",
-    "startYear": "2021",
-    "studentGroups": {
-        "speciality": "Projektowanie systemów informatycznych",
-        "numberOfStudents": 50,
-        "semester": "letni"
-    }
-}]
+]
