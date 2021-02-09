@@ -102,5 +102,785 @@
             "numberOfStudents": 40,
             "semester": "letni"
         }
+    },
+    {
+        "facultyId": 8,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 9,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 10,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 11,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 12,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 13,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 14,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 14,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 15,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 16,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 17,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 18,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 19,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 20,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 21,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 22,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 23,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 24,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 25,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 26,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 27,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 28,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 29,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 30,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 31,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 32,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 33,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 34,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 35,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 36,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 37,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 38,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 39,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 41,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 42,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 43,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 44,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 45,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 46,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 47,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2021",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 48,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 49,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 50,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 51,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2020",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 52,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 53,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 53,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 54,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 55,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 56,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 57,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 58,
+        "lectureScheduleId": -1,
+        "studiesType": 0,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 59,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 60,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 61,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 62,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 63,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Informatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie systemów informatycznych",
+            "numberOfStudents": 50,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 64,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 0,
+        "name": "Górnictwo i Geologia",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "",
+            "numberOfStudents": 350,
+            "semester": "letni"
+        }
+    },
+    {
+        "facultyId": 65,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Projektowanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
+    },
+    {
+        "facultyId": 66,
+        "lectureScheduleId": -1,
+        "studiesType": 1,
+        "studiesLevel": 1,
+        "name": "Teleinformatyka",
+        "startYear": "2019",
+        "studentGroups": {
+            "speciality": "Utrzymanie sieci teleinformatycznych",
+            "numberOfStudents": 40,
+            "semester": "zimowy"
+        }
     }
 ]
